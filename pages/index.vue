@@ -1,26 +1,40 @@
 <template>
-  <section>
-    <div>
-      <Title/>
-      <div class="links">
-        <nuxt-link to="/about">About</nuxt-link>
+  <div>
+    <section>
+      <div>
+        <Title/>
+        <div class="links">
+          <nuxt-link to="/about">About</nuxt-link>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="video-preview-container">
+      <VideoPreview />
+    </section>
+  </div>
 </template>
 
 <script>
 import Title from '~/components/Title.vue'
+import VideoPreview from '~/components/VideoPreview.vue'
 
 export default {
   components: {
-    Title
+    Title,
+    VideoPreview,
   }
 }
 </script>
 
 <style>
-.links {
-  padding-top: 15px;
-}
+  .video-preview-container {
+    margin: 0px auto;
+    width: 500px;
+    height: 375px;
+    border: 10px #333 solid;
+  }
+
+  .links {
+    padding-top: 15px;
+  }
 </style>

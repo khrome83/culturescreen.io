@@ -3,7 +3,7 @@
 </template>
 
 <style>
-h1 {
-  font-size: 48px;
-}
+  h1 {
+    font-size: 48px;
+  }
 </style>
