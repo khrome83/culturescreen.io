@@ -1,5 +1,5 @@
 <template>
-  <h1>Static Nuxt Example on Now 2.0</h1>
+  <h1>Testing Now Deploy</h1>
 </template>
 
 <style>
