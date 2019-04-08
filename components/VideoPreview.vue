@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  var video = document.querySelector("#videoPreview");
+  const video = document.querySelector("#videoPreview");
 
   if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
@@ -12,7 +12,7 @@
         video.srcObject = stream;
       })
       .catch(function (err0r) {
-        console.log("Something went wrong!");
+        console.log("Something went wrong!", err0r);
       });
   }
 </script>
