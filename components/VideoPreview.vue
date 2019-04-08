@@ -10,18 +10,16 @@
         stream: null,
       };
     },
-    methods: {
-      async getStream() {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false,
-          });
+    async mounted() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
 
-          this.stream = stream
-        } catch(e) {
-          console.error(e.message)
-        }
+        this.stream = stream
+      } catch(e) {
+        console.error(e.message)
       }
     }
   };
