@@ -1,24 +1,34 @@
 <template>
-  <video autoplay="true" id="videoPreview" class="video-preview">
-  </video>
+  <video :srcObject.prop="stream" autoplay playsinline class="video-preview"></video>
 </template>
 
 <script>
-  const video = document.querySelector("#videoPreview");
+  export default {
+    name: "VideoPreview",
+    data() {
+      return {
+        stream: null,
+      };
+    },
+    methods: {
+      async getStream() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false,
+          });
 
-  if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(function (stream) {
-        video.srcObject = stream;
-      })
-      .catch(function (err0r) {
-        console.log("Something went wrong!", err0r);
-      });
-  }
+          this.stream = stream
+        } catch(e) {
+          console.error(e.message)
+        }
+      }
+    }
+  };
 </script>
 
 
-<style>
+<style scoped>
   .video-preview {
     width: 31.25rem;
     height: 23.4375;
