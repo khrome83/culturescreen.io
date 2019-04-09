@@ -11,6 +11,7 @@
       };
     },
     async mounted() {
+      console.log('mounted')
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true,
