@@ -1,1 +1,16 @@
-{"version":2,"name":"nuxt-static","builds":[{"src":"package.json","use":"@now/static-build"}]}
+{
+  "version": 2,
+  "name": "codescreen.io",
+  "builds": [
+    { "src": "www/package.json", "use": "@now/static-build" },
+    { "src": "api/*/*.js", "use": "@now/node@canary" }
+  ],
+  "routes": [
+    { "src": "/api/status", "methods": ["GET"], "dest": "/api/status/list.js" },
+    { "src": "/api/users", "methods": ["POST"], "dest": "/api/users/create.js" },
+    { "src": "/api/users/(?<id>[^/]+)", "methods": ["DELETE"], "dest": "/api/users/delete.js?id=$id" },
+    { "src": "/api/users/(?<id>[^/]+)", "methods": ["GET"], "dest": "/api/users/get.js?id=$id" },
+    { "src": "/api/users/(?<id>[^/]+)", "methods": ["PUT"], "dest": "/api/users/update.js?id=$id" },
+    { "src": "/(.*)", "dest": "/www/$1" }
+  ]
+}
