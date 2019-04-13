@@ -3,10 +3,11 @@
   "name": "culturescreen.io",
   "builds": [
     { "src": "www/package.json", "use": "@now/static-build" },
-    { "src": "api/*/*.js", "use": "@now/node@canary" }
+    { "src": "api/*/*.js", "use": "@now/node@canary" },
+    { "src": "api/*/*.ts", "use": "@now/node@canary" }
   ],
   "routes": [
-    { "src": "/api/status", "methods": ["GET"], "dest": "/api/status/list.js" },
+    { "src": "/api/status", "methods": ["GET"], "dest": "/api/status/list.ts" },
     { "src": "/api/users", "methods": ["POST"], "dest": "/api/users/create.js" },
     { "src": "/api/users/(?<id>[^/]+)", "methods": ["DELETE"], "dest": "/api/users/delete.js?id=$id" },
     { "src": "/api/users/(?<id>[^/]+)", "methods": ["GET"], "dest": "/api/users/get.js?id=$id" },

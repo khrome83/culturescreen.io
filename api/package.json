@@ -2,10 +2,10 @@
   "name": "culturescreen.io.api",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
+    "@types/node": "11.13.4",
+    "typescript": "3.4.3"
   }
 }
