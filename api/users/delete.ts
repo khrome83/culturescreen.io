@@ -8,8 +8,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
   try {
     let { query } = url.parse(req.url || "", true)
-    console.log(`query: ${query}`);
-    res.end(JSON.stringify({ message: `Query Sent: ${query}` }));
+    console.log(`query: ${JSON.stringify(query)}`);
+    res.end(JSON.stringify({ message: `Query Sent: ${JSON.stringify(query)}` }));
   } catch (error) {
     res.end(JSON.stringify({
       message: 'Something went wrong.',
