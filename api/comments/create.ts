@@ -26,11 +26,15 @@ interface Comment {
 const create = async (itemBody: Comment, res: ServerResponse) => {
   const client = cosmos(Mode.Read);
 
+  console.log("Client", client);
+
   try {
     const { item } = await client
       .database(Databases.Primary)
       .container(Containers.Comments)
       .items.create(itemBody);
+
+    console.log(item);
 
     return item;
   } catch (error) {
