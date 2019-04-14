@@ -39,10 +39,10 @@ const create = async (itemBody: Comment, res: ServerResponse) => {
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
-    const body = await parse.json(req);
+    // const body = await parse.json(req);
 
     res.writeHead(200, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify(body));
+    return res.end(JSON.stringify({ message: "testing" }));
 
     // body.id = uuid();
     // body.date = new Date().toISOString();
