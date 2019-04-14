@@ -2,14 +2,18 @@
   "version": 2,
   "name": "culturescreen.io",
   "builds": [{
-      "src": "./www/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "./api/**/*.ts",
-      "use": "@now/node@canary"
-    }
-  ],
+    "src": "./www/package.json",
+    "use": "@now/static-build"
+  }, {
+    "src": "./api/comments/*.ts",
+    "use": "@now/node@canary"
+  }, {
+    "src": "./api/status/*.ts",
+    "use": "@now/node@canary"
+  }, {
+    "src": "./api/users/*.ts",
+    "use": "@now/node@canary"
+  }],
   "env": {
     "COSMOS_ENDPOINT": "@cosmos-endpoint",
     "COSMOS_MASTERKEY_READ_WRITE": "@cosmos-masterkey-read-write",
