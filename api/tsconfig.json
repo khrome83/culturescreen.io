@@ -4,6 +4,7 @@
     "module": "commonjs",
     "sourceMap": false,
     "strict": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "inlineSourceMap": false,
     "inlineSources": false
