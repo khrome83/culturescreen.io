@@ -1,0 +1,121 @@
+[
+  {
+    "id": "5159b04c-9751-4b9a-89af-ab3b44b02980",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": {
+      "address": "john.doe@example.com",
+      "verified": true
+    },
+    "submissions": [
+      {
+        "id": "c229a5d4-680f-4c12-bb0a-d1325cf66436",
+        "position": "4547a169-e785-41ce-a6a5-c6c3dd4187e2",
+        "title": "Senior Front-end Developer",
+        "organization": "23bcf422-7ede-488b-89aa-676aa3a658f8",
+        "organizationName": "CultureScreen.io",
+        "progress": "opened",
+        "date": "2018-09-01T23:14:25.7251173Z"
+      },
+      {
+        "id": "c8405cbd-8655-4c7e-a8e4-5341ea6d0f3d",
+        "position": "8aa19dd2-0731-42ab-a114-be975a9219c1",
+        "title": "A11y Expert",
+        "organization": "0f21ba0f-cad7-458c-9846-050f93b9cf48",
+        "organizationName": "Webgrind.io",
+        "progress": "started",
+        "date": "2018-09-03T23:14:25.7251173Z"
+      },
+      {
+        "id": "bf53bcb8-7756-4d0e-966d-772e162cd105",
+        "position": "aaac93b0-810b-420b-8a33-9d8c6662f30a",
+        "title": "Vegtable Photographer",
+        "organizationName": "VegansTogether.com",
+        "progress": "finished",
+        "date": "2018-08-12T23:14:25.7251173Z"
+      }
+    ],
+    "created": "2018-07-14T23:14:25.7251173Z",
+    "updated": "2018-07-18T23:14:25.7251173Z"
+  },
+  {
+    "id": "e292648a-04c9-4f1d-a69c-4c21af5b0414",
+    "firstName": "Suzie",
+    "lastName": "Chapstick",
+    "email": {
+      "address": "suzie.chapstick@example.com",
+      "verified": true
+    },
+    "submissions": [
+      {
+        "id": "b874baf8-08bc-4ee4-a431-a455c9caa90e",
+        "position": "4547a169-e785-41ce-a6a5-c6c3dd4187e2",
+        "title": "Senior Front-end Developer",
+        "organization": "23bcf422-7ede-488b-89aa-676aa3a658f8",
+        "organizationName": "CultureScreen.io",
+        "progress": "finished",
+        "date": "2018-09-03T23:14:25.7251173Z"
+      },
+      {
+        "id": "8b026b46-96d9-46e9-b5fb-430b1964108c",
+        "position": "8aa19dd2-0731-42ab-a114-be975a9219c1",
+        "title": "A11y Expert",
+        "organization": "0f21ba0f-cad7-458c-9846-050f93b9cf48",
+        "organizationName": "Webgrind.io",
+        "progress": "finished",
+        "date": "2018-08-12T23:14:25.7251173Z"
+      }
+    ],
+    "created": "2018-07-14T23:14:25.7251173Z",
+    "updated": "2018-07-18T23:14:25.7251173Z"
+  },
+  {
+    "id": "438a8577-b37a-49c9-a499-c96f26648692",
+    "firstName": "Mary",
+    "lastName": "McDole",
+    "email": {
+      "address": "mary.mcdole@example.com",
+      "verified": true
+    },
+    "submissions": [
+      {
+        "id": "8c403d02-f921-462b-bba3-7078a5f5f906",
+        "position": "4547a169-e785-41ce-a6a5-c6c3dd4187e2",
+        "title": "Senior Front-end Developer",
+        "organization": "23bcf422-7ede-488b-89aa-676aa3a658f8",
+        "organizationName": "CultureScreen.io",
+        "progress": "finished",
+        "date": "2018-09-01T23:14:25.7251173Z"
+      },
+      {
+        "id": "a81babb4-17ec-4eb0-8a20-4d9b7b6a9e27",
+        "position": "8aa19dd2-0731-42ab-a114-be975a9219c1",
+        "title": "A11y Expert",
+        "organization": "0f21ba0f-cad7-458c-9846-050f93b9cf48",
+        "organizationName": "Webgrind.io",
+        "progress": "finished",
+        "date": "2018-09-03T23:14:25.7251173Z"
+      },
+      {
+        "id": "6cd4fe63-4a52-4875-bd75-945566576c8c",
+        "position": "aaac93b0-810b-420b-8a33-9d8c6662f30a",
+        "title": "Vegtable Photographer",
+        "organization": "08c68f2a-a103-49d2-bd67-668bced45598",
+        "organizationName": "VegansTogether.com",
+        "progress": "finished",
+        "date": "2018-08-12T23:14:25.7251173Z"
+      },
+      {
+        "id": "cb505f64-6e6a-4f89-8ec0-525c753f1d33",
+        "position": "621b92e3-9f63-4b70-b5a7-6b5d5c99a05b",
+        "title": "Vegtable Farmer",
+        "organization": "08c68f2a-a103-49d2-bd67-668bced45598",
+        "organizationName": "VegansTogether.com",
+        "progress": "finished",
+        "date": "2018-06-03T23:14:25.7251173Z"
+      }
+    ],
+    "created": "2018-07-14T23:14:25.7251173Z",
+    "updated": "2018-07-18T23:14:25.7251173Z"
+  }
+]

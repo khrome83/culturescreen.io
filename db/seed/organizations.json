@@ -1,0 +1,67 @@
+[
+  {
+    "id": "23bcf422-7ede-488b-89aa-676aa3a658f8",
+    "name": "CultureScreen.io",
+    "description": "Video Interview Screening Software",
+    "location": "Austin, Tx",
+    "users": [
+      {
+        "id": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+        "roles": [ "recruiter", "manager", "billing", "owner" ]
+      },
+      {
+        "id": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4",
+        "roles": [ "recruiter" ]
+      }
+    ],
+    "teams": [
+      {
+        "id": "033a2ea9-9232-4dab-8f17-6a5d51a13ddc",
+        "name": "Voltron",
+        "users": ["0699149f-fbc5-46e5-b17b-477dd0200e53", "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4"]
+      }
+    ],
+    "created": "2018-07-14T23:14:25.7251173Z",
+    "updated": "2018-07-18T23:14:25.7251173Z"
+  },
+  {
+    "id": "0f21ba0f-cad7-458c-9846-050f93b9cf48",
+    "name": "Webgrind.io",
+    "description": "Video Interview Screening Software",
+    "location": "Austin, Tx",
+    "users": [
+      {
+        "id": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+        "roles": [ "recruiter", "manager", "billing", "owner" ]
+      },
+      {
+        "id": "65c02c65-1fac-405b-811c-ce1078457b5d",
+        "roles": [ "developer" ]
+      }
+    ],
+    "teams": [
+      {
+        "id": "af209732-f690-474e-b291-a624baa0ae1e",
+        "name": "Llama",
+        "users": ["0699149f-fbc5-46e5-b17b-477dd0200e53", "65c02c65-1fac-405b-811c-ce1078457b5d"]
+      }
+    ],
+    "created": "2018-07-19T23:14:25.7251173Z",
+    "updated": "2018-07-21T23:14:25.7251173Z"
+  },
+  {
+    "id": "08c68f2a-a103-49d2-bd67-668bced45598",
+    "name": "VegansTogether.com",
+    "description": "Vegan Blog",
+    "location": "Austin, Tx",
+    "users": [
+      {
+        "id": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4",
+        "roles": [ "recruiter", "manager", "billing", "owner" ]
+      }
+    ],
+    "teams": [],
+    "created": "2018-07-19T23:14:25.7251173Z",
+    "updated": "2018-07-21T23:14:25.7251173Z"
+  }
+]

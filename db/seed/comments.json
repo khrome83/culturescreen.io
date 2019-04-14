@@ -1,0 +1,61 @@
+[
+  {
+    "id": "032090bd-128c-46cf-b19b-83bb9fed65d3",
+    "author": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+    "video": "2153252a-fb01-41ac-9f53-d35796ddc6f7",
+    "comment": "Comment One",
+    "date": "2018-08-14T23:14:25.7251173Z",
+    "edited": false,
+    "edited_date": null,
+    "reactions": [
+      {
+        "type": "plusone",
+        "author": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4"
+      }
+    ]
+  },
+  {
+    "id": "d383ae5f-eaf7-4255-87c2-b3fce74e94c5",
+    "author": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4",
+    "video": "2153252a-fb01-41ac-9f53-d35796ddc6f7",
+    "comment": "@khrome83 - Comment Two",
+    "date": "2018-09-15T23:14:25.7251173Z",
+    "edited": true,
+    "edited_date": "2018-09-16T23:14:25.7251173Z",
+    "reactions": [
+      {
+        "type": "negativeone",
+        "author": "0699149f-fbc5-46e5-b17b-477dd0200e53"
+      },
+      {
+        "type": "plusone",
+        "author": "0699149f-fbc5-46e5-b17b-477dd0200e53"
+      }
+    ]
+  },
+  {
+    "id": "e3e9b36c-ad4f-413d-a9ce-bd7898b73c58",
+    "author": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+    "video": "2153252a-fb01-41ac-9f53-d35796ddc6f7",
+    "comment": "Comment Three",
+    "date": "2018-09-15T23:18:25.7251173Z",
+    "edited": false,
+    "edited_date": null,
+    "reactions": [
+      {
+        "type": "plusone",
+        "author": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4"
+      }
+    ]
+  },
+  {
+    "id": "30f07e4a-f9f7-4574-996d-f739837460b1",
+    "author": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+    "video": "50e505e3-f205-497a-982d-e4c21f1abeb8",
+    "comment": "Comment One - *Older Video*",
+    "date": "2018-07-14T23:14:25.7251173Z",
+    "edited": false,
+    "edited_date": null,
+    "reactions": []
+  }
+]

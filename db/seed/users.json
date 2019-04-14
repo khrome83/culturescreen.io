@@ -1,0 +1,50 @@
+[
+  {
+    "id": "0699149f-fbc5-46e5-b17b-477dd0200e53",
+    "username": "khrome83",
+    "picture": "https://path-to-photo.jpg",
+    "emails": [
+      {
+        "email": "zane.milakovic@icloud.com",
+        "primary": true,
+        "verified": true
+      }
+    ],
+    "disabled": false,
+    "location": "Austin, Tx",
+    "created": "2018-07-14T23:14:25.7251173Z",
+    "updated": "2018-07-18T23:14:25.7251173Z"
+  },
+  {
+    "id": "7acd2ba0-e0ba-4948-9abc-13ab43aa37b4",
+    "username": "justjaki21",
+    "picture": "https://path-to-photo2.jpg",
+    "emails": [
+      {
+        "email": "justjaki21@gmail.com",
+        "primary": true,
+        "verified": false
+      }
+    ],
+    "disabled": false,
+    "location": "Austin, Tx",
+    "created": "2018-07-19T23:14:25.7251173Z",
+    "updated": "2018-07-21T23:14:25.7251173Z"
+  },
+  {
+    "id": "65c02c65-1fac-405b-811c-ce1078457b5d",
+    "username": "bcgodfrey",
+    "picture": "https://path-to-photo3.jpg",
+    "emails": [
+      {
+        "email": "ben.godfrey@insiderx.com",
+        "primary": true,
+        "verified": false
+      }
+    ],
+    "disabled": true,
+    "location": "Dallas, Tx",
+    "created": "2018-07-19T23:14:25.7251173Z",
+    "updated": "2018-07-21T23:14:25.7251173Z"
+  }
+]
