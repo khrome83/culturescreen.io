@@ -18,7 +18,7 @@
     "COSMOS_ENDPOINT": "@cosmos-endpoint",
     "COSMOS_MASTERKEY_READ_WRITE": "@cosmos-masterkey-read-write",
     "COSMOS_MASTERKEY_READ": "@cosmos-masterkey-read",
-    "NODE_ENV": "production"
+    "NODE_ENV": "development"
   },
   "routes": [{
       "src": "/api/status",
