@@ -40,8 +40,6 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const body = await json(req);
 
-    send(res, 200, body);
-
     const item = ({
       id: uuid(),
       date: new Date().toISOString(),
