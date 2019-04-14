@@ -5,6 +5,8 @@ import cosmos, { Databases, Containers, Mode } from "../connectors/cosmos";
 import errorHandler from "../utils/errorHandler";
 import { v4 } from "uuid/interfaces";
 
+process.on("unhandledRejection", r => console.log(r));
+
 interface Reaction {
   type: string;
   author: v4;
