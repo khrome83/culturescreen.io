@@ -45,7 +45,12 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     body.date = new Date().toISOString();
     body.edited = false;
 
+    console.log(body);
+
     const item = await create(body, res);
+
+    console.log(item);
+
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(item));
   } catch (error) {
