@@ -11,6 +11,10 @@
     { "src": "/api/users/(?<id>[^/]+)", "methods": ["DELETE"], "dest": "/api/users/delete.ts?id=$id" },
     { "src": "/api/users/(?<id>[^/]+)", "methods": ["GET"], "dest": "/api/users/get.ts?id=$id" },
     { "src": "/api/users/(?<id>[^/]+)", "methods": ["PUT"], "dest": "/api/users/update.ts?id=$id" },
+    { "src": "/api/comments", "methods": ["POST"], "dest": "/api/comments/create.ts" },
+    { "src": "/api/comments/(?<id>[^/]+)", "methods": ["DELETE"], "dest": "/api/comments/delete.ts?id=$id" },
+    { "src": "/api/comments/(?<id>[^/]+)", "methods": ["GET"], "dest": "/api/comments/get.ts?id=$id" },
+    { "src": "/api/comments/(?<id>[^/]+)", "methods": ["PUT"], "dest": "/api/comments/update.ts?id=$id" },
     { "src": "/(.*)", "dest": "/www/$1" }
   ]
 }
