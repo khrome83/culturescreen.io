@@ -41,18 +41,21 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const body = await parse.json(req);
 
-    body.id = uuid();
-    body.date = new Date().toISOString();
-    body.edited = false;
-
-    console.log(body);
-
-    const item = await create(body, res);
-
-    console.log(item);
-
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(item));
+    return res.end(JSON.stringify(body));
+
+    // body.id = uuid();
+    // body.date = new Date().toISOString();
+    // body.edited = false;
+
+    // console.log(body);
+
+    // const item = await create(body, res);
+
+    // console.log(item);
+
+    // res.writeHead(200, { "Content-Type": "application/json" });
+    // res.end(JSON.stringify(item));
   } catch (error) {
     res.writeHead(400, { "Content-Type": "application/json" });
     res.end(errorHandler(400, new Error("Something went wrong.")));
