@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "@azure/cosmos": "2.1.5",
+    "co-body": "6.0.0",
+    "uuid": "3.3.2"
+  },
   "devDependencies": {
+    "@types/co-body": "0.0.3",
     "@types/node": "11.13.4",
+    "@types/uuid": "3.4.4",
     "typescript": "3.4.3"
   }
 }
