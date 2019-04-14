@@ -5,11 +5,11 @@
   "scripts": {},
   "dependencies": {
     "@azure/cosmos": "2.1.5",
-    "co-body": "6.0.0",
+    "micro": "9.3.3",
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "@types/co-body": "0.0.3",
+    "@types/micro": "7.3.3",
     "@types/node": "11.13.4",
     "@types/uuid": "3.4.4",
     "typescript": "3.4.3"

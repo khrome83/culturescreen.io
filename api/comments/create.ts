@@ -1,9 +1,9 @@
-import parse from "co-body";
 import { IncomingMessage, ServerResponse } from "http";
+import { json, send } from "micro";
 import uuid from "uuid/v4";
 import cosmos, { Databases, Containers, Mode } from "../connectors/cosmos";
 import errorHandler from "../utils/errorHandler";
-import { v4, v4Buffer } from "uuid/interfaces";
+import { v4 } from "uuid/interfaces";
 
 interface Reaction {
   type: string;
@@ -32,32 +32,25 @@ const create = async (itemBody: Comment, res: ServerResponse) => {
 
     return item;
   } catch (error) {
-    res.writeHead(500, { "Content-Type": "application/json" });
-    res.end(errorHandler(500, new Error("Unable to create comment.")));
+    send(res, 500, errorHandler(500, new Error("Unable to create comment.")));
   }
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
-    // const body = await parse.json(req);
+    const body = await json(req);
 
-    res.writeHead(200, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify({ message: "testing" }));
+    const item = ({
+      id: uuid(),
+      date: new Date().toISOString(),
+      edited: false,
+      ...body
+    } as unknown) as Comment;
 
-    // body.id = uuid();
-    // body.date = new Date().toISOString();
-    // body.edited = false;
+    const response = await create(item, res);
 
-    // console.log(body);
-
-    // const item = await create(body, res);
-
-    // console.log(item);
-
-    // res.writeHead(200, { "Content-Type": "application/json" });
-    // res.end(JSON.stringify(item));
+    send(res, 200, response);
   } catch (error) {
-    res.writeHead(400, { "Content-Type": "application/json" });
-    res.end(errorHandler(400, new Error("Something went wrong.")));
+    send(res, 400, errorHandler(400, new Error("Something went wrong.")));
   }
 };
