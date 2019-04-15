@@ -1,5 +1,3 @@
-import { CosmosClient } from "@azure/cosmos";
-
 enum Mode {
   Read = "read",
   Write = "write"
@@ -18,7 +16,7 @@ enum Containers {
   Users = "users"
 }
 
-const cosmos = (mode: Mode = Mode.Read) => {
+const getOptions = (mode: Mode = Mode.Read) => {
   const endpoint = process.env.COSMOS_ENDPOINT || "";
   let masterKey = process.env.COSMOS_MASTERKEY_READ || "";
 
@@ -26,7 +24,7 @@ const cosmos = (mode: Mode = Mode.Read) => {
     masterKey = process.env.COSMOS_MASTERKEY_READ_WRITE || "";
   }
 
-  return new CosmosClient({ endpoint, auth: { masterKey } });
+  return { endpoint, auth: { masterKey } };
 };
 
-export { cosmos as default, Containers, Databases, Mode };
+export { getOptions as default, Containers, Databases, Mode };
