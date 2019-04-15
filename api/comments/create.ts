@@ -22,6 +22,10 @@ interface Comment {
   reactions?: Array<Reaction>;
 }
 
+// TODO - Add persion check for positng author against the origin submissions
+//        - Do we need submission id
+//        - Have to trace this back to the organization
+
 const createComment = (body: Partial<Comment>) => {
   return {
     id: uuid(),
