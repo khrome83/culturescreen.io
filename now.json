@@ -32,13 +32,13 @@
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": ["DELETE"],
-      "dest": "/api/users/delete.ts?id=$id"
+      "methods": ["GET"],
+      "dest": "/api/users/get.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": ["GET"],
-      "dest": "/api/users/get.ts?id=$id"
+      "methods": ["DELETE"],
+      "dest": "/api/users/delete.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
@@ -52,13 +52,13 @@
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": ["DELETE"],
-      "dest": "/api/comments/delete.ts?id=$id"
+      "methods": ["GET"],
+      "dest": "/api/comments/get.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": ["GET"],
-      "dest": "/api/comments/get.ts?id=$id"
+      "methods": ["DELETE"],
+      "dest": "/api/comments/delete.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
