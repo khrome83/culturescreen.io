@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http";
+import { CosmosClient } from "@azure/cosmos";
 import { json, send } from "micro";
 import uuid from "uuid/v4";
 import cosmos, { Databases, Containers, Mode } from "../connectors/cosmos";
@@ -36,7 +37,11 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const body = await json(req);
     const itemBody = createComment(body);
-    const client = cosmos(Mode.Read);
+    // const client = cosmos(Mode.Read);
+    const client = new CosmosClient({
+      endpoint: process.env.COSMOS_ENDPOINT || "",
+      auth: { masterKey: process.env.COSMOS_MASTERKEY_READ }
+    });
     const { item } = await client
       .database(Databases.Primary)
       .container(Containers.Comments)
