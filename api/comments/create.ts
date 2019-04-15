@@ -23,40 +23,26 @@ interface Comment {
   reactions?: Array<Reaction>;
 }
 
-const create = async (itemBody: Comment, res: ServerResponse) => {
-  const client = cosmos(Mode.Read);
-
-  console.log("Client", client);
-
-  try {
-    const { item } = await client
-      .database(Databases.Primary)
-      .container(Containers.Comments)
-      .items.create(itemBody);
-
-    console.log(item);
-
-    return item;
-  } catch (error) {
-    send(res, 500, errorHandler(500, new Error("Unable to create comment.")));
-  }
+const createComment = (body: Partial<Comment>) => {
+  return {
+    id: uuid(),
+    date: new Date().toISOString(),
+    edited: false,
+    ...body
+  } as Comment;
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const body = await json(req);
-
-    const item = ({
-      id: uuid(),
-      date: new Date().toISOString(),
-      edited: false,
-      ...body
-    } as unknown) as Comment;
-
-    const response = await create(item, res);
-
-    send(res, 200, response);
+    const itemBody = createComment(body);
+    const client = cosmos(Mode.Read);
+    const { item } = await client
+      .database(Databases.Primary)
+      .container(Containers.Comments)
+      .items.create(itemBody);
+    send(res, 200, item);
   } catch (error) {
-    send(res, 400, errorHandler(400, new Error("Something went wrong.")));
+    send(res, 500, errorHandler(500, new Error("Unable to create comment.")));
   }
 };
