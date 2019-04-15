@@ -42,9 +42,19 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       endpoint: process.env.COSMOS_ENDPOINT || "",
       auth: { masterKey: process.env.COSMOS_MASTERKEY_READ }
     });
+    const databaseId = "culturescreen-01";
+    const containerId = "comments";
+
+    const { database } = await client.databases.createIfNotExists({
+      id: databaseId
+    });
+    const { container } = await client
+      .database(databaseId)
+      .containers.createIfNotExists({ id: containerId });
+
     const { item } = await client
-      .database(Databases.Primary)
-      .container(Containers.Comments)
+      .database(databaseId)
+      .container(containerId)
       .items.create(itemBody);
     send(res, 200, item);
   } catch (error) {
