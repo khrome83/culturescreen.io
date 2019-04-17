@@ -1,40 +1,35 @@
 <template>
-  <div>
-    <section>
-      <div>
-        <Title/>
-        <div class="links">
-          <nuxt-link to="/about">About</nuxt-link>
-        </div>
-      </div>
-    </section>
-    <section class="video-preview-container">
-      <VideoPreview />
-    </section>
-  </div>
+  <section>
+    <h1 class="header">Nuxt TypeScript Starter</h1>
+    <div class="cards">
+      <Card v-for="person in people" :key="person.id" :person="person"></Card>
+    </div>
+  </section>
 </template>
 
-<script>
-import Title from '~/components/Title.vue'
-import VideoPreview from '~/components/VideoPreview.vue'
+<script lang="ts">
+import { Component, Vue } from "nuxt-property-decorator";
+import { State } from "vuex-class";
+import { Person } from "~/types";
+import Card from "~/components/Card.vue";
 
-export default {
+@Component({
   components: {
-    Title,
-    VideoPreview,
+    Card
   }
+})
+export default class extends Vue {
+  @State people!: Person;
 }
 </script>
 
-<style>
-  .video-preview-container {
-    margin: 0px auto;
-    width: 500px;
-    height: 375px;
-    border: 10px #333 solid;
-  }
+<style scoped>
+.header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  .links {
-    padding-top: 15px;
-  }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
