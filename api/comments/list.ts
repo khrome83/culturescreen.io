@@ -5,18 +5,16 @@ import { send } from "micro";
 import getOptions, { Containers, Databases, Mode } from "../connectors/cosmos";
 import errorHandler from "../utils/errorHandler";
 
-// TODO - Add persion check for posting deleting against the origin submissions
-//        - Do we need submission id
-//        - Have to trace this back to the organization
-
 export default async (req: IncomingMessage, res: ServerResponse) => {
-  const client = new CosmosClient(getOptions(Mode.Write));
+  const client = new CosmosClient(getOptions(Mode.Read));
 
   try {
     const { query } = url.parse(req.url || "", true);
 
+    console.log("queryid", query.id);
+
     const querySpec = {
-      query: "SELECT * FROM root r WHERE r.id = @id",
+      query: "SELECT * FROM root r WHERE r.video = @id ORDER BY r.date DESC",
       parameters: [
         {
           name: "@id",
@@ -25,12 +23,15 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       ]
     } as SqlQuerySpec;
 
-    // Fetch Datbase Item
+    console.log("queryspec", querySpec);
+
     const { result: results = [] } = await client
       .database(Databases.Primary)
       .container(Containers.Comments)
-      .items.query(querySpec)
+      .items.query(querySpec, { enableCrossPartitionQuery: true })
       .toArray();
+
+    console.log(results);
 
     // Validate Return
     if (results.length === 0) {
@@ -42,40 +43,15 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
           new Error(`No record found matching id '${query.id}'.`)
         )
       );
-    } else if (results.length > 1) {
-      return send(
-        res,
-        500,
-        errorHandler(
-          500,
-          new Error(
-            `Data corruption issue on record(s) found matching id '${
-              query.id
-            }'.`
-          )
-        )
-      );
     }
 
-    // Replace Database Item with Delete Flag
-    const itemBody = results[0];
-    // itemBody.deleted = true;
-
-    console.log("Deleting ", itemBody.id);
-
-    const { body } = await client
-      .database(Databases.Primary)
-      .container(Containers.Comments)
-      .item(itemBody.id, "/id")
-      .delete(itemBody);
-
-    return send(res, 200, body);
+    return send(res, 200, results);
   } catch (error) {
     console.log(error);
     return send(
       res,
       500,
-      errorHandler(500, new Error("Unable to delete comment."))
+      errorHandler(500, new Error("Unable to get list of comments."))
     );
   }
 };

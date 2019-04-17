@@ -1,12 +1,3 @@
-enum Mode {
-  Read = "read",
-  Write = "write"
-}
-
-enum Databases {
-  Primary = "culturescreen-01"
-}
-
 enum Containers {
   Candidates = "candidates",
   Comments = "comments",
@@ -16,7 +7,23 @@ enum Containers {
   Users = "users"
 }
 
-const getOptions = (mode: Mode = Mode.Read) => {
+enum Databases {
+  Primary = "culturescreen-01"
+}
+
+enum Mode {
+  Read = "read",
+  Write = "write"
+}
+
+interface Options {
+  endpoint: string;
+  auth: {
+    masterKey: string;
+  };
+}
+
+const getOptions = (mode: Mode = Mode.Read): Options => {
   const endpoint = process.env.COSMOS_ENDPOINT || "";
   let masterKey = process.env.COSMOS_MASTERKEY_READ || "";
 

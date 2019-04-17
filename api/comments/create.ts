@@ -2,37 +2,24 @@ import { IncomingMessage, ServerResponse } from "http";
 import { CosmosClient } from "@azure/cosmos";
 import { json, send } from "micro";
 import uuid from "uuid/v4";
-import { v4 } from "uuid/interfaces";
-import getOptions, { Databases, Containers, Mode } from "../connectors/cosmos";
+import getOptions, { Containers, Databases, Mode } from "../connectors/cosmos";
 import errorHandler from "../utils/errorHandler";
+import { Video } from "../types";
 
-interface Reaction {
-  type: string;
-  author: v4;
-}
-
-interface Comment {
-  id: v4;
-  author: v4;
-  video: v4;
-  comment: string;
-  date: string;
-  edited: boolean;
-  editedDate?: string;
-  reactions?: Array<Reaction>;
-}
-
-// TODO - Add persion check for positng author against the origin submissions
+// TODO - Add persion check for posting author against the origin submissions
 //        - Do we need submission id
 //        - Have to trace this back to the organization
+// TODO - Validate incoming post object has the minimum required content in body
+//        - Is there a library for this?
+// TODO - Validate item does not exist before creating, or use "createIfNotExists"
 
-const createComment = (body: Partial<Comment>) => {
+const createComment = (body: Partial<Video.Comment>): Video.Comment => {
   return {
     id: uuid(),
     date: new Date().toISOString(),
     edited: false,
     ...body
-  } as Comment;
+  } as Video.Comment;
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
