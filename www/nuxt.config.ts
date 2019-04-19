@@ -1,4 +1,7 @@
-export default {
+import NuxtConfiguration from '@nuxt/config'
+
+const config: NuxtConfiguration = {
+  // Type or Press `Ctrl + Space` for autocompletion
   env: {},
   head: {
     title: "culturescreen.io.www",
@@ -19,3 +22,5 @@ export default {
   ],
   axios: {}
 }
+
+export default config;

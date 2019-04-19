@@ -1,73 +1,110 @@
 {
   "version": 2,
   "name": "culturescreen.io",
-  "builds": [{
-    "src": "./www/package.json",
-    "use": "@now/static-build"
-  }, {
-    "src": "./api/comments/*.ts",
-    "use": "@now/node@canary"
-  }, {
-    "src": "./api/status/*.ts",
-    "use": "@now/node@canary"
-  }, {
-    "src": "./api/users/*.ts",
-    "use": "@now/node@canary"
-  }],
+  "builds": [
+    {
+      "src": "./api/comments/*.ts",
+      "use": "@now/node@canary"
+    },
+    {
+      "src": "./api/status/*.ts",
+      "use": "@now/node@canary"
+    },
+    {
+      "src": "./api/users/*.ts",
+      "use": "@now/node@canary"
+    },
+    {
+      "src": "./api/posts/*.ts",
+      "use": "@now/node@canary"
+    },
+    {
+      "src": "./www/package.json",
+      "use": "@now/static-build"
+    }
+  ],
   "env": {
     "COSMOS_ENDPOINT": "@cosmos-endpoint",
     "COSMOS_MASTERKEY_READ_WRITE": "@cosmos-masterkey-read-write",
     "COSMOS_MASTERKEY_READ": "@cosmos-masterkey-read",
     "NODE_ENV": "development"
   },
-  "routes": [{
+  "routes": [
+    {
+      "src": "/api/posts",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/api/posts/list.ts"
+    },
+    {
       "src": "/api/status",
-      "methods": ["GET"],
+      "methods": [
+        "GET"
+      ],
       "dest": "/api/status/list.ts"
     },
     {
       "src": "/api/users",
-      "methods": ["POST"],
+      "methods": [
+        "POST"
+      ],
       "dest": "/api/users/create.ts"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": ["GET"],
+      "methods": [
+        "GET"
+      ],
       "dest": "/api/users/get.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": ["DELETE"],
+      "methods": [
+        "DELETE"
+      ],
       "dest": "/api/users/delete.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": ["PUT"],
+      "methods": [
+        "PUT"
+      ],
       "dest": "/api/users/update.ts?id=$id"
     },
     {
       "src": "/api/comments",
-      "methods": ["POST"],
+      "methods": [
+        "POST"
+      ],
       "dest": "/api/comments/create.ts"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": ["DELETE"],
+      "methods": [
+        "DELETE"
+      ],
       "dest": "/api/comments/delete.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": ["GET"],
+      "methods": [
+        "GET"
+      ],
       "dest": "/api/comments/get.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": ["PUT"],
+      "methods": [
+        "PUT"
+      ],
       "dest": "/api/comments/update.ts?id=$id"
     },
     {
       "src": "/api/video/comments/(?<id>[^/]+)",
-      "methods": ["GET"],
+      "methods": [
+        "GET"
+      ],
       "dest": "/api/comments/list.ts?id=$id"
     },
     {
