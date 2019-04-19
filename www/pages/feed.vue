@@ -20,6 +20,7 @@ export default class FeedPage extends Vue {
   @State posts: Post[] = [];
 
   async asyncData() {
+    // Take Two
     let { data } = await axios.get(`/api/posts`);
     return {
       posts: data
