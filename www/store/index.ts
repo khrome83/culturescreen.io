@@ -2,7 +2,7 @@ import { RootState, Person } from "~/types";
 import { vuexfireMutations, firestoreAction } from 'vuexfire';
 import { MutationTree, ActionTree } from "vuex";
 import localRandomData from "~/static/random-data.json";
-import db from "~/db";
+import db, { Timestamp } from "~/db";
 
 export const state = (): RootState => ({
   people: [],
@@ -31,4 +31,13 @@ export const actions: ActionTree<RootState, RootState> = {
     // return the promise returned by `bindFirestoreRef`
     return bindFirestoreRef("users", db.collection("Users"));
   }),
+  createUser: firestoreAction((context, data) => {
+    return db.collection('Users').add({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dob: data.dob,
+      favoriteBook: data.favoriteBook,
+      createdAt: Timestamp.fromDate(new Date()),
+    })
+  })
 };

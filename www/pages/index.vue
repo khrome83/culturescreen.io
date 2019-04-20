@@ -1,9 +1,11 @@
 <template>
   <section>
-    <h1 class="header">Nuxt TypeScript Starter</h1>
+    <h1 class="header">Users</h1>
     <div class="users">
       <UserRow v-for="user in users" :key="user.id" :user="user"></UserRow>
     </div>
+    <NewUser/>
+    <h3>Robot Cards</h3>
     <div class="cards">
       <Card v-for="person in people" :key="person.id" :person="person"></Card>
     </div>
@@ -11,24 +13,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Vue, Action } from "nuxt-property-decorator";
 import { State } from "vuex-class";
 import { Person, User } from "~/types";
 import Card from "~/components/Card.vue";
 import UserRow from "~/components/UserRow.vue";
+import NewUser from "~/components/NewUser.vue";
 
 @Component({
   components: {
     Card,
-    UserRow
+    UserRow,
+    NewUser
   }
 })
 export default class extends Vue {
   @State people!: Person;
   @State users!: User;
+  @Action bindUsers;
 
   created() {
-    this.$store.dispatch("bindUsers");
+    this.bindUsers();
   }
 }
 </script>
