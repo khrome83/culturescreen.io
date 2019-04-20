@@ -10,6 +10,14 @@ export interface Person {
   avatar: string;
   address: Address;
 }
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  dob: string;
+  favoriteBook: string;
+  createdAt: string;
+}
 
 export interface Contact {
   email: string;
