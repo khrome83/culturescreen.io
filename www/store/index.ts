@@ -1,29 +1,29 @@
 import { RootState, Person } from "~/types";
-import { vuexfireMutations, firestoreAction } from 'vuexfire';
+import { vuexfireMutations, firestoreAction } from "vuexfire";
 import { MutationTree, ActionTree } from "vuex";
 import localRandomData from "~/static/random-data.json";
 import db, { Timestamp } from "~/db";
 
 export const state = (): RootState => ({
   people: [],
-  users: [],
-})
+  users: []
+});
 
 export const mutations: MutationTree<RootState> = {
   setPeople(state: RootState, people: Person[]): void {
     state.people = people;
   },
-  ...vuexfireMutations,
-}
+  ...vuexfireMutations
+};
 
 export const actions: ActionTree<RootState, RootState> = {
   async nuxtServerInit({ commit }, context) {
     let people: Person[] = [];
 
     // If you serve the site statically with `nuxt generate`, you can't use HTTP requests for local
-    people = context.isStatic ?
-      localRandomData :
-      await context.app.$axios.$get("./random-data.json");
+    people = context.isStatic
+      ? localRandomData
+      : await context.app.$axios.$get("./random-data.json");
 
     commit("setPeople", people.slice(0, 10));
   },
@@ -32,12 +32,12 @@ export const actions: ActionTree<RootState, RootState> = {
     return bindFirestoreRef("users", db.collection("Users"));
   }),
   createUser: firestoreAction((context, data) => {
-    return db.collection('Users').add({
+    return db.collection("Users").add({
       firstName: data.firstName,
       lastName: data.lastName,
       dob: data.dob,
       favoriteBook: data.favoriteBook,
-      createdAt: Timestamp.fromDate(new Date()),
-    })
+      createdAt: Timestamp.fromDate(new Date())
+    });
   })
 };
