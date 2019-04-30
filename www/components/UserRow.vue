@@ -1,5 +1,6 @@
 <template>
   <div class="user">
+    <img src="~assets/svg/logo-horizontal-on-light.svg" alt="company logo">
     <h2>{{`${user.firstName} ${user.lastName}`}}</h2>
     <span class="dob">{{user.dob}}</span>
     <p>{{user.favoriteBook}}</p>
@@ -15,12 +16,7 @@ export default class UserRow extends Vue {
   @Prop() user!: User;
 }
 </script>
-ßß
+
 <style scoped>
-.user {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 1rem;
-  margin: 0.25rem;
-  border: 0.25rem solid gainsboro;
-}
+.user { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; padding: 1rem; margin: 0.25rem; border: 0.25rem solid gainsboro; }
 </style>
