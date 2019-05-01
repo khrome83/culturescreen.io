@@ -11,14 +11,35 @@ const config: NuxtConfiguration = {
       {
         hid: "description",
         name: "description",
-        content: "Culutre Screen Website"
+        content: "Culture Screen Website"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Raleway:300,400,700"
+      }
+    ]
   },
-  loading: { color: "#3B8070" },
+  loading: { color: "#ED303C" },
   css: ["~/assets/css/main.css"],
-  build: {},
+  build: {
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            require.resolve("@nuxt/babel-preset-app"),
+            {
+              targets: isServer ? { node: "10" } : { ie: "11" },
+              corejs: { version: 3 }
+            }
+          ]
+        ];
+      }
+    }
+  },
   modules: ["@nuxtjs/axios"],
   axios: {}
 };

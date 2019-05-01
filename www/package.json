@@ -1,12 +1,14 @@
 {
   "name": "culturescreen.io.www",
-  "description": "Culutre Screen Website",
-  "version": "2.6.1",
+  "description": "Culture Screen - Simplify Building Teams",
+  "version": "2.6.3",
   "private": true,
   "dependencies": {
+    "@nuxt/config": "2.6.3",
     "@nuxtjs/axios": "5.4.1",
     "firebase": "5.10.0",
-    "nuxt": "2.6.1",
+    "node-fetch": "2.4.1",
+    "nuxt": "2.6.3",
     "nuxt-property-decorator": "2.1.3",
     "ts-node": "8.0.3",
     "vuex-class": "0.3.2",
@@ -20,9 +22,11 @@
     "now-build": "nuxt generate"
   },
   "devDependencies": {
-    "@nuxt/typescript": "2.6.1",
+    "@babel/runtime-corejs3": "7.4.4",
+    "@nuxt/typescript": "2.6.3",
     "@types/node": "10.14.4",
     "@types/webpack-env": "1.13.9",
+    "core-js": "3.0.1",
     "husky": "1.3.1",
     "lint-staged": "8.1.5",
     "prettier": "1.17.0",

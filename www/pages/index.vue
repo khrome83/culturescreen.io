@@ -4,7 +4,7 @@
     <div class="users">
       <UserRow v-for="user in users" :key="user.id" :user="user"></UserRow>
     </div>
-    <NewUser/>
+    <NewUser />
     <h3>Robot Cards</h3>
     <div class="cards">
       <Card v-for="person in people" :key="person.id" :person="person"></Card>
