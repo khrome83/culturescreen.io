@@ -40,169 +40,74 @@ export default class TheFooter extends Vue {}
 </script>
 
 <style scoped>
-footer {
-  /* font-family: 'Raleway', sans-serif; */
-  font-family: "Montserrat", sans-serif;
-}
+footer { /* font-family: 'Raleway', sans-serif; */ font-family: "Montserrat",
+  sans-serif; }
 
-.container {
-  padding: 2.5rem 2.5vw;
-}
+.container { padding: 2.5rem 2.5vw; }
 
 .footer-navigation {
-  text-align: center;
-  font-weight: 700;
-}
+  text-align: center; font-weight: 700; }
 
-.navigation-set {
-  display: flex;
-  flex-direction: column;
-}
+.navigation-set { display: flex;
+  flex-direction: column; padding: 0.625rem 0; }
 
-.logo {
-  margin: 0 auto 2.5rem;
-}
+.logo { margin: 0 auto 2.5rem; }
 
-.footer a,
-.lang a {
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.9375rem;
-  margin: 1.25rem 0;
-  display: block;
-  text-decoration: none;
-  line-height: 1.25;
-}
+.footer a, .lang a { text-align: center; font-weight: 700; font-size: 0.9375rem;
+  padding: 0.625rem 0; display: block; text-decoration: none; line-height: 1.25; }
 
-.footer a:hover,
-.footer a:active,
-.lang a:hover,
-.lang a:active {
-  text-decoration: underline;
-}
+.footer a:hover, .footer a:active, .lang a:hover, .lang a:active {
+  text-decoration: underline; }
 
-.footer a {
-  color: #a0a9ba;
-}
+.footer a { color: #a0a9ba; }
 
-.lang a {
-  color: #ed303c;
-  margin: 2.5rem 0;
-}
+.lang a { color: #ed303c; margin: 2.5rem 0; }
 
-.break {
-  height: 0.125rem;
-  background-color: #a0a9ba;
-  margin: 1.25rem -2.5vw 2.5rem;
-  opacity: 0.5;
-}
+.break { height: 0.125rem; background-color: #a0a9ba; margin: 1.25rem -2.5vw 2rem; opacity: 0.5; }
 
 .utility-navigation {
-  display: flex;
-  flex-direction: column;
-}
+  display: flex; flex-direction: column; }
 
-.copyright {
-  order: 2;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: #a0a9ba;
-  text-align: center;
-}
+.copyright { order: 2; margin-bottom: 1.25rem; font-weight: 400; font-size: 0.8125rem; color: #a0a9ba; text-align: center; }
 
-.utility {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 1.25rem;
-  order: 1;
-}
+.utility { display: flex; flex-direction: row; justify-content: space-around; margin-bottom: 0.75rem; order: 1; }
 
-.utility a {
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: #a0a9ba;
-  display: block;
-  text-decoration: none;
-  line-height: 1.5;
-}
+.utility a { font-weight: 400;
+  font-size: 0.8125rem; padding: 0.5rem 0; color: #a0a9ba; display: block;
+  text-decoration: none; line-height: 1.5; }
 
-.utility a:hover,
-.utility a:active {
-  text-decoration: underline;
-}
-@media (min-width: 48rem) {
-  .footer-navigation {
-    display: flex;
-    justify-content: space-between;
-  }
+.utility a:hover, .utility a:active {
+  text-decoration: underline; } @media (min-width: 48rem) { .footer-navigation {
+    display: flex; justify-content: space-between; }
 
   .navigation-set {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.25rem 0;
+    flex-direction: column; justify-content: space-between; padding: 1.25rem 0; }
+
+  .logo { margin: 0 0 0 -1.875rem; }
+
+  .footer, .lang { flex-direction: row;
+    justify-content: space-between; align-self: flex-end; }
+
+  .footer a, .lang a {
+    display: flex; display: inline; text-align: right; align-self: flex-end;
+    padding: 1rem; }
+
+  .footer a:last-of-type, .lang a:last-of-type { padding-right: 0; }
+
+  .utility-navigation { flex-direction: row; justify-content: space-between;
   }
 
-  .logo {
-    margin: 0 0 0 1.875rem;
+  .copyright { order: 1; }
+
+  .utility { order: 2; }
+
+  .utility a { padding: 0 1rem;
   }
 
-  .footer,
-  .lang {
-    flex-direction: row;
-    justify-content: space-between;
-    align-self: flex-end;
-  }
+  .utility a:last-of-type { padding-right: 0; } } @media (min-width: 71.25rem) {
+  .container { padding: 3.75rem 2.5vw; }
 
-  .footer a,
-  .lang a {
-    display: flex;
-    display: inline;
-    text-align: right;
-    align-self: flex-end;
-    padding: 1rem;
-  }
+  .break { margin: 1.25rem 0 7.5rem; }
 
-  .footer a:last-of-type,
-  .lang a:last-of-type {
-    padding-right: 0;
-  }
-
-  .utility-navigation {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .copyright {
-    order: 1;
-  }
-
-  .utility {
-    order: 2;
-  }
-
-  .utility a {
-    padding: 0 1rem;
-  }
-
-  .utility a:last-of-type {
-    padding-right: 0;
-  }
-}
-@media (min-width: 71.25rem) {
-  .container {
-    padding: 3.75rem 2.5vw;
-  }
-
-  .break {
-    margin: 1.25rem 0 7.5rem;
-  }
-
-  .navigation-set {
-    flex-direction: row;
-    align-self: center;
-    flex-basis: 100%;
-  }
-}
+  .navigation-set { flex-direction: row; align-self: center; flex-basis: 100%; } }
 </style>
