@@ -20,6 +20,6 @@
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     } ],
-    "unit-whitelist": ["vw", "em", "rem", "%", "s"]
+    "unit-whitelist": ["vw", "ms", "em", "rem", "%", "s"]
   }
 }
