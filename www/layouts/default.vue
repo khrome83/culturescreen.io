@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <TheHeader />
+    <the-header />
     <nuxt />
-    <TheFooter />
+    <the-footer />
+    <the-over-panel />
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import TheHeader from "~/components/TheHeader.vue";
 import TheFooter from "~/components/TheFooter.vue";
+import TheOverPanel from "~/components/TheOverPanel.vue";
 
 @Component({
   components: {
     TheHeader,
-    TheFooter
+    TheFooter,
+    TheOverPanel
   }
 })
 export default class extends Vue {}
