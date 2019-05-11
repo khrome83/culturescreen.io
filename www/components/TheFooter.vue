@@ -3,17 +3,17 @@
     <div class="container">
       <div class="footer-navigation">
         <div class="logo">
-          <VerticalLogo/>
+          <vertical-logo/>
         </div>
         <div class="navigation-set">
           <nav class="footer">
-            <NuxtLink to="/features">Features</NuxtLink>
-            <NuxtLink to="/pricing">Pricing</NuxtLink>
-            <NuxtLink to="/support">Support</NuxtLink>
-            <NuxtLink to="/blog">Blog</NuxtLink>
+            <nuxt-link to="/features">Features</nuxt-link>
+            <nuxt-link to="/pricing">Pricing</nuxt-link>
+            <nuxt-link to="/support">Support</nuxt-link>
+            <nuxt-link to="/blog">Blog</nuxt-link>
           </nav>
           <div class="lang">
-            <NuxtLink to="/languages">Language: English</NuxtLink>
+            <nuxt-link to="/languages">Language: English</nuxt-link>
           </div>
         </div>
       </div>
@@ -21,8 +21,8 @@
       <div class="utility-navigation">
         <div class="copyright">Copyright © 2018 Culture Screen, LLC</div>
         <nav class="utility">
-          <NuxtLink to="/privacy">Privacy Policy</NuxtLink>
-          <NuxtLink to="/sitemap">Sitemap</NuxtLink>
+          <nuxt-link to="/privacy">Privacy Policy</nuxt-link>
+          <nuxt-link to="/sitemap">Sitemap</nuxt-link>
         </nav>
       </div>
     </div>
