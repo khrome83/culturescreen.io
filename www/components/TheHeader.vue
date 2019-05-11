@@ -2,28 +2,28 @@
   <header>
     <div class="container" v-bind:class="{ closed: isClosed }">
       <div class="logo">
-        <HorizontalLogo/>
+        <horizontal-logo />
       </div>
       <div class="controls">
         <button class="menu" @click="toggleMenu">
-          <MenuIcon/>
+          <menu-icon />
         </button>
         <button class="close" @click="toggleMenu">
-          <CloseIcon/>
+          <close-icon />
         </button>
       </div>
-      <hr class="break one">
+      <hr class="break one" />
       <div class="navigation-set">
         <nav class="primary">
-          <NuxtLink to="/features">Features</NuxtLink>
-          <NuxtLink to="/pricing">Pricing</NuxtLink>
-          <NuxtLink to="/support">Support</NuxtLink>
-          <NuxtLink to="/blog">Blog</NuxtLink>
-          <NuxtLink class="demo" to="/app/demo">Demo</NuxtLink>
+          <nuxt-link to="/features">Features</nuxt-link>
+          <nuxt-link to="/pricing">Pricing</nuxt-link>
+          <nuxt-link to="/support">Support</nuxt-link>
+          <nuxt-link to="/blog">Blog</nuxt-link>
+          <nuxt-link class="demo" to="/app/demo">Demo</nuxt-link>
         </nav>
       </div>
-      <hr class="break two">
-      <NuxtLink class="signin" to="app/login">Sign in</NuxtLink>
+      <hr class="break two" />
+      <nuxt-link class="signin" to="app/login">Sign in</nuxt-link>
     </div>
   </header>
 </template>
