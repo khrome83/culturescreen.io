@@ -32,79 +32,57 @@
   "routes": [
     {
       "src": "/api/posts",
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "dest": "/api/posts/list.ts"
     },
     {
       "src": "/api/status",
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "dest": "/api/status/list.ts"
     },
     {
       "src": "/api/users",
-      "methods": [
-        "POST"
-      ],
+      "methods": ["POST"],
       "dest": "/api/users/create.ts"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "dest": "/api/users/get.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": [
-        "DELETE"
-      ],
+      "methods": ["DELETE"],
       "dest": "/api/users/delete.ts?id=$id"
     },
     {
       "src": "/api/users/(?<id>[^/]+)",
-      "methods": [
-        "PUT"
-      ],
+      "methods": ["PUT"],
       "dest": "/api/users/update.ts?id=$id"
     },
     {
       "src": "/api/comments",
-      "methods": [
-        "POST"
-      ],
+      "methods": ["POST"],
       "dest": "/api/comments/create.ts"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": [
-        "DELETE"
-      ],
+      "methods": ["DELETE"],
       "dest": "/api/comments/delete.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "dest": "/api/comments/get.ts?id=$id"
     },
     {
       "src": "/api/comments/(?<id>[^/]+)",
-      "methods": [
-        "PUT"
-      ],
+      "methods": ["PUT"],
       "dest": "/api/comments/update.ts?id=$id"
     },
     {
       "src": "/api/video/comments/(?<id>[^/]+)",
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "dest": "/api/comments/list.ts?id=$id"
     },
     {
