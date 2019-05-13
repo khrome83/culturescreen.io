@@ -12,21 +12,17 @@
           :aria-expanded="String(!isClosed)"
         >
           <menu-icon class="menu-icon" />
-        </button>
-        <button class="close" @click="toggleMenu">
           <close-icon class="close-icon" />
         </button>
       </div>
       <hr class="break one" />
-      <div class="navigation-set" id="menu">
-        <nav class="primary">
-          <nuxt-link to="/features">Features</nuxt-link>
-          <nuxt-link to="/pricing">Pricing</nuxt-link>
-          <nuxt-link to="/support">Support</nuxt-link>
-          <nuxt-link to="/blog">Blog</nuxt-link>
-          <nuxt-link class="demo" to="/app/demo">Demo</nuxt-link>
-        </nav>
-      </div>
+      <nav class="navigation-set" id="menu">
+        <nuxt-link class="primary" to="/features">Features</nuxt-link>
+        <nuxt-link class="primary" to="/pricing">Pricing</nuxt-link>
+        <nuxt-link class="primary" to="/support">Support</nuxt-link>
+        <nuxt-link class="primary" to="/blog">Blog</nuxt-link>
+        <nuxt-link class="primary demo" to="/app/demo">Demo</nuxt-link>
+      </nav>
       <hr class="break two" />
       <base-button class="signin" to="/app/login">Sign in</base-button>
     </div>
@@ -75,18 +71,17 @@ header {
   align-self: center;
 }
 
-.controls .menu,
-.container.closed .close {
+.menu-icon,
+.container.closed .close-icon {
   display: none;
 }
 
-.controls .close,
-.container.closed .menu {
+.close-icon,
+.container.closed .menu-icon {
   display: flex;
 }
 
-.menu,
-.close {
+.menu {
   display: flex;
   align-content: center;
   padding: 0.5rem;
@@ -96,25 +91,29 @@ header {
   cursor: pointer;
   background-color: inherit;
   border: none;
+  box-shadow: inset 0 0 0 0 #fff;
+  transition: all 200ms ease-in-out;
 }
 
-.menu svg,
-.close svg {
+.menu:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 0.0625rem #ee0028;
+  transition: all 200ms ease-in-out;
+}
+
+.menu svg {
   fill: #ee0028;
 }
 
 .menu:hover svg,
-.menu:active svg,
-.close:hover svg,
-.close:active svg {
+.menu:active svg {
   fill: #ffffff;
 }
 
 .menu:hover,
-.menu:active,
-.close:hover,
-.close:active {
+.menu:active {
   background-color: #ee0028;
+  transition: all 200ms ease-in-out;
 }
 
 .break {
@@ -125,10 +124,6 @@ header {
 }
 
 .primary {
-  padding-top: 1rem;
-}
-
-.primary a {
   display: block;
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
@@ -143,9 +138,17 @@ header {
   padding: 1rem 0;
 }
 
-.primary a:hover,
-.primary a:active {
+.primary:hover,
+.primary:active,
+.primary:focus {
   text-decoration: underline;
+}
+
+.primary:focus {
+  box-shadow: inset 0 0 0 0.0625rem #ee0028;
+  outline: 0;
+
+  /* outline: thin solid #ee0028; */
 }
 
 .navigation-set {
@@ -156,6 +159,7 @@ header {
   visibility: initial;
   transition: all 200ms ease-in-out;
   overflow: hidden;
+  padding: 0.5rem 0;
 }
 
 .closed .navigation-set {
@@ -165,7 +169,6 @@ header {
 }
 
 .signin {
-  margin-top: 1.25rem;
   flex-basis: 100%;
 }
 
@@ -199,9 +202,6 @@ header {
 
   .navigation-set {
     order: 5;
-  }
-
-  .primary {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -212,11 +212,10 @@ header {
     align-self: flex-end;
   }
 
-  .primary a,
-  .demo a {
+  .primary {
     display: flex;
-    padding: 0.5rem 0;
-    margin: 0.5rem 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem 0 0;
   }
 }
 @media (min-width: 71.25rem) {
@@ -228,21 +227,18 @@ header {
     order: 2;
     flex-basis: initial;
     padding-left: 2rem;
+    padding: 0;
+    justify-content: flex-start;
     flex: 1;
   }
 
   .primary {
-    padding: 0;
-    justify-content: flex-start;
+    margin: 0.5rem 0.5rem 0.25rem;
   }
 
-  .primary .demo {
+  .demo {
     margin-left: auto;
-  }
-
-  .primary a {
-    margin-top: 0;
-    padding: 0.75rem 0.75rem;
+    align-self: center;
   }
 
   .closed .navigation-set {
@@ -253,7 +249,7 @@ header {
 
   .signin {
     order: 3;
-    margin: 0;
+    margin: 0.2rem 0 0;
   }
 
   .controls {
