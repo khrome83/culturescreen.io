@@ -5,15 +5,20 @@
         <horizontal-logo />
       </div>
       <div class="controls">
-        <button class="menu" @click="toggleMenu">
-          <menu-icon />
+        <button
+          class="menu"
+          @click="toggleMenu"
+          aria-controls="menu"
+          :aria-expanded="String(!isClosed)"
+        >
+          <menu-icon class="menu-icon" />
         </button>
         <button class="close" @click="toggleMenu">
-          <close-icon />
+          <close-icon class="close-icon" />
         </button>
       </div>
       <hr class="break one" />
-      <div class="navigation-set">
+      <div class="navigation-set" id="menu">
         <nav class="primary">
           <nuxt-link to="/features">Features</nuxt-link>
           <nuxt-link to="/pricing">Pricing</nuxt-link>
@@ -86,6 +91,7 @@ header {
   align-content: center;
   padding: 0.5rem;
   width: 2.5rem;
+  border: thin solid #ee0028;
   border-radius: 0.25rem;
   cursor: pointer;
   background-color: inherit;
@@ -94,7 +100,7 @@ header {
 
 .menu svg,
 .close svg {
-  fill: #ed303c;
+  fill: #ee0028;
 }
 
 .menu:hover svg,
@@ -108,7 +114,7 @@ header {
 .menu:active,
 .close:hover,
 .close:active {
-  background-color: #ed303c;
+  background-color: #ee0028;
 }
 
 .break {
@@ -126,13 +132,13 @@ header {
   display: block;
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: 0.1rem;
   text-align: center;
-  color: #ed303c;
+  color: #ee0028;
   text-decoration: none;
   padding: 1rem 0;
 }
@@ -147,12 +153,14 @@ header {
   flex-basis: 100%;
   flex-direction: column;
   max-height: 25rem;
+  visibility: initial;
   transition: all 200ms ease-in-out;
   overflow: hidden;
 }
 
 .closed .navigation-set {
   max-height: 0;
+  visibility: hidden;
   transition: all 200ms ease-in-out;
 }
 
@@ -238,7 +246,8 @@ header {
   }
 
   .closed .navigation-set {
-    max-height: 15rem;
+    max-height: 25rem;
+    visibility: initial;
     justify-content: center;
   }
 

@@ -82,7 +82,7 @@ export default class BaseButton extends Vue {
   text-align: center;
   color: #fff;
   fill: #fff;
-  background-color: #ed303c;
+  background-color: #ee0028;
   border-radius: 0.25rem;
   padding: 0.25rem 1rem;
   text-decoration: none;
@@ -92,7 +92,7 @@ export default class BaseButton extends Vue {
   line-height: 1.5;
   letter-spacing: 0.025rem;
   cursor: pointer;
-  border: thin solid #ed303c;
+  border: thin solid #ee0028;
   transition: all 200ms ease-in-out;
 }
 
@@ -100,15 +100,15 @@ export default class BaseButton extends Vue {
 .button:active,
 .button:focus {
   background-color: #fff;
-  color: #ed303c;
-  fill: #ed303c;
+  color: #ee0028;
+  fill: #ee0028;
   transition: all 200ms ease-in-out;
-  box-shadow: inset 0 0 0 0 #fff, inset 0 0 0 0 #ed303c;
+  box-shadow: inset 0 0 0 0 #fff, inset 0 0 0 0 #ee0028;
 }
 
 .button:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #ed303c;
+  box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #ee0028;
 }
 
 .secondary {
@@ -155,15 +155,15 @@ export default class BaseButton extends Vue {
 .danger {
   background-color: transparent;
   border-color: transparent;
-  color: #ed303c;
-  fill: #ed303c;
+  color: #ee0028;
+  fill: #ee0028;
 }
 
 .danger:hover,
 .danger:active {
   text-decoration: underline;
-  color: #ed303c;
-  fill: #ed303c;
+  color: #ee0028;
+  fill: #ee0028;
   border-color: transparent;
 }
 

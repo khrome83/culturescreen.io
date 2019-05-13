@@ -23,7 +23,7 @@ const config: NuxtConfiguration = {
       }
     ]
   },
-  loading: { color: "#ED303C" },
+  loading: { color: "#ee0028" },
   mode: "spa",
   css: ["~/assets/css/main.css"],
   build: {

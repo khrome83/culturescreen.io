@@ -93,7 +93,7 @@ footer {
 }
 
 .lang a {
-  color: #ed303c;
+  color: #ee0028;
   margin: 2.5rem 0;
 }
 
