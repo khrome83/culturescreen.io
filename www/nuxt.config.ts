@@ -24,6 +24,7 @@ const config: NuxtConfiguration = {
     ]
   },
   loading: { color: "#ED303C" },
+  mode: "spa",
   css: ["~/assets/css/main.css"],
   build: {
     babel: {
