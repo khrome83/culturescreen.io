@@ -92,7 +92,6 @@ export default class BaseButton extends Vue {
   line-height: 1.5;
   letter-spacing: 0.025rem;
   cursor: pointer;
-  flex-basis: 100%;
   border: thin solid #ed303c;
   transition: all 200ms ease-in-out;
 }
