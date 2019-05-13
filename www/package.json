@@ -33,7 +33,7 @@
     "prettier": "1.17.0",
     "stylelint": "10.0.1",
     "stylelint-config-prettier": "5.1.0",
-    "stylelint-prettier": "1.0.6",
+    "stylelint-prettier": "1.1.0",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "vue-svg-loader": "0.12.0"
