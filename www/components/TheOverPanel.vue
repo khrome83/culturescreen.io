@@ -1,6 +1,10 @@
 <template>
   <transition name="overpanel">
-    <div class="overpanel-mask" v-if="overpanelVisible" @click.once.self="closeOverpanel">
+    <div
+      class="overpanel-mask"
+      v-if="overpanelVisible"
+      @click.once.self="closeOverpanel"
+    >
       <div class="overpanel-container" @keydown.esc="closeOverpanel">
         <div class="overpanel-header">
           <span class="header-text">
@@ -9,7 +13,7 @@
         </div>
 
         <button class="close" @click="closeOverpanel">
-          <close-icon/>
+          <close-icon />
         </button>
         <div class="overpanel-content">
           <div class="overpanel-body">
@@ -49,7 +53,9 @@ export default class TheOverPanel extends Vue {
   overpanelComponentChanged(componentName: string, oldComponentName: string) {
     if (componentName === "" || componentName === oldComponentName) return;
 
-    Vue.component(componentName, () => import(`./overpanel/${componentName}`));
+    Vue.component(componentName, () =>
+      import(`./overpanel/${componentName}.vue`)
+    );
 
     this.component = componentName;
   }
