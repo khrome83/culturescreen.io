@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <base-section>
     <h1 class="header">Styleguide</h1>
 
     <h2>Button Elements</h2>
@@ -104,17 +104,19 @@
     <base-button to="/signup" danger>
       <heart-icon slot="post-icon" />Danger
     </base-button>
-  </section>
+  </base-section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import BaseButton from "~/components/BaseButton.vue";
+import BaseSection from "~/components/BaseSection.vue";
 import HeartIcon from "~/assets/svg/heart.svg";
 
 @Component({
   components: {
     BaseButton,
+    BaseSection,
     HeartIcon
   }
 })
