@@ -9,13 +9,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
-export enum Layouts {
-  Small = "small",
-  Medium = "medium",
-  Large = "large"
+export enum Layout {
+  Thin = "thin",
+  Normal = "normal",
+  Tall = "tall"
 }
 
-export enum Themes {
+export enum Theme {
   Light = "light",
   Grey = "grey",
   Dark = "dark"
@@ -23,9 +23,8 @@ export enum Themes {
 
 @Component({})
 export default class BaseSection extends Vue {
-  @Prop({ default: Layouts.Medium })
-  private layout!: Layouts;
-  @Prop({ default: Themes.Light }) private theme!: Themes;
+  @Prop({ default: Layout.Normal }) private layout!: Layout;
+  @Prop({ default: Theme.Light }) private theme!: Theme;
 }
 </script>
 
@@ -35,21 +34,20 @@ section {
 }
 
 .container {
-  padding: 0.5rem 2.5vw 1.5rem;
   max-width: 90rem;
   margin: 0 auto;
 }
 
-.small {
-  padding: 2rem 0;
+.thin {
+  padding: 2rem 2.5vw;
 }
 
-.medium {
-  padding: 4rem 0;
+.normal {
+  padding: 4rem 2.5vw;
 }
 
-.large {
-  padding: 6rem 0;
+.tall {
+  padding: 6rem 2.5vw;
 }
 
 .light {
