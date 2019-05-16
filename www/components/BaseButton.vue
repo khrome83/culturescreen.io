@@ -228,6 +228,6 @@ export default class BaseButton extends Vue {
   height: 1rem;
   width: 1rem;
   transform: scale(1.75);
-  margin: 0 0.5rem -0rem;
+  margin: 0 0.5rem 0;
 }
 </style>
