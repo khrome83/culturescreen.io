@@ -25,7 +25,14 @@ const config: NuxtConfiguration = {
   },
   loading: { color: "#ee0028" },
   mode: "spa",
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/reset.css", "~/assets/css/main.css"],
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ["script", "style", "font"].includes(type);
+      }
+    }
+  },
   build: {
     babel: {
       presets({ isServer }) {
