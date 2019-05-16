@@ -147,14 +147,17 @@
         <heart-icon slot="pre-icon" />Danger
       </base-button>
     </base-section>
-    <base-section :theme="theme.Light">Default Section</base-section>
+    <base-section :layout="layout.Thin">
+      <h2>Section Types</h2>
+    </base-section>
+    <base-section :theme="theme.Dark">Dark Theme</base-section>
+    <base-section>Default Theme</base-section>
+    <base-section :theme="theme.Grey">Grey Theme</base-section>
+    <base-section :layout="layout.Tall">Tall Layout</base-section>
+    <base-section :theme="theme.Grey">Default Layout</base-section>
     <base-section :layout="layout.Thin" :theme="theme.Dark"
-      >Dark Section</base-section
+      >Thin Layout</base-section
     >
-    <base-section :layout="layout.Tall" :theme="theme.Grey"
-      >Grey Section</base-section
-    >
-    <base-section :layout="layout.Tall">Large Section</base-section>
   </div>
 </template>
 
