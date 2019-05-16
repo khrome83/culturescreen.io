@@ -63,35 +63,80 @@
       >
       <h3>Left Icons</h3>
       <base-button to="https://www.example.com">
-        <heart-icon slot="pre-icon" />Primary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button title="secondary" to="https://www.example.com" secondary>
-        <heart-icon slot="pre-icon" />Secondary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" tertiary>
-        <heart-icon slot="pre-icon" />Tertiary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" danger>
-        <heart-icon slot="pre-icon" />Danger
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
       <h3>Right Icons</h3>
       <base-button to="https://www.example.com">
-        <heart-icon slot="post-icon" />Primary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button title="secondary" to="https://www.example.com" secondary>
-        <heart-icon slot="post-icon" />Secondary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" tertiary>
-        <heart-icon slot="post-icon" />Tertiary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" danger>
-        <heart-icon slot="post-icon" />Danger
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
       <br />
       <br />
       <h4>Disabled</h4>
       <base-button to="https://www.example.com" disabled>
-        <heart-icon slot="post-icon" />Primary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button
         title="secondary"
@@ -99,52 +144,127 @@
         secondary
         disabled
       >
-        <heart-icon slot="post-icon" />Secondary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" tertiary disabled>
-        <heart-icon slot="post-icon" />Tertiary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button to="https://www.example.com" danger disabled>
-        <heart-icon slot="post-icon" />Danger
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
       <h4>Nuxt Route w/ Icon</h4>
       <base-button to="/signup">
-        <heart-icon slot="post-icon" />Primary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button title="secondary" to="/signup" secondary>
-        <heart-icon slot="post-icon" />Secondary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button to="/signup" tertiary>
-        <heart-icon slot="post-icon" />Tertiary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button to="/signup" danger>
-        <heart-icon slot="post-icon" />Danger
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
       <h4>Small Buttons w/ Icons</h4>
       <base-button overpanel="Default" small>
-        <heart-icon slot="post-icon" />Primary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button overpanel="Default" secondary small>
-        <heart-icon slot="post-icon" />Secondary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button overpanel="Default" tertiary small>
-        <heart-icon slot="post-icon" />Tertiary
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button overpanel="Default" danger small>
-        <heart-icon slot="post-icon" />Danger
+        <template v-slot:post-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
       <h4>Large Buttons w/ Icons</h4>
       <base-button overpanel="Default" large>
-        <heart-icon slot="pre-icon" />Primary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Primary</template
+        >
       </base-button>
       <base-button overpanel="Default" secondary large>
-        <heart-icon slot="pre-icon" />Secondary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Secondary</template
+        >
       </base-button>
       <base-button overpanel="Default" tertiary large>
-        <heart-icon slot="pre-icon" />Tertiary
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Tertiary</template
+        >
       </base-button>
       <base-button overpanel="Default" danger large>
-        <heart-icon slot="pre-icon" />Danger
+        <template v-slot:pre-icon>
+          <heart-icon aria-hidden="true" />
+        </template>
+        <template v-slot:default
+          >Danger</template
+        >
       </base-button>
     </base-section>
     <base-section :layout="layout.Thin">
