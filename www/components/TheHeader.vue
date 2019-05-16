@@ -234,6 +234,7 @@ header {
 
   .demo {
     margin-left: auto;
+    margin-right: 2rem;
     align-self: center;
   }
 

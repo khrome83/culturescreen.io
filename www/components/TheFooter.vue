@@ -221,7 +221,7 @@ footer {
   }
 
   .break {
-    margin: 1.25rem 0 7.5rem;
+    margin: 1.25rem 0 4.5rem;
   }
 
   .navigation-set {
@@ -232,6 +232,10 @@ footer {
 
   .footer {
     margin: 0 0 0.25rem;
+  }
+
+  .logo {
+    margin-right: 2rem;
   }
 }
 </style>
