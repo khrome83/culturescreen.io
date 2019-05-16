@@ -4,7 +4,7 @@
     v-bind="linkProps.bindProps"
     v-on="linkProps.onEvents"
     class="button"
-    :class="{ secondary, tertiary, danger, disabled }"
+    :class="{ secondary, tertiary, danger, disabled, small, large }"
   >
     <slot name="pre-icon"></slot>
     <slot></slot>
@@ -22,9 +22,11 @@ export default class BaseButton extends Vue {
   @Prop({ default: "#" }) to!: string;
   @Prop() title!: string;
   @Prop(Boolean) private secondary!: boolean;
-  @Prop(Boolean) tertiary!: boolean;
-  @Prop(Boolean) danger!: boolean;
-  @Prop(Boolean) disabled!: boolean;
+  @Prop(Boolean) private tertiary!: boolean;
+  @Prop(Boolean) private danger!: boolean;
+  @Prop(Boolean) private disabled!: boolean;
+  @Prop(Boolean) private small!: boolean;
+  @Prop(Boolean) private large!: boolean;
   @Prop() overpanel!: string;
 
   @overpanel.Mutation("openOverpanel") openOverpanel;
@@ -107,8 +109,31 @@ export default class BaseButton extends Vue {
 }
 
 .button:focus {
-  outline: 0;
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #ee0028;
+}
+
+.small,
+.small:hover,
+.small:focus,
+.small:active {
+  padding: 0.4rem 0.75rem 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.0781rem;
+  text-transform: uppercase;
+  margin: 0 0.25rem;
+}
+
+.large,
+.large:hover,
+.large:focus,
+.large:active {
+  padding: 0.75rem 1.65rem;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.025rem;
 }
 
 .secondary {
@@ -189,6 +214,20 @@ export default class BaseButton extends Vue {
   height: 1rem;
   width: 1rem;
   transform: scale(1.5);
-  margin: 0 0.125rem -0.2rem;
+  margin: 0 0.125rem -0.175rem;
+}
+
+.small > svg {
+  height: 1rem;
+  width: 1rem;
+  transform: scale(1);
+  margin: 0 0 -0.2188rem;
+}
+
+.large > svg {
+  height: 1rem;
+  width: 1rem;
+  transform: scale(1.75);
+  margin: 0 0.5rem -0rem;
 }
 </style>
