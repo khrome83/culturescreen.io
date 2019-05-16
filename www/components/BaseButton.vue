@@ -180,15 +180,15 @@ export default class BaseButton extends Vue {
 .danger {
   background-color: transparent;
   border-color: transparent;
-  color: #ee0028;
-  fill: #ee0028;
+  color: #e80067;
+  fill: #e80067;
 }
 
 .danger:hover,
 .danger:active {
   text-decoration: underline;
-  color: #ee0028;
-  fill: #ee0028;
+  color: #e80067;
+  fill: #e80067;
   border-color: transparent;
 }
 
