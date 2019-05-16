@@ -96,7 +96,6 @@ header {
 }
 
 .menu:focus {
-  outline: 0;
   box-shadow: inset 0 0 0 0.0625rem #ee0028;
   transition: all 200ms ease-in-out;
 }
@@ -146,9 +145,6 @@ header {
 
 .primary:focus {
   box-shadow: inset 0 0 0 0.0625rem #ee0028;
-  outline: 0;
-
-  /* outline: thin solid #ee0028; */
 }
 
 .navigation-set {
