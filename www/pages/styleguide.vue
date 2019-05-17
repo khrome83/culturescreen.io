@@ -278,6 +278,36 @@
     <base-section :layout="layout.Thin" :theme="theme.Dark"
       >Thin Layout</base-section
     >
+    <base-section>
+      <h2>Form Fields</h2>
+      <h3>Input</h3>
+      <base-input id="text-1">Text</base-input>
+      <base-input id="email-1" :type="type.Email" v-model="email"
+        >Email</base-input
+      >
+      <base-input id="hidden-1" :type="type.Hidden">Hidden</base-input>
+      <base-input id="number-1" :type="type.Number">Number</base-input>
+      <base-input id="password-1" :type="type.Password">Password</base-input>
+      <base-input id="tel-1" :type="type.Tel">Telephone</base-input>
+      <h4>Hidden Label</h4>
+      <base-input id="text-2" hidden-label>Hidden Label</base-input>
+      <h4>Internal Label</h4>
+      <base-input id="text-3" internal-label v-model="innerText"
+        >Inline Label</base-input
+      >
+      <h4>Placeholder Attribute</h4>
+      <base-input id="text-4" v-model="placeholderText" placeholder="John Doe"
+        >Placeholder</base-input
+      >
+      <h4>Placeholder Attribute w/ Internal Label</h4>
+      <base-input
+        id="text-4"
+        v-model="placeholderText"
+        placeholder="John Doe"
+        internal-label
+        >Internal Label</base-input
+      >
+    </base-section>
   </div>
 </template>
 
@@ -285,18 +315,24 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import BaseButton from "~/components/BaseButton.vue";
 import BaseSection, { Layout, Theme } from "~/components/BaseSection.vue";
+import BaseInput, { Type } from "~/components/BaseInput.vue";
 import HeartIcon from "~/assets/svg/heart.svg";
 
 @Component({
   components: {
     BaseButton,
     BaseSection,
+    BaseInput,
     HeartIcon
   }
 })
 export default class extends Vue {
   layout = Layout;
   theme = Theme;
+  type = Type;
+  innerText = "";
+  placeholderText = "";
+  email = "testing@example.com";
 
   test() {
     console.log("test");
