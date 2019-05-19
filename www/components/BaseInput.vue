@@ -132,4 +132,21 @@ export default class BaseInput extends Vue {
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #010b19;
   transition: all 200ms ease-in-out;
 }
+
+.disabled,
+.disabled:hover,
+.disabled:active,
+.disabled:focus {
+  background-color: #fafafa;
+  border-color: #eaeaea;
+  color: #cccccc;
+  fill: #cccccc;
+  cursor: not-allowed;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 0 #fafafa, inset 0 0 0 0 #eaeaea;
+}
+
+.disabled:focus {
+  box-shadow: inset 0 0 0 0.0625rem #fafafa, inset 0 0 0 0.125rem #eaeaea;
+}
 </style>
