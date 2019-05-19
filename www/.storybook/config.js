@@ -1,7 +1,9 @@
 import Vue from "vue";
+import Vuex from "vuex";
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 // global css
@@ -9,7 +11,6 @@ import "../assets/css/reset.css";
 import "../assets/css/main.css";
 
 // icons
-// import HeartIcon from "../assets/svg/heart.svg";
 import CloseIcon from "../assets/svg/close.svg";
 import MenuIcon from "../assets/svg/menu.svg";
 
@@ -18,11 +19,20 @@ import HorizontalLogo from "../assets/svg/logo-horizontal-on-light.svg";
 import VerticalLogo from "../assets/svg/logo-vertical-on-light.svg";
 
 // components
-// import BaseButton from "../components/BaseButton.vue";
-// import BaseSection from "../components/BaseSection.vue";
-import BaseInput from "../components/BaseInput.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
+
+Vue.use(Vuex);
+
+Vue.component("nuxt-link", {
+  props: ["to"],
+  methods: {
+    log() {
+      action("link target")(this.to);
+    }
+  },
+  template: '<a href="#" @click.prevent="log()"><slot>NuxtLink</slot></a>'
+});
 
 // global decorators
 addDecorator(withKnobs);
@@ -63,18 +73,12 @@ function loadStories() {
 }
 
 // register icons
-// Vue.component("heart-icon", HeartIcon);
 Vue.component("close-icon", CloseIcon);
 Vue.component("menu-icon", MenuIcon);
 
 // register logos
 Vue.component("horizontal-logo", HorizontalLogo);
 Vue.component("vertical-logo", VerticalLogo);
-
-// register components - base
-// Vue.component("base-button", BaseButton);
-// Vue.component("base-section", BaseSection);
-Vue.component("base-input", BaseInput);
 
 // register components - single use
 Vue.component("the-header", TheFooter);
