@@ -69,6 +69,8 @@ export default class BaseButton extends Vue {
       bindProps["aria-disabled"] = true;
       bindProps["disabled"] = true;
       delete onEvents["click"];
+      delete bindProps["href"];
+      delete bindProps["to"];
     }
 
     return { onEvents, bindProps };
