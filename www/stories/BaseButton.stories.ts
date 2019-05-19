@@ -15,6 +15,12 @@ stories.add(
         text: {
           default: text("Text", "Button Text")
         },
+        to: {
+          default: text("Href")
+        },
+        title: {
+          default: text("Title")
+        },
         theme: {
           default: radios(
             "Theme",
@@ -49,7 +55,9 @@ stories.add(
       danger: theme === 'danger',
       small: size === 'small',
       large: size === 'large',
-      disabled
+      disabled,
+      title,
+      to
     }">
     {{text}}
   </base-button>`
@@ -64,6 +72,12 @@ stories.add(
       props: {
         text: {
           default: text("Text", "Button Text")
+        },
+        to: {
+          default: text("Href")
+        },
+        title: {
+          default: text("Title")
         },
         theme: {
           default: radios(
@@ -99,7 +113,9 @@ stories.add(
     danger: theme === 'danger',
     small: size === 'small',
     large: size === 'large',
-    disabled
+    disabled,
+    title,
+    to
   }">
     <template v-slot:pre-icon>
       <heart-icon aria-hidden="true" />
@@ -118,6 +134,12 @@ stories.add(
         text: {
           default: text("Text", "Button Text")
         },
+        to: {
+          default: text("Href")
+        },
+        title: {
+          default: text("Title")
+        },
         theme: {
           default: radios(
             "Theme",
@@ -152,7 +174,9 @@ stories.add(
     danger: theme === 'danger',
     small: size === 'small',
     large: size === 'large',
-    disabled
+    disabled,
+    title,
+    to
   }">
     <template v-slot:post-icon>
       <heart-icon aria-hidden="true" />
