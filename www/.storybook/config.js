@@ -10,18 +10,6 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import "../assets/css/reset.css";
 import "../assets/css/main.css";
 
-// icons
-import CloseIcon from "../assets/svg/close.svg";
-import MenuIcon from "../assets/svg/menu.svg";
-
-// logos
-import HorizontalLogo from "../assets/svg/logo-horizontal-on-light.svg";
-import VerticalLogo from "../assets/svg/logo-vertical-on-light.svg";
-
-// components
-import TheFooter from "../components/TheFooter.vue";
-import TheHeader from "../components/TheHeader.vue";
-
 Vue.use(Vuex);
 
 Vue.component("nuxt-link", {
@@ -41,17 +29,17 @@ addDecorator(withA11y);
 // viewports
 const newViewports = {
   kindleFire2: {
-    name: "Kindle Fire 2",
+    name: "Laptop with HiDPI screen",
     styles: {
-      width: "600px",
-      height: "963px"
+      width: "1140px",
+      height: "900px"
     }
   },
   kindleFireHD: {
-    name: "Kindle Fire HD",
+    name: "Laptop with MDPI screen",
     styles: {
-      width: "533px",
-      height: "801px"
+      width: "1280px",
+      height: "800px"
     }
   }
 };
@@ -71,17 +59,5 @@ const req = require.context("../stories", true, /\.stories\.ts$/);
 function loadStories() {
   req.keys().forEach(filename => req(filename));
 }
-
-// register icons
-Vue.component("close-icon", CloseIcon);
-Vue.component("menu-icon", MenuIcon);
-
-// register logos
-Vue.component("horizontal-logo", HorizontalLogo);
-Vue.component("vertical-logo", VerticalLogo);
-
-// register components - single use
-Vue.component("the-header", TheFooter);
-Vue.component("the-footer", TheHeader);
 
 configure(loadStories, module);
