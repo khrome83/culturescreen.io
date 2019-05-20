@@ -21,6 +21,8 @@
     "generate": "nuxt generate",
     "now-build": "nuxt generate",
     "now-dev": "nuxt --port $PORT",
+    "dev:component": "npm-run-all -p devtools storybook",
+    "devtools": "vue-devtools",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -46,6 +48,7 @@
     "fork-ts-checker-webpack-plugin": "1.3.3",
     "husky": "1.3.1",
     "lint-staged": "8.1.5",
+    "npm-run-all": "4.1.5",
     "prettier": "1.17.0",
     "stylelint": "10.0.1",
     "stylelint-config-prettier": "5.1.0",
