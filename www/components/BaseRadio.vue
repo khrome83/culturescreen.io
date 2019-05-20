@@ -5,7 +5,7 @@
       v-on="linkProps.onEvents"
       class="input"
       :class="{ disabled }"
-    >
+    />
     <label :for="id" class="label">
       <slot></slot>
     </label>
@@ -80,13 +80,14 @@ export default class BaseRadio extends Vue {
   font-weight: 400;
   font-size: 0.875rem;
   padding: 1rem 1rem 1rem 2.5rem;
+  cursor: pointer;
 }
 
 .input:focus + .label {
   box-shadow: inset 0 0 0 0.0625rem #ee0028;
 }
 
-.input + .label:before {
+.label:before {
   content: "";
   background-color: #fff;
   border: thin solid #a0a9ba;
@@ -104,7 +105,7 @@ export default class BaseRadio extends Vue {
   box-shadow: inset 0 0 0 0 #fff;
 }
 
-.input:checked {
+.label:hover:before {
   border-color: #010b19;
 }
 
@@ -116,12 +117,13 @@ export default class BaseRadio extends Vue {
 
 .disabled + .label {
   color: #737373;
+  cursor: not-allowed;
 }
 
 .disabled + .label:before {
   transition: all 200ms ease-in-out;
   background-color: #fafafa;
-  border-color: #eaeaea;
+  border-color: #737373;
   color: #737373;
   fill: #737373;
   cursor: not-allowed;
