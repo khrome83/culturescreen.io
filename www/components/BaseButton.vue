@@ -200,8 +200,8 @@ export default class BaseButton extends Vue {
 .disabled:focus {
   background-color: #fafafa;
   border-color: #eaeaea;
-  color: #cccccc;
-  fill: #cccccc;
+  color: #737373;
+  fill: #737373;
   cursor: not-allowed;
   text-decoration: none;
   box-shadow: inset 0 0 0 0 #fafafa, inset 0 0 0 0 #eaeaea;
