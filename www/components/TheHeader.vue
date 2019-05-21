@@ -6,22 +6,54 @@
       </div>
       <div class="controls">
         <button
+          ref="menu"
           class="menu"
           @click="toggleMenu"
           aria-controls="menu"
+          aria-haspopup="true"
+          role="buton"
           :aria-expanded="String(!isClosed)"
+          @keydown.prevent.down="openMenu"
         >
           <menu-icon class="menu-icon" />
           <close-icon class="close-icon" />
         </button>
       </div>
       <hr class="break one" />
-      <nav class="navigation-set" id="menu">
-        <nuxt-link class="primary" to="/features">Features</nuxt-link>
-        <nuxt-link class="primary" to="/pricing">Pricing</nuxt-link>
-        <nuxt-link class="primary" to="/support">Support</nuxt-link>
-        <nuxt-link class="primary" to="/blog">Blog</nuxt-link>
-        <nuxt-link class="primary demo" to="/app/demo">Demo</nuxt-link>
+      <nav
+        class="navigation-set"
+        id="menu"
+        role="menu"
+        :hidden="!!isClosed"
+        @keyup.esc="closeMenu"
+        @keydown.prevent.home="setFirst"
+        @keydown.prevent.end="setLast"
+        @keydown.prevent.up="cycleUp"
+        @keydown.prevent.down="cycleDown"
+      >
+        <nuxt-link
+          class="primary"
+          to="/features"
+          role="menuitem"
+          ref="menuItem1"
+          >Features</nuxt-link
+        >
+        <nuxt-link class="primary" to="/pricing" role="menuitem" ref="menuItem2"
+          >Pricing</nuxt-link
+        >
+        <nuxt-link class="primary" to="/support" role="menuitem" ref="menuItem3"
+          >Support</nuxt-link
+        >
+        <nuxt-link class="primary" to="/blog" role="menuitem" ref="menuItem4"
+          >Blog</nuxt-link
+        >
+        <nuxt-link
+          class="primary demo"
+          to="/app/demo"
+          role="menuitem"
+          ref="menuItem5"
+          >Demo</nuxt-link
+        >
       </nav>
       <hr class="break two" />
       <base-button class="signin" to="/app/login">Sign in</base-button>
@@ -30,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue } from "nuxt-property-decorator";
 import BaseButton from "~/components/BaseButton.vue";
 import HorizontalLogo from "~/assets/svg/logo-horizontal-on-light.svg";
 import CloseIcon from "~/assets/svg/close.svg";
@@ -45,10 +77,68 @@ import MenuIcon from "~/assets/svg/menu.svg";
   }
 })
 export default class TheHeader extends Vue {
+  @Prop({ required: true, type: Number }) readonly menuItems!: number;
+
   isClosed = true;
+  selected: null | number = null;
+
+  openMenu() {
+    this.isClosed = false;
+    this.selected = 1;
+    setTimeout(() => {
+      this.setFocus(this.selected);
+    }, 200);
+  }
+
+  closeMenu() {
+    this.isClosed = true;
+    this.selected = null;
+    this.$nextTick(() => (this.$refs.menu as HTMLAnchorElement).focus());
+  }
 
   toggleMenu() {
+    this.selected = this.isClosed ? 1 : null;
     this.isClosed = !this.isClosed;
+    this.setFocus(this.selected);
+  }
+
+  setFirst() {
+    this.selected = 1;
+    this.setFocus(this.selected);
+  }
+
+  setLast() {
+    this.selected = this.menuItems;
+    this.setFocus(this.selected);
+  }
+
+  cycleUp() {
+    if (this.selected !== null && this.selected > 1) {
+      this.selected = this.selected - 1;
+    } else {
+      this.selected = this.menuItems;
+    }
+
+    this.setFocus(this.selected);
+  }
+
+  cycleDown() {
+    if (this.selected !== null && this.selected < this.menuItems) {
+      this.selected = this.selected + 1;
+    } else {
+      this.selected = 1;
+    }
+
+    this.setFocus(this.selected);
+  }
+
+  setFocus(index: number | null) {
+    if (index !== null && index > 0 && index <= this.menuItems) {
+      this.$nextTick(() =>
+        ((this.$refs[`menuItem${index}`] as Vue)
+          .$el as HTMLAnchorElement).focus()
+      );
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <the-header />
+    <the-header :menu-items="5" />
     <nuxt />
     <the-footer />
     <the-over-panel />
@@ -24,5 +24,9 @@ export default class extends Vue {}
 </script>
 
 <style scoped>
-.container { margin: 0; padding: 0; box-sizing: border-box; }
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>
