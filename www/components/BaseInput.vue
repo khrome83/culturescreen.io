@@ -29,7 +29,7 @@ export enum Type {
 })
 export default class BaseInput extends Vue {
   @Prop({ required: true }) id!: string;
-  @Prop({ required: true }) value!: string;
+  @Prop() value!: string;
   @Prop({ default: Type.Text }) private type!: Type;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
