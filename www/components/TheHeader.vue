@@ -30,6 +30,7 @@
         @keydown.prevent.end="setLast"
         @keydown.prevent.up="cycleUp"
         @keydown.prevent.down="cycleDown"
+        aria-label="Menu"
       >
         <nuxt-link
           class="primary"
