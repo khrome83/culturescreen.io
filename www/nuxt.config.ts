@@ -4,6 +4,9 @@ const config: NuxtConfiguration = {
   // Type or Press `Ctrl + Space` for autocompletion
   env: {},
   head: {
+    htmlAttrs: {
+      lang: "en"
+    },
     title: "culturescreen.io.www",
     meta: [
       { charset: "utf-8" },
