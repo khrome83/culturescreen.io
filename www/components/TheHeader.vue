@@ -2,7 +2,7 @@
   <header>
     <div class="container" v-bind:class="{ closed: isClosed }">
       <div class="logo">
-        <horizontal-logo />
+        <horizontal-logo/>
       </div>
       <div class="controls">
         <button
@@ -11,15 +11,16 @@
           @click="toggleMenu"
           aria-controls="menu"
           aria-haspopup="true"
+          aria-label="Menu"
           role="button"
           :aria-expanded="String(!isClosed)"
           @keydown.prevent.down="openMenu"
         >
-          <menu-icon class="menu-icon" />
-          <close-icon class="close-icon" />
+          <menu-icon class="menu-icon"/>
+          <close-icon class="close-icon"/>
         </button>
       </div>
-      <hr class="break one" />
+      <hr class="break one">
       <nav
         class="navigation-set"
         id="menu"
@@ -30,33 +31,14 @@
         @keydown.prevent.end="setLast"
         @keydown.prevent.up="cycleUp"
         @keydown.prevent.down="cycleDown"
-        aria-label="Menu"
       >
-        <nuxt-link
-          class="primary"
-          to="/features"
-          role="menuitem"
-          ref="menuItem1"
-          >Features</nuxt-link
-        >
-        <nuxt-link class="primary" to="/pricing" role="menuitem" ref="menuItem2"
-          >Pricing</nuxt-link
-        >
-        <nuxt-link class="primary" to="/support" role="menuitem" ref="menuItem3"
-          >Support</nuxt-link
-        >
-        <nuxt-link class="primary" to="/blog" role="menuitem" ref="menuItem4"
-          >Blog</nuxt-link
-        >
-        <nuxt-link
-          class="primary demo"
-          to="/app/demo"
-          role="menuitem"
-          ref="menuItem5"
-          >Demo</nuxt-link
-        >
+        <nuxt-link class="primary" to="/features" role="menuitem" ref="menuItem1">Features</nuxt-link>
+        <nuxt-link class="primary" to="/pricing" role="menuitem" ref="menuItem2">Pricing</nuxt-link>
+        <nuxt-link class="primary" to="/support" role="menuitem" ref="menuItem3">Support</nuxt-link>
+        <nuxt-link class="primary" to="/blog" role="menuitem" ref="menuItem4">Blog</nuxt-link>
+        <nuxt-link class="primary demo" to="/app/demo" role="menuitem" ref="menuItem5">Demo</nuxt-link>
       </nav>
-      <hr class="break two" />
+      <hr class="break two">
       <base-button class="signin" to="/app/login">Sign in</base-button>
     </div>
   </header>
