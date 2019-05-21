@@ -11,7 +11,7 @@
           @click="toggleMenu"
           aria-controls="menu"
           aria-haspopup="true"
-          role="buton"
+          role="button"
           :aria-expanded="String(!isClosed)"
           @keydown.prevent.down="openMenu"
         >
