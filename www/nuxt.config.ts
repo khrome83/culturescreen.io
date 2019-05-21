@@ -63,7 +63,7 @@ const config: NuxtConfiguration = {
       });
     }
   },
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
   axios: {}
 };
 

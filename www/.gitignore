@@ -12,3 +12,5 @@ dist
 
 # Enviroment Variables
 .env
+
+sw.*
