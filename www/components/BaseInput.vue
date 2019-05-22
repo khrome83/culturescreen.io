@@ -60,7 +60,7 @@ export default class BaseInput extends Vue {
 
     Object.keys(replacements).forEach(key => {
       const { href, label } = replacements[key];
-      const useLabel = label.length > 0 ? label : href;
+      const useLabel = label !== undefined ? label : href;
 
       helpText = helpText.replace(
         `${key}`,
