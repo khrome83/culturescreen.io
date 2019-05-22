@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-navigation">
         <div class="logo">
-          <vertical-logo />
+          <vertical-logo/>
         </div>
         <div class="navigation-set">
           <nav class="footer">
@@ -13,9 +13,7 @@
             <nuxt-link class="footer-nav" to="/blog">Blog</nuxt-link>
           </nav>
           <div class="lang">
-            <base-button to="/languages" tertiary small
-              >Language: English</base-button
-            >
+            <base-button to="/languages" tertiary small>Language: English</base-button>
           </div>
         </div>
       </div>
@@ -24,9 +22,7 @@
         <div class="copyright">Copyright © 2018 Culture Screen, LLC</div>
         <nav class="utility">
           <nuxt-link class="utility-nav" to="/styleguide">Styleguide</nuxt-link>
-          <nuxt-link class="utility-nav" to="/privacy"
-            >Privacy Policy</nuxt-link
-          >
+          <nuxt-link class="utility-nav" to="/privacy">Privacy Policy</nuxt-link>
           <nuxt-link class="utility-nav" to="/sitemap">Sitemap</nuxt-link>
         </nav>
       </div>
@@ -50,8 +46,6 @@ export default class TheFooter extends Vue {}
 
 <style scoped>
 footer {
-
-  /* font-family: 'Raleway', sans-serif; */
   font-family: "Montserrat", sans-serif;
 }
 
@@ -63,7 +57,6 @@ footer {
 
 .footer-navigation {
   text-align: center;
-  font-weight: 700;
 }
 
 .navigation-set {
