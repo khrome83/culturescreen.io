@@ -27,6 +27,11 @@ const config: NuxtConfiguration = {
     ]
   },
   loading: { color: "#ee0028" },
+  manifest: {
+    name: 'Culture Screen - Simplify Building Teams',
+    short_name: "Culture Screen",
+    lang: 'en'
+  },
   mode: "spa",
   css: ["~/assets/css/reset.css", "~/assets/css/main.css"],
   render: {
