@@ -38,6 +38,12 @@ module.exports = async ({ config, mode }) => {
     enforce: "pre"
   });
 
+  config.module.rules.push({
+    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+    loaders: ["file-loader"],
+    include: path.resolve(__dirname, "../")
+  });
+
   config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
   const svgRule = config.module.rules.find(rule => rule.test.test(".svg"));
