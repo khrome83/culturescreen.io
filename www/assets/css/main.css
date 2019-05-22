@@ -51,13 +51,17 @@ body {
 
 a {
   color: #ee0028;
-  text-decoration: underline;
+  text-decoration: none;
+  display: inline-block;
+  text-indent: 0;
+  padding: 0.15rem;
+  margin: -0.15rem;
 }
 
 a:hover,
 a:active,
 a:focus {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:focus {
