@@ -8,7 +8,8 @@
       v-on="linkProps.onEvents"
       class="input"
       :class="{ disabled }"
-    />
+    >
+    <component v-if="helpText" :is="parsedHelpText"></component>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export enum Type {
 export default class BaseInput extends Vue {
   @Prop({ required: true }) id!: string;
   @Prop() value!: string;
+  @Prop() helpText!: string;
   @Prop({ default: Type.Text }) private type!: Type;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
@@ -38,6 +40,39 @@ export default class BaseInput extends Vue {
   @Emit("input")
   onInputChange(e) {
     return e.target.value;
+  }
+
+  get helpTextId() {
+    return `${this.id}-help`;
+  }
+
+  get parsedHelpText() {
+    const linkedTextRegExp = /\[\[(.*?)\]\]/g;
+    let helpText = this.helpText;
+    let matches = linkedTextRegExp.exec(helpText);
+    const replacements = {};
+
+    while (matches != null) {
+      const [href, label] = matches[1].split("|");
+      replacements[matches[0]] = { href, label };
+      matches = linkedTextRegExp.exec(helpText);
+    }
+
+    Object.keys(replacements).forEach(key => {
+      const { href, label } = replacements[key];
+      const useLabel = label.length > 0 ? label : href;
+
+      helpText = helpText.replace(
+        `${key}`,
+        `<a href="${href}" rel="noopener" target="blank">${useLabel}</a>`
+      );
+    });
+
+    return {
+      template: `<div id="${this.id}-help}" class="help-text">${helpText}</div>`
+    };
+
+    return "";
   }
 
   get linkProps() {
@@ -69,6 +104,10 @@ export default class BaseInput extends Vue {
       delete this.$attrs["placeholder"];
     }
 
+    if (this.helpText) {
+      bindProps["aria-describedby"] = this.helpTextId;
+    }
+
     return { onEvents, bindProps };
   }
 
@@ -88,10 +127,10 @@ export default class BaseInput extends Vue {
 }
 
 .label {
-  display: inline-block;
+  display: block;
   padding-top: 2rem;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .internal {
@@ -126,11 +165,22 @@ export default class BaseInput extends Vue {
   width: auto;
   margin-top: 0.5rem;
   color: #5c6169;
+  line-height: 1;
 }
 
 .input:focus {
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #010b19;
   transition: all 200ms ease-in-out;
+}
+
+.help-text {
+  font-family: "Raleway", sans-serif;
+  display: block;
+  padding-top: 0.4rem;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: #5c6169;
+  text-indent: 0.25rem;
 }
 
 .disabled,

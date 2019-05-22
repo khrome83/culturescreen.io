@@ -17,6 +17,9 @@ stories.add(
         disabled: {
           default: boolean("Disabled", false)
         },
+        helpText: {
+          default: text("Help Text", "")
+        },
         type: {
           default: select(
             "Input Type",
@@ -58,7 +61,8 @@ stories.add(
         type,
         hiddenLabel: labelType === 'hidden',
         internalLabel: labelType === 'internal',
-        placeholder
+        placeholder,
+        helpText
     }">
       {{label}}
     </base-input>
