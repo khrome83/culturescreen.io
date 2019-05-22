@@ -5,7 +5,7 @@
       v-on="linkProps.onEvents"
       class="input"
       :class="{ disabled }"
-    />
+    >
     <label :for="id" class="label">
       <slot></slot>
     </label>
@@ -78,7 +78,7 @@ export default class BaseRadio extends Vue {
   display: block;
   padding-top: 2rem;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 1rem 1rem 1rem 2.5rem;
   cursor: pointer;
   line-height: 1.4;
@@ -139,7 +139,7 @@ export default class BaseRadio extends Vue {
 .disabled:checked + .label:before {
   background-color: rgba(238, 0, 40, 0.5);
   box-shadow: inset 0 0 0 0.125rem #fff,
-  inset 0 0 0 0.1875rem rgba(238, 0, 40, 0.5);
+    inset 0 0 0 0.1875rem rgba(238, 0, 40, 0.5);
 }
 
 @media screen and (-ms-high-contrast: active) {
