@@ -5,8 +5,8 @@
   font-weight: 300;
   font-display: "swap";
   src: local("Raleway Light"), local("Raleway-Light"),
-  url("//fonts/raleway-v13-latin-300.woff2") format("woff2"),
-  url("//fonts/raleway-v13-latin-300.woff") format("woff");
+  url("./fonts/raleway-v13-latin-300.woff2") format("woff2"),
+  url("./fonts/raleway-v13-latin-300.woff") format("woff");
 }
 
 /* raleway-regular - latin */
@@ -16,8 +16,8 @@
   font-weight: 400;
   font-display: "swap";
   src: local("Raleway"), local("Raleway-Regular"),
-  url("//fonts/raleway-v13-latin-regular.woff2") format("woff2"),
-  url("//fonts/raleway-v13-latin-regular.woff") format("woff");
+  url("./fonts/raleway-v13-latin-regular.woff2") format("woff2"),
+  url("./fonts/raleway-v13-latin-regular.woff") format("woff");
 }
 
 /* montserrat-regular - latin */
@@ -27,8 +27,8 @@
   font-weight: 400;
   font-display: "swap";
   src: local("Montserrat Regular"), local("Montserrat-Regular"),
-  url("//fonts/montserrat-v13-latin-regular.woff2") format("woff2"),
-  url("//fonts/montserrat-v13-latin  ar.woff") format("woff");
+  url("./fonts/montserrat-v13-latin-regular.woff2") format("woff2"),
+  url("./fonts/montserrat-v13-latin-regular.woff") format("woff");
 }
 
 /**
