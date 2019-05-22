@@ -174,13 +174,15 @@ export default class BaseInput extends Vue {
 }
 
 .help-text {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
   font-family: "Raleway", sans-serif;
   display: block;
-  padding-top: 0.4rem;
   font-weight: 300;
   font-size: 0.875rem;
   color: #5c6169;
-  text-indent: 0.25rem;
+  line-height: 1.4;
 }
 
 .disabled,
