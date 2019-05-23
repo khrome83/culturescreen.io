@@ -7,7 +7,7 @@ const config: NuxtConfiguration = {
         htmlAttrs: {
             lang: "en"
         },
-        title: "culturescreen.io.www",
+        title: "Culture Screen - Simplify Building Teams",
         meta: [
             { charset: "utf-8" },
             { name: "viewport", content: "width=device-width, initial-scale=1" },

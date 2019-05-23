@@ -20,23 +20,7 @@ import TheOverPanel from "~/components/TheOverPanel.vue";
     TheOverPanel
   }
 })
-export default class extends Vue {
-  jsonld() {
-    return {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      url: "https://www.culturescreen.io",
-      logo: "https://www.culturescreen.io/logo.png",
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          telephone: "+1-401-555-1212",
-          contactType: "customer service"
-        }
-      ]
-    };
-  }
-}
+export default class extends Vue {}
 </script>
 
 <style scoped>
