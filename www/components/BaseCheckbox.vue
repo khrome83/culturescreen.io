@@ -96,7 +96,7 @@ export default class BaseCheckbox extends Vue {
   padding-top: 2rem;
   font-weight: 400;
   font-size: 1rem;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding: 1rem 1rem 1rem 2.75rem;
   cursor: pointer;
   line-height: 1.4;
 }
@@ -111,9 +111,9 @@ export default class BaseCheckbox extends Vue {
   border: thin solid #a0a9ba;
   display: block;
   position: absolute;
-  width: 0.95rem;
-  height: 0.95rem;
-  margin: 1rem 0.5rem 1rem 1rem;
+  width: 1rem;
+  height: 1rem;
+  margin: 1.15rem 0.5rem 1rem 1rem;
   left: 0;
   top: 0;
   bottom: 0;
