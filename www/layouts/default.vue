@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <the-header :menu-items="5" />
-    <nuxt />
-    <the-footer />
-    <the-over-panel />
+    <the-header :menu-items="5"/>
+    <nuxt/>
+    <the-footer/>
+    <the-over-panel/>
   </div>
 </template>
 
@@ -20,7 +20,23 @@ import TheOverPanel from "~/components/TheOverPanel.vue";
     TheOverPanel
   }
 })
-export default class extends Vue {}
+export default class extends Vue {
+  jsonld() {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      url: "https://www.culturescreen.io",
+      logo: "https://www.culturescreen.io/logo.png",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+1-401-555-1212",
+          contactType: "customer service"
+        }
+      ]
+    };
+  }
+}
 </script>
 
 <style scoped>
@@ -30,3 +46,13 @@ export default class extends Vue {}
   box-sizing: border-box;
 }
 </style>
+
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "http://www.your-company-site.com",
+  "logo": "http://www.example.com/logo.png",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+1-401-555-1212",
+    "contactType": "customer service"
+  }]
