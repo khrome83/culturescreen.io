@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import "@storybook/addon-console";
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
@@ -52,6 +53,14 @@ addParameters({
       ...newViewports
     }
   }
+});
+
+addParameters({
+  backgrounds: [
+    { name: "Light", value: "#ffffff", default: true },
+    { name: "Grey", value: "#e1e4ea" },
+    { name: "Dark", value: "#010b19" }
+  ]
 });
 
 // automatically import all files ending in *.stories.js
