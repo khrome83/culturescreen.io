@@ -64,7 +64,6 @@ const config: NuxtConfiguration = {
         }
     },
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
-    plugins: ["~/plugins/jsonld"],
     axios: {}
 };
 
