@@ -65,7 +65,10 @@ stories.add(
             },
             "normal"
           )
-        }
+        },
+        hide: {
+          default: boolean("Hide", false)
+        },
       },
       template: `
         <base-avatar v-bind="{
@@ -73,7 +76,8 @@ stories.add(
           large: size === 'large',
           displayName,
           username,
-          src
+          src,
+          hide
         }" />
       `
     } as object)

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="profilePath" class="avatar" :class="[theme, { small, large }]">
+  <nuxt-link :to="profilePath" class="avatar" :class="[theme, { small, large, hide }]">
     <img v-if="src" :src="src" :alt="labelName">
     <span v-else class="letters">{{letters}}</span>
   </nuxt-link>
@@ -8,13 +8,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
-@Component({
-  inheritAttrs: false
-})
+@Component({})
 export default class BaseAvatar extends Vue {
   @Prop({ required: true }) username!: string;
   @Prop() displayName!: string;
   @Prop() src!: string;
+  @Prop(Boolean) private hide!: boolean;
   @Prop(Boolean) private small!: boolean;
   @Prop(Boolean) private large!: boolean;
 
@@ -80,10 +79,12 @@ export default class BaseAvatar extends Vue {
 .avatar:focus {
   transform: scale(1.2);
   box-shadow: none;
+  z-index: 2;
 }
 
-.avatar .img {
+.avatar > img {
   display: block;
+  width: 6.5rem;
 }
 
 .letters {
@@ -97,6 +98,16 @@ export default class BaseAvatar extends Vue {
   text-align: center;
 }
 
+.hide {
+  position: absolute;
+  top: auto;
+  overflow: hidden;
+  clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+  width: 0.0625rem;
+  height: 0.0625rem;
+  white-space: nowrap;
+}
+
 .small {
   height: 3rem;
   width: 3rem;
@@ -107,6 +118,10 @@ export default class BaseAvatar extends Vue {
   line-height: 1.7;
 }
 
+.avatar.small > img {
+  width: 3.35rem;
+}
+
 .large {
   height: 10rem;
   width: 10rem;
@@ -115,6 +130,10 @@ export default class BaseAvatar extends Vue {
 .large .letters {
   font-size: 6.5rem;
   line-height: 1.6;
+}
+
+.avatar.large > img {
+  width: 10.5rem;
 }
 
 .avatar.large:hover,
