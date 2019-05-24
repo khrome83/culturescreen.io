@@ -141,6 +141,7 @@ export default class BaseInput extends Vue {
   top: 0;
   left: 0;
   color: #6d767e;
+  line-height: 1.5;
 }
 
 .fieldset:focus-within .internal,
