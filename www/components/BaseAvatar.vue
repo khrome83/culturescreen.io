@@ -62,8 +62,8 @@ export default class BaseAvatar extends Vue {
   border-radius: 100%;
   display: flex;
   overflow: hidden;
-  height: 6rem;
-  width: 6rem;
+  height: 3rem;
+  width: 3rem;
   background-color: #fff;
   align-items: center;
   justify-content: center;
@@ -77,24 +77,24 @@ export default class BaseAvatar extends Vue {
 .avatar:hover,
 .avatar:active,
 .avatar:focus {
-  transform: scale(1.2);
+  transform: scale(1.3);
   box-shadow: none;
   z-index: 2;
 }
 
 .avatar > img {
   display: block;
-  width: 6.5rem;
+  width: 3.35rem;
 }
 
 .letters {
   display: inline-block;
-  font-size: 3.75rem;
+  font-size: 1.9rem;
+  line-height: 1.7;
   text-transform: uppercase;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   height: 100%;
-  line-height: 1.6;
   text-align: center;
 }
 
@@ -109,37 +109,43 @@ export default class BaseAvatar extends Vue {
 }
 
 .small {
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .small .letters {
-  font-size: 1.9rem;
-  line-height: 1.7;
+  font-size: 1.35rem;
+  line-height: 1.6;
 }
 
 .avatar.small > img {
-  width: 3.35rem;
+  width: 2.35rem;
+}
+
+.avatar.small:hover,
+.avatar.small:active,
+.avatar.small:focus {
+  transform: scale(1.4);
 }
 
 .large {
-  height: 10rem;
-  width: 10rem;
+  height: 6rem;
+  width: 6rem;
 }
 
 .large .letters {
-  font-size: 6.5rem;
+  font-size: 3.75rem;
   line-height: 1.6;
 }
 
 .avatar.large > img {
-  width: 10.5rem;
+  width: 6.5rem;
 }
 
 .avatar.large:hover,
 .avatar.large:active,
 .avatar.large:focus {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .theme-a {

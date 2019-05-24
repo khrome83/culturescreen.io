@@ -49,31 +49,31 @@ export default class BaseAvatarSet extends Vue {
 }
 
 .avatar-set .avatar {
-  margin-left: -2rem;
-}
-
-.avatar-set.small .avatar {
   margin-left: -1rem;
 }
 
-.avatar-set.large .avatar {
-  margin-left: -3rem;
-}
-
 .overage {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  margin-left: 1rem;
   display: inline-block;
-  margin-left: 2rem;
   font-weight: 400;
 }
 
 .small .overage {
-  font-size: 1.2rem;
-  margin-left: 1rem;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.avatar-set.small .avatar {
+  margin-left: -0.5rem;
 }
 
 .large .overage {
-  font-size: 3rem;
-  margin-left: 2.5rem;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.avatar-set.large .avatar {
+  margin-left: -2rem;
 }
 </style>
