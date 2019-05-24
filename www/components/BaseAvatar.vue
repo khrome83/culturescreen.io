@@ -1,5 +1,10 @@
 <template>
-  <nuxt-link :to="profilePath" class="avatar" :class="[theme, { small, large, hide }]">
+  <nuxt-link
+    :to="profilePath"
+    class="avatar"
+    :title="labelName"
+    :class="[theme, { small, large, hide }]"
+  >
     <img v-if="src" :src="src" :alt="labelName">
     <span v-else class="letters">{{letters}}</span>
   </nuxt-link>
