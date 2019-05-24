@@ -2,6 +2,21 @@ const path = require("path");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = async ({ config, mode }) => {
+  const svgRule = config.module.rules.find(rule => rule.test.test(".svg"));
+
+  svgRule.test = /\.(png|jpe?g|gif|webp)$/;
+
+  config.module.rules.push({
+    test: /\.(png|woff|woff2|eot|ttf)$/,
+    loaders: ["file-loader"],
+    include: path.resolve(__dirname, "../")
+  });
+
+  config.module.rules.push({
+    test: /\.svg$/,
+    loader: "vue-svg-loader"
+  });
+
   config.resolve.extensions.push(
     ".ts",
     ".tsx",
@@ -27,6 +42,8 @@ module.exports = async ({ config, mode }) => {
     ]
   });
 
+  config.plugins.push(new ForkTsCheckerWebpackPlugin());
+
   config.module.rules.push({
     test: /\.stories\.ts?$/,
     loaders: [
@@ -36,23 +53,6 @@ module.exports = async ({ config, mode }) => {
       }
     ],
     enforce: "pre"
-  });
-
-  config.module.rules.push({
-    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-    loaders: ["file-loader"],
-    include: path.resolve(__dirname, "../")
-  });
-
-  config.plugins.push(new ForkTsCheckerWebpackPlugin());
-
-  const svgRule = config.module.rules.find(rule => rule.test.test(".svg"));
-
-  svgRule.test = /\.(png|jpe?g|gif|webp)$/;
-
-  config.module.rules.push({
-    test: /\.svg$/,
-    loader: "vue-svg-loader"
   });
 
   config.resolve.alias = {
