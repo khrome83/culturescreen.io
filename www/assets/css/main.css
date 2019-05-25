@@ -245,8 +245,40 @@ code {
 }
 
 /**
-  * Background Modifiers
+  * Background Modifiers (global)
+  * Note - Components should modify themselves
   */
+
+/* Grey Modifications */
+
+.__bg-grey a {
+  color: #da0629;
+}
+
+.__bg-grey blockquote {
+  background-color: #f3f3f3;
+  color: #6b6a6a;
+  border-color: #cccbcb;
+  border-left-color: #da0629;
+}
+
+.__bg-grey thead th {
+  border-color: #cccbcb;
+  background-color: #f3f3f3;
+  color: #6b6a6a;
+  fill: #6b6a6a;
+}
+
+.__bg-grey tbody td {
+  border-bottom: 1px solid #cccbcb;
+}
+
+.__bg.grey code {
+  border-color: #cccbcb;
+  background-color: #f3f3f3;
+  color: #6b6a6a;
+  fill: #6b6a6a;
+}
 
 /* Dark Modifications */
 
@@ -282,35 +314,4 @@ code {
   background-color: #111119;
   color: #9999a4;
   fill: #9999a4;
-}
-
-/* Grey Modifications */
-
-.__bg-grey a {
-  color: #da0629;
-}
-
-.__bg-grey blockquote {
-  background-color: #f3f3f3;
-  color: #6b6a6a;
-  border-color: #cccbcb;
-  border-left-color: #da0629;
-}
-
-.__bg-grey thead th {
-  border-color: #cccbcb;
-  background-color: #f3f3f3;
-  color: #6b6a6a;
-  fill: #6b6a6a;
-}
-
-.__bg-grey tbody td {
-  border-bottom: 1px solid #cccbcb;
-}
-
-.__bg.grey code {
-  border-color: #cccbcb;
-  background-color: #f3f3f3;
-  color: #6b6a6a;
-  fill: #6b6a6a;
 }
