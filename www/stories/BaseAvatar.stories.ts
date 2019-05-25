@@ -3,7 +3,7 @@ import { radios, text, boolean } from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
 import BaseAvatar from "../components/BaseAvatar.vue";
 
-const stories = storiesOf("Base Avatar", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Avatar", module).addDecorator(centered);
 
 /* GRAVATAR IMAGES TO USE */
 // https://s.gravatar.com/avatar/bd4ab01cca64e633e003aefe3e1232ab?s=200&d=retro&r=pg

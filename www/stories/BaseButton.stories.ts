@@ -4,7 +4,7 @@ import centered from "@storybook/addon-centered/vue";
 import BaseButton from "../components/BaseButton.vue";
 import HeartIcon from "../assets/svg/heart.svg";
 
-const stories = storiesOf("Base Button", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Button", module).addDecorator(centered);
 
 stories.add(
   "Default",

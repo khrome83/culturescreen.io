@@ -3,7 +3,7 @@ import { radios, text, boolean } from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
 import BaseBadge from "../components/BaseBadge.vue";
 import addonAPI from "@storybook/addons";
-const stories = storiesOf("Base Badge", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Badge", module).addDecorator(centered);
 
 
 addonAPI.getChannel().on("storybook/background/update", bg => {
