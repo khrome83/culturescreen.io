@@ -367,6 +367,21 @@ colors.add("Color Pallet", () => ({
           <div class="text" :style="label">#ffffff</div>
         </div>
       </div>
+      <div :style="heading">Backgrounds</div>
+      <div :style="set">
+        <div :style="[item, light]" class="item __bg-light">
+          <div :style="[pallet, { backgroundColor: '#ffffff'}]"></div>
+          <div class="text" :style="label">#ffffff</div>
+        </div>
+        <div :style="[item, grey]" class="item __bg-grey">
+          <div :style="[pallet, { backgroundColor: '#fdfcfb'}]"></div>
+          <div class="text" :style="label">#fdfcfb</div>
+        </div>
+        <div :style="[item, dark]" class="item __bg-dark">
+          <div :style="[pallet, { backgroundColor: '#010b19'}]"></div>
+          <div class="text" :style="label">#010b19</div>
+        </div>
+      </div>
       <div :style="heading">Grey - Border</div>
       <div :style="set">
         <div :style="[item, light]" class="item __bg-light">
@@ -449,12 +464,12 @@ colors.add("Color Pallet", () => ({
           <div class="text" :style="label">#ff3867</div>
         </div>
         <div :style="[item, grey]" class="item __bg-grey">
-          <div :style="[pallet, { backgroundColor: '#ff3867'}]"></div>
-          <div class="text" :style="label">#ff3867</div>
+          <div :style="[pallet, { backgroundColor: '#d30260'}]"></div>
+          <div class="text" :style="label">#d30260</div>
         </div>
         <div :style="[item, dark]" class="item __bg-dark">
-          <div :style="[pallet, { backgroundColor: '#ff3867'}]"></div>
-          <div class="text" :style="label">#ff3867</div>
+          <div :style="[pallet, { backgroundColor: '#f30b73'}]"></div>
+          <div class="text" :style="label">#f30b73</div>
         </div>
       </div>
       <div :style="heading">Tonal Pallet - Red</div>
