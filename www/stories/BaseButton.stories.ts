@@ -1,10 +1,10 @@
 import { storiesOf, addDecorator } from "@storybook/vue";
 import { radios, text, boolean } from "@storybook/addon-knobs";
-import centered from "@storybook/addon-centered/vue";
+import sectionStates from "./decorators/sectionStates";
 import BaseButton from "../components/BaseButton.vue";
 import HeartIcon from "../assets/svg/heart.svg";
 
-const stories = storiesOf("Components/Base Button", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Button", module).addDecorator(sectionStates);
 
 stories.add(
   "Default",
