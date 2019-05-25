@@ -1,9 +1,9 @@
 import { storiesOf, addDecorator } from "@storybook/vue";
 import { select, radios, text, boolean } from "@storybook/addon-knobs";
-import centered from "@storybook/addon-centered/vue";
+import sectionStates from "./decorators/sectionStates";
 import BaseInput from "../components/BaseInput.vue";
 
-const stories = storiesOf("Components/Base Input", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Input", module).addDecorator(sectionStates);
 
 stories.add(
   "Default",
@@ -54,7 +54,6 @@ stories.add(
       }),
       template: `
     <base-input
-      id="text-1"
       v-model="textValue"
       v-bind="{
         disabled,
