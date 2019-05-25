@@ -55,14 +55,6 @@ addParameters({
   }
 });
 
-addParameters({
-  backgrounds: [
-    { name: "Light", value: "#ffffff", default: true },
-    { name: "Grey", value: "#e1e4ea" },
-    { name: "Dark", value: "#010b19" }
-  ]
-});
-
 // automatically import all files ending in *.stories.js
 const req = require.context("../stories", true, /\.stories\.ts$/);
 function loadStories() {
