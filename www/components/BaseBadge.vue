@@ -34,8 +34,36 @@ export default class BaseBadge extends Vue {
   text-transform: uppercase;
 }
 
+/* Grey Modifications - Badge */
+.__bg-grey .badge {
+  background-color: #da0629;
+  color: #fdfcfb;
+  fill: #fdfcfb;
+}
+
+/* Dark Modifications - Badge */
+.__bg-dark .badge {
+  background-color: #f32144;
+  color: #010b19;
+  fill: #010b19;
+}
+
 .secondary {
   background-color: #010b19;
+}
+
+/* Grey Modifications - Secondary */
+.__bg-grey .secondary {
+  background-color: #010b19;
+  color: #fdfcfb;
+  fill: #fdfcfb;
+}
+
+/* Dark Modifications - Secondary */
+.__bg-dark .secondary {
+  background-color: #ffffff;
+  color: #010b19;
+  fill: #010b19;
 }
 
 .small {

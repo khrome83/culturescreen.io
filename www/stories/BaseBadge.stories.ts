@@ -1,9 +1,9 @@
 import { storiesOf, addDecorator } from "@storybook/vue";
 import { radios, text, boolean } from "@storybook/addon-knobs";
-import centered from "@storybook/addon-centered/vue";
+import sectionStates from "./decorators/sectionStates";
 import BaseBadge from "../components/BaseBadge.vue";
 import addonAPI from "@storybook/addons";
-const stories = storiesOf("Components/Base Badge", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Badge", module).addDecorator(sectionStates);
 
 
 addonAPI.getChannel().on("storybook/background/update", bg => {
