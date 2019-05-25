@@ -46,6 +46,7 @@ export default class BaseAvatarSet extends Vue {
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
+  padding-left: 1rem;
 }
 
 .avatar-set .avatar {
@@ -64,6 +65,10 @@ export default class BaseAvatarSet extends Vue {
   margin-left: 0.5rem;
 }
 
+.avatar-set.small {
+  padding-left: 0.5rem;
+}
+
 .avatar-set.small .avatar {
   margin-left: -0.5rem;
 }
@@ -71,6 +76,10 @@ export default class BaseAvatarSet extends Vue {
 .large .overage {
   font-size: 2rem;
   margin-left: 2rem;
+}
+
+.avatar-set.large {
+  padding-left: 2rem;
 }
 
 .avatar-set.large .avatar {
