@@ -6,7 +6,7 @@
       class="input"
       :class="{ disabled }"
     >
-    <label :for="id" class="label">
+    <label :for="getId" class="label">
       <slot></slot>
     </label>
   </div>
@@ -14,12 +14,13 @@
 
 <script lang="ts">
 import { Component, Emit, Prop, Model, Vue } from "nuxt-property-decorator";
+import nanoid from "nanoid";
 
 @Component({
   inheritAttrs: false
 })
 export default class BaseRadio extends Vue {
-  @Prop({ required: true }) id!: string;
+  @Prop() id!: string;
   @Prop({ required: true }) group!: string;
   @Prop({ required: true }) value!: string;
   @Prop(Boolean) private disabled!: boolean;
@@ -30,13 +31,17 @@ export default class BaseRadio extends Vue {
     return this.value;
   }
 
+  get getId() {
+    return this.id ? this.id : `input-${nanoid()}`;
+  }
+
   get linkProps() {
     const onEvents = {
       input: this.onInputChange
     };
     const bindProps = {
       type: "radio",
-      id: this.id,
+      id: this.getId,
       name: this.group,
       checked: this.shouldBeChecked,
       value: this.value
@@ -88,6 +93,16 @@ export default class BaseRadio extends Vue {
   box-shadow: inset 0 0 0 0.0625rem #ee0028;
 }
 
+/* Grey Modifications - .label */
+.__bg-grey .input:focus + .label {
+  box-shadow: inset 0 0 0 0.0625rem #da0629;
+}
+
+/* Dark Modifications - .label */
+.__bg-dark .input:focus + .label {
+  box-shadow: inset 0 0 0 0.0625rem #f32144;
+}
+
 .label:before {
   content: "";
   background-color: #fff;
@@ -106,14 +121,50 @@ export default class BaseRadio extends Vue {
   box-shadow: inset 0 0 0 0 #fff;
 }
 
+/* Grey Modifications - .label:before */
+.__bg-grey .label:before {
+  background-color: #fdfcfb;
+  border: thin solid #a0a9ba;
+  box-shadow: inset 0 0 0 0 #fdfcfb;
+}
+
+/* Dark Modifications - .label:before */
+.__bg-dark .label:before {
+  background-color: #010b19;
+  border: thin solid #a0a9ba;
+  box-shadow: inset 0 0 0 0 #010b19;
+}
+
 .label:hover:before {
   border-color: #010b19;
+}
+
+/* Grey Modifications - .label:hover:before */
+.__bg-grey .label:hover:before {
+  border-color: #010b19;
+}
+
+/* Dark Modifications - .label:hover:before */
+.__bg-dark .label:hover:before {
+  border-color: #ffffff;
 }
 
 .input:checked + .label:before {
   background-color: #ee0028;
   box-shadow: inset 0 0 0 0.125rem #fff;
   transition: all 200ms ease-in-out;
+}
+
+/* Grey Modifications - .input:checked + .label:before */
+.__bg-grey .input:checked + .label:before {
+  background-color: #da0629;
+  box-shadow: inset 0 0 0 0.125rem #fdfcfb;
+}
+
+/* Dark Modifications - .input:checked + .label:before */
+.__bg-dark .input:checked + .label:before {
+  background-color: #f32144;
+  box-shadow: inset 0 0 0 0.125rem #010b19;
 }
 
 .disabled + .label {
