@@ -6,7 +6,7 @@
       class="input"
       :class="{ disabled }"
     >
-    <label :for="id" class="label">
+    <label :for="getId" class="label">
       <slot></slot>
     </label>
   </div>
@@ -14,12 +14,13 @@
 
 <script lang="ts">
 import { Component, Emit, Prop, Model, Vue } from "nuxt-property-decorator";
+import nanoid from "nanoid";
 
 @Component({
   inheritAttrs: false
 })
 export default class BaseCheckbox extends Vue {
-  @Prop({ required: true }) id!: string;
+  @Prop() id!: string;
   @Prop() value!: string;
   @Prop(Boolean) private disabled!: boolean;
   @Model("change", { type: [Array, Boolean] }) readonly modelValue!:
@@ -45,14 +46,18 @@ export default class BaseCheckbox extends Vue {
     return output;
   }
 
+  get getId() {
+    return this.id ? this.id : `input-${nanoid()}`;
+  }
+
   get linkProps() {
     const onEvents = {
       input: this.onInputChange
     };
     const bindProps = {
       type: "checkbox",
-      id: this.id,
-      name: this.id,
+      id: this.getId,
+      name: this.getId,
       checked: this.shouldBeChecked,
       value: this.value
     };

@@ -1,9 +1,9 @@
 import { storiesOf, addDecorator } from "@storybook/vue";
 import { select, radios, text, boolean } from "@storybook/addon-knobs";
-import centered from "@storybook/addon-centered/vue";
+import sectionStates from "./decorators/sectionStates";
 import BaseCheckbox from "../components/BaseCheckbox.vue";
 
-const stories = storiesOf("Components/Base Checkbox", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Checkbox", module).addDecorator(sectionStates);
 
 stories.add(
   "Single True/False",
@@ -22,14 +22,18 @@ stories.add(
         }
       },
       data: () => ({
-        checkboxValue: true
+        checkboxValue: true,
+        results: {
+          padding: '1rem',
+          display: 'inline-block',
+        }
       }),
       template: `
       <div>
-        <base-checkbox id="checkbox-1" v-model="checkboxValue" v-bind="{ value, disabled }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value, disabled }">
           {{label}}
         </base-checkbox>
-        <span><strong>Selected Values:&nbsp;</strong>{{checkboxValue}}</span>
+        <span :style="results"><strong>Selected Values:&nbsp;</strong>{{checkboxValue}}</span>
       </div>
       `
     } as object)
@@ -70,20 +74,24 @@ stories.add(
         }
       },
       data: () => ({
-        checkboxValue: ["A"]
+        checkboxValue: ["A"],
+        results: {
+          padding: '1rem',
+          display: 'inline-block',
+        }
       }),
       template: `
       <div>
-        <base-checkbox id="checkbox-1" v-model="checkboxValue" v-bind="{ value: value1, disabled: disabled1 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value1, disabled: disabled1 }">
           {{label1}}
         </base-checkbox>
-        <base-checkbox id="checkbox-2" v-model="checkboxValue" v-bind="{ value: value2, disabled: disabled2 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value2, disabled: disabled2 }">
           {{label2}}
         </base-checkbox>
-        <base-checkbox id="checkbox-3" v-model="checkboxValue" v-bind="{ value: value3, disabled: disabled3 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value3, disabled: disabled3 }">
           {{label3}}
         </base-checkbox>
-        <span><strong>Selected Values:&nbsp;</strong>{{checkboxValue.join(', ')}}</span>
+        <span :style="results"><strong>Selected Values:&nbsp;</strong>{{checkboxValue.join(', ')}}</span>
       </div>
       `
     } as object)
