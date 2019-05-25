@@ -324,9 +324,9 @@ colors.add("Color Pallet", () => ({
     copy: (e) => {
       const item = e.target.closest('.item');
       if (item !== null) {
-        const text = item.querySelectorAll('.text')[0].innerText;
+        const [leading, ...text] = item.querySelectorAll('.text')[0].innerText;
         const { top, left } = item.getBoundingClientRect();
-        copy(text);
+        copy(text.join(''));
         const toast = document.getElementById('toast');
         toast.style.top = `${top + 32 + window.scrollY}px`;
         toast.style.left = `${left + 6}px`;
