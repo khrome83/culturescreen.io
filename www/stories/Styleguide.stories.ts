@@ -167,14 +167,81 @@ inlineCode.add("Default", () => `
 `);
 
 // Icons
-const icons = storiesOf("Styleguide/Icons", module).addDecorator(sectionStates)
+const icons = storiesOf("Styleguide/Icons", module)
 
-icons.add("Close Icon", () => ({
-  components: { CloseIcon },
-  template: `<close-icon />`
-}));
+icons.add("All Icon", () => ({
+  components: { CloseIcon, MenuIcon },
+  data: () => ({
+    item: {
+      margin: '1rem',
+      border: 'thin solid transparent',
+      boxShadow: 'rgba(0, 0, 0, 0.15) 0rem 0.125rem 0.3125rem 0rem',
+      borderRadius: '0.3125rem',
+      padding: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
 
-icons.add("Menu Icon", () => ({
-  components: { MenuIcon },
-  template: `<menu-icon />`
+    },
+    light: {
+      backgroundColor: '#ffffff',
+    },
+    grey: {
+      backgroundColor: '#fdfcfb',
+      boxShadow: 'rgba(0, 0, 0, 0.2) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    dark: {
+      backgroundColor: '#010b19',
+      boxShadow: 'rgba(0, 0, 0, 0.5) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    heading: {
+      fontSize: '0.75rem',
+      margin: '0',
+      padding: '0.5rem 0 0.5rem 1rem',
+      color: '#737373',
+      textTransform: 'uppercase',
+    },
+    set: {
+      display: 'flex',
+      flexDirection: 'row',
+      flexFlow: 'flex-wrap',
+      marginBottom: '2rem',
+    },
+    label: {
+      fontSize: '12px',
+      textTransform: 'uppercase',
+      fontWeight: '300',
+      paddingTop: '0.5rem',
+    },
+    wrapper: {
+      padding: '2rem',
+    }
+  }),
+  template: `
+    <div :style="wrapper">
+      <div :style="heading">On Light Background</div>
+      <div :style="set">
+        <div :style="[item, light]" class="__bg-light">
+          <menu-icon />
+          <div :style="label">Menu</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <close-icon />
+          <div :style="label">Close</div>
+        </div>
+      </div>
+      <div :style="heading">On Dark Background</div>
+      <div :style="set">
+        <div :style="[item, dark]" class="__bg-dark">
+          <menu-icon />
+          <div :style="label">Menu</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <close-icon />
+          <div :style="label">Close</div>
+        </div>
+      </div>
+    </div>
+  `
 }));
