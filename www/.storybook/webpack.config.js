@@ -44,17 +44,6 @@ module.exports = async ({ config, mode }) => {
 
   config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
-  config.module.rules.push({
-    test: /\.stories\.ts?$/,
-    loaders: [
-      {
-        loader: require.resolve("@storybook/addon-storysource/loader"),
-        options: { parser: "typescript" }
-      }
-    ],
-    enforce: "pre"
-  });
-
   config.resolve.alias = {
     ...config.resolve.alias,
     "~": path.resolve(__dirname, "../")
