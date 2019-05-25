@@ -33,7 +33,7 @@ stories.add(
         <base-checkbox v-model="checkboxValue" v-bind="{ value, disabled }">
           {{label}}
         </base-checkbox>
-        <span :style="results"><strong>Selected Values:&nbsp;</strong>{{checkboxValue}}</span>
+        <span :style="results"><strong>Selected Value:&nbsp;</strong>{{checkboxValue}}</span>
       </div>
       `
     } as object)
