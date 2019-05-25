@@ -1,5 +1,5 @@
 <template>
-  <section :class="theme">
+  <section :class="`__bg-${theme}`">
     <div class="container" :class="layout">
       <slot></slot>
     </div>
@@ -50,15 +50,15 @@ section {
   padding: 6rem 2.5vw;
 }
 
-.light {
+.__bg-light {
   background-color: #fff;
 }
 
-.grey {
-  background-color: #e1e4ea;
+.__bg-grey {
+  background-color: #fdfcfb;
 }
 
-.dark {
+.__bg-dark {
   background-color: #010b19;
   color: #fff;
 }
