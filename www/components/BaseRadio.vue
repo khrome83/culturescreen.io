@@ -174,13 +174,31 @@ export default class BaseRadio extends Vue {
 
 .disabled + .label:before {
   transition: all 200ms ease-in-out;
-  background-color: #fafafa;
-  border-color: #737373;
+  background-color: #ffffff;
+  border-color: #eaeaea;
   color: #737373;
   fill: #737373;
   cursor: not-allowed;
   text-decoration: none;
-  box-shadow: inset 0 0 0 0 #fafafa, inset 0 0 0 0 #eaeaea;
+  box-shadow: inset 0 0 0 0 #ffffff, inset 0 0 0 0 #eaeaea;
+}
+
+/* Grey Modifications - .disabled + .label:before */
+.__bg-grey .disabled + .label:before {
+  background-color: #fdfcfb;
+  border-color: #cccbcb;
+  color: #737373;
+  fill: #737373;
+  box-shadow: inset 0 0 0 0 #fdfcfb, inset 0 0 0 0 #cccbcb;
+}
+
+/* Dark Modifications - .disabled + .label:before */
+.__bg-dark .disabled + .label:before {
+  background-color: #010b19;
+  border-color: #33333c;
+  color: #737373;
+  fill: #737373;
+  box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #33333c;
 }
 
 .disabled + .label::after {
@@ -191,6 +209,20 @@ export default class BaseRadio extends Vue {
   background-color: rgba(238, 0, 40, 0.5);
   box-shadow: inset 0 0 0 0.125rem #fff,
     inset 0 0 0 0.1875rem rgba(238, 0, 40, 0.5);
+}
+
+/* Grey Modifications - .disabled:checked + .label:before */
+.__bg-grey .disabled:checked + .label:before {
+  background-color: rgba(218, 6, 41, 0.5);
+  box-shadow: inset 0 0 0 0.125rem #fdfcfb,
+    inset 0 0 0 0.1875rem rgba(218, 6, 41, 0.5);
+}
+
+/* Dark Modifications - .disabled:checked + .label:before */
+.__bg-dark .disabled:checked + .label:before {
+  background-color: rgba(243, 33, 68, 0.5);
+  box-shadow: inset 0 0 0 0.125rem #010b19,
+    inset 0 0 0 0.1875rem rgba(243, 33, 68, 0.5);
 }
 
 @media screen and (-ms-high-contrast: active) {
