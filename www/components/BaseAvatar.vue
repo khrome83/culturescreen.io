@@ -154,31 +154,31 @@ export default class BaseAvatar extends Vue {
 }
 
 .theme-a {
-  color: #f3405e;
+  color: #ee0028;
   border-color: #fbbfc9;
   background-color: #fde5e9;
 }
 
 .theme-b {
-  color: #6ca1a2;
+  color: #3b8183;
   border-color: #cedfe0;
   background-color: #ebf2f2;
 }
 
 .theme-c {
-  color: #4dd19c;
+  color: #0fa172;
   border-color: #c3efde;
   background-color: #e7f8f1;
 }
 
 .theme-d {
-  color: #ffb584;
+  color: #e26d43;
   border-color: #ffe6d6;
   background-color: #fff5ee;
 }
 
 .theme-e {
-  color: #ff6a8d;
+  color: #ff3867;
   border-color: #ffcdd9;
   background-color: #ffebef;
 }

@@ -430,31 +430,31 @@ colors.add("Color Pallet", () => ({
       <div :style="heading">Success</div>
       <div :style="set">
         <div :style="[item, light]" class="item __bg-light">
-          <div :style="[pallet, { backgroundColor: '#11c17b'}]"></div>
-          <div class="text" :style="label">#11c17b</div>
+          <div :style="[pallet, { backgroundColor: '#0FA172'}]"></div>
+          <div class="text" :style="label">#0FA172</div>
         </div>
         <div :style="[item, grey]" class="item __bg-grey">
-          <div :style="[pallet, { backgroundColor: '#11c17b'}]"></div>
-          <div class="text" :style="label">#11c17b</div>
+          <div :style="[pallet, { backgroundColor: '#0FA172'}]"></div>
+          <div class="text" :style="label">#0FA172</div>
         </div>
         <div :style="[item, dark]" class="item __bg-dark">
-          <div :style="[pallet, { backgroundColor: '#11c17b'}]"></div>
-          <div class="text" :style="label">#11c17b</div>
+          <div :style="[pallet, { backgroundColor: '#0FA172'}]"></div>
+          <div class="text" :style="label">#0FA172</div>
         </div>
       </div>
       <div :style="heading">Warning</div>
       <div :style="set">
         <div :style="[item, light]" class="item __bg-light">
-          <div :style="[pallet, { backgroundColor: '#ff9c5b'}]"></div>
-          <div class="text" :style="label">#ff9c5b</div>
+          <div :style="[pallet, { backgroundColor: '#E26D43'}]"></div>
+          <div class="text" :style="label">#E26D43</div>
         </div>
         <div :style="[item, grey]" class="item __bg-grey">
-          <div :style="[pallet, { backgroundColor: '#ff9c5b'}]"></div>
-          <div class="text" :style="label">#ff9c5b</div>
+          <div :style="[pallet, { backgroundColor: '#E26D43'}]"></div>
+          <div class="text" :style="label">#E26D43</div>
         </div>
         <div :style="[item, dark]" class="item __bg-dark">
-          <div :style="[pallet, { backgroundColor: '#ff9c5b'}]"></div>
-          <div class="text" :style="label">#ff9c5b</div>
+          <div :style="[pallet, { backgroundColor: '#E26D43'}]"></div>
+          <div class="text" :style="label">#E26D43</div>
         </div>
       </div>
       <div :style="heading">Error</div>
