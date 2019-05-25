@@ -1,10 +1,12 @@
 import { storiesOf } from "@storybook/vue";
 import { select, radios, text, boolean } from "@storybook/addon-knobs";
+import nanoid from "nanoid";
+import sectionStates from "./decorators/sectionStates";
 import BaseFieldset from "../components/BaseFieldset.vue";
 import BaseCheckbox from "../components/BaseCheckbox.vue";
 import BaseRadio from "../components/BaseRadio.vue";
 
-const stories = storiesOf("Components/Base Fieldset", module);
+const stories = storiesOf("Components/Base Fieldset", module).addDecorator(sectionStates);
 
 stories.add(
   "Checkboxes",
@@ -44,19 +46,24 @@ stories.add(
         }
       },
       data: () => ({
-        checkboxValue: ["A"]
+        checkboxValue: ["A"],
+        results: {
+          padding: '1rem',
+          display: 'inline-block',
+        }
       }),
       template: `
       <base-fieldset v-bind:heading="heading">
-        <base-checkbox id="checkbox-1" v-model="checkboxValue" v-bind="{ value: value1, disabled: disabled1 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value1, disabled: disabled1 }">
           {{label1}}
         </base-checkbox>
-        <base-checkbox id="checkbox-2" v-model="checkboxValue" v-bind="{ value: value2, disabled: disabled2 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value2, disabled: disabled2 }">
           {{label2}}
         </base-checkbox>
-        <base-checkbox id="checkbox-3" v-model="checkboxValue" v-bind="{ value: value3, disabled: disabled3 }">
+        <base-checkbox v-model="checkboxValue" v-bind="{ value: value3, disabled: disabled3 }">
           {{label3}}
         </base-checkbox>
+        <span :style="results"><strong>Selected Values:&nbsp;</strong>{{checkboxValue.join(', ')}}</span>
       </base-fieldset>
       `
     } as object)
@@ -70,9 +77,6 @@ stories.add(
       props: {
         heading: {
           default: text("Heading", "Fieldset Heading", "General")
-        },
-        group: {
-          default: text("Group", "Group-01", "General")
         },
         label1: {
           default: text("Label (1)", "Radio Label 1", "Item 1")
@@ -103,19 +107,25 @@ stories.add(
         }
       },
       data: () => ({
-        radioValue: "B"
+        radioValue: "B",
+        group: `group-${nanoid()}`,
+        results: {
+          padding: '1rem',
+          display: 'inline-block',
+        }
       }),
       template: `
       <base-fieldset v-bind:heading="heading">
-        <base-radio id="radio-1" v-model="radioValue" v-bind:value="value1" v-bind="{ group, disabled: disabled1 }">
+        <base-radio v-model="radioValue" v-bind:value="value1" v-bind="{ group, disabled: disabled1 }">
           {{label1}}
         </base-radio>
-        <base-radio id="radio-2" v-model="radioValue" v-bind:value="value2" v-bind="{ group, disabled: disabled2 }">
+        <base-radio v-model="radioValue" v-bind:value="value2" v-bind="{ group, disabled: disabled2 }">
           {{label2}}
         </base-radio>
-        <base-radio id="radio-3" v-model="radioValue" v-bind:value="value3" v-bind="{ group, disabled: disabled3 }">
+        <base-radio v-model="radioValue" v-bind:value="value3" v-bind="{ group, disabled: disabled3 }">
           {{label3}}
         </base-radio>
+        <span :style="results"><strong>Selected Value:&nbsp;</strong>{{radioValue}}</span>
       </base-fieldset>
       `
     } as object)
