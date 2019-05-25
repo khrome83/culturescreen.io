@@ -3,7 +3,7 @@ import { select, radios, text, boolean } from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
 import BaseRadio from "../components/BaseRadio.vue";
 
-const stories = storiesOf("Base Radio", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Radio", module).addDecorator(centered);
 
 stories.add(
   "Default",

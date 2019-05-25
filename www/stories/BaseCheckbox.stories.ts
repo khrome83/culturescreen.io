@@ -3,7 +3,7 @@ import { select, radios, text, boolean } from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
 import BaseCheckbox from "../components/BaseCheckbox.vue";
 
-const stories = storiesOf("Base Checkbox", module).addDecorator(centered);
+const stories = storiesOf("Components/Base Checkbox", module).addDecorator(centered);
 
 stories.add(
   "Single True/False",

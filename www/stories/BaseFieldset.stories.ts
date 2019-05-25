@@ -4,7 +4,7 @@ import BaseFieldset from "../components/BaseFieldset.vue";
 import BaseCheckbox from "../components/BaseCheckbox.vue";
 import BaseRadio from "../components/BaseRadio.vue";
 
-const stories = storiesOf("Base Fieldset", module);
+const stories = storiesOf("Components/Base Fieldset", module);
 
 stories.add(
   "Checkboxes",
