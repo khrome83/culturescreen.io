@@ -93,12 +93,12 @@ export default class BaseRadio extends Vue {
   box-shadow: inset 0 0 0 0.0625rem #ee0028;
 }
 
-/* Grey Modifications - .label */
+/* Grey Modifications - .input:focus + .label */
 .__bg-grey .input:focus + .label {
   box-shadow: inset 0 0 0 0.0625rem #da0629;
 }
 
-/* Dark Modifications - .label */
+/* Dark Modifications - .input:focus + .label */
 .__bg-dark .input:focus + .label {
   box-shadow: inset 0 0 0 0.0625rem #f32144;
 }
