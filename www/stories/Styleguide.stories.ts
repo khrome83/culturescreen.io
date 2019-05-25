@@ -119,6 +119,19 @@ typeography.add("Raleway 400", () => ({
   `
 }));
 
+typeography.add("Monospace 300", () => ({
+  data: () => ({
+    font: {
+      fontSize: '2rem',
+      fontFamily: '"Lucida Console", Courier, monospace',
+      fontWeight: '300',
+    },
+  }),
+  template: `
+    <span :style="font">The spectacle before us was indeed sublime.</span>
+  `
+}));
+
 // Links
 const links = storiesOf("Styleguide/Links", module).addDecorator(sectionStates)
 

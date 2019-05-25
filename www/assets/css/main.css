@@ -239,7 +239,7 @@ code {
   border: 0.0625rem solid #eaeaea;
   border-radius: 0.125rem;
   padding: 0.125rem 0.25rem;
-  font-family: Lucida Console, Courier, monospace;
+  font-family: "Lucida Console", Courier, monospace;
   font-weight: 300;
   font-size: 0.9375rem;
 }
