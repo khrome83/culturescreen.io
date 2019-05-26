@@ -55,7 +55,7 @@ export default class BaseAvatar extends Vue {
     if (this.src) return ""; // bail if we have a source
 
     const themes = ["a", "b", "c", "d", "e"]; // themes
-    const sel = Math.floor(Math.random() * (themes.length - 1 + 1)) + 1;
+    const sel = Math.floor(Math.random() * themes.length);
     return `theme-${themes[sel]}`;
   }
 }
@@ -154,13 +154,13 @@ export default class BaseAvatar extends Vue {
 }
 
 .theme-a {
-  color: #ee0028;
+  color: #f32144;
   border-color: #fbbfc9;
   background-color: #fde5e9;
 }
 
 .theme-b {
-  color: #3b8183;
+  color: #479194;
   border-color: #cedfe0;
   background-color: #ebf2f2;
 }
@@ -181,5 +181,35 @@ export default class BaseAvatar extends Vue {
   color: #ff3867;
   border-color: #ffcdd9;
   background-color: #ffebef;
+}
+
+/* For A11y, make the themes stand out more on smaller size */
+
+.small.theme-a,
+.small.theme-b,
+.small.theme-c,
+.small.theme-d,
+.small.theme-e {
+  background-color: #010b19;
+}
+
+.small.theme-a {
+  border-color: #f32144;
+}
+
+.small.theme-b {
+  border-color: #479194;
+}
+
+.small.theme-c {
+  border-color: #0fa172;
+}
+
+.small.theme-d {
+  border-color: #e26d43;
+}
+
+.small.theme-e {
+  border-color: #ff3867;
 }
 </style>

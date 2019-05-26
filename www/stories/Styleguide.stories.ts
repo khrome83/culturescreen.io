@@ -569,8 +569,8 @@ colors.add("Color Pallet", () => ({
       <div :style="heading">Tonal Pallet - Teal</div>
       <div :style="set">
         <div :style="[item, light]" class="item __bg-light">
-          <div :style="[pallet, { backgroundColor: '#3b8183'}]"></div>
-          <div class="text" :style="label">#3b8183</div>
+          <div :style="[pallet, { backgroundColor: '#479194'}]"></div>
+          <div class="text" :style="label">#479194</div>
         </div>
         <div :style="[item, light]" class="item __bg-light">
           <div :style="[pallet, { backgroundColor: '#6ca1a2'}]"></div>
