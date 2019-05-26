@@ -244,6 +244,11 @@ code {
   font-size: 0.9375rem;
 }
 
+/* Override required due to Safari Useragent Stylesheet */
+button:active {
+  color: #010b19;
+}
+
 /**
   * Background Modifiers (global)
   * Note - Components should modify themselves
