@@ -148,7 +148,7 @@ blockquote p {
 
 cite {
   display: block;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: center;
   margin: -1rem auto 1rem;
   padding: 0 1rem;
@@ -201,7 +201,7 @@ table {
   border-spacing: 0;
   box-sizing: border-box;
   margin: 1rem 0 2rem;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 thead th {
@@ -210,26 +210,26 @@ thead th {
   font-family: "Raleway", sans-serif;
   padding: 1rem;
   border: 0 solid #eaeaea;
-  border-bottom-width: 1px;
-  border-top-width: 1px;
+  border-bottom-width: 0.0625rem;
+  border-top-width: 0.0625rem;
   background-color: #fafafa;
   color: #737373;
   fill: #737373;
 }
 
 thead th:first-child {
-  border-left-width: 1px;
+  border-left-width: 0.0625rem;
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
 thead th:last-child {
-  border-right-width: 1px;
+  border-right-width: 0.0625rem;
   border-radius: 0 0.25rem 0.25rem 0;
 }
 
 tbody td {
   padding: 1rem;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 0.0625rem solid #eaeaea;
 }
 
 code {
@@ -270,7 +270,7 @@ code {
 }
 
 .__bg-grey tbody td {
-  border-bottom: 1px solid #cccbcb;
+  border-bottom: 0.0625rem solid #cccbcb;
 }
 
 .__bg.grey code {
@@ -306,7 +306,7 @@ code {
 }
 
 .__bg-dark tbody td {
-  border-bottom: 1px solid #33333c;
+  border-bottom: 0.0625rem solid #33333c;
 }
 
 .__bg-dark code {
