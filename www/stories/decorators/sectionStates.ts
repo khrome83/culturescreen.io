@@ -5,7 +5,7 @@ const sectionStates = () => ({
       border: 'thin solid transparent',
       boxShadow: 'rgba(0, 0, 0, 0.15) 0rem 0.125rem 0.3125rem 0rem',
       borderRadius: '0.3125rem',
-      padding: '0.25rem 1rem',
+      padding: '2rem',
     },
     light: {
       backgroundColor: '#ffffff',
