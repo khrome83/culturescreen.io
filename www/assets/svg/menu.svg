@@ -1,3 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path fill="inherit" d="M22 11v2H2v-2h20zm0-6v2H2V5h20zm0 12v2H2v-2h20z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100pt" height="100pt" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <path d="m80 28h-60c-1.6562 0-3-1.3438-3-3s1.3438-3 3-3h60c1.6562 0 3 1.3438 3 3s-1.3438 3-3 3z"/>
+  <path d="m80 53h-60c-1.6562 0-3-1.3438-3-3s1.3438-3 3-3h60c1.6562 0 3 1.3438 3 3s-1.3438 3-3 3z"/>
+  <path d="m80 78h-60c-1.6562 0-3-1.3438-3-3s1.3438-3 3-3h60c1.6562 0 3 1.3438 3 3s-1.3438 3-3 3z"/>
+ </g>
 </svg>

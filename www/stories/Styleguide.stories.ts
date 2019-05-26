@@ -5,6 +5,14 @@ import HorizontalLogo from "../assets/svg/logo-horizontal-on-light.svg";
 import VerticalLogo from "../assets/svg/logo-vertical-on-light.svg";
 import CloseIcon from "../assets/svg/close.svg";
 import MenuIcon from "../assets/svg/menu.svg";
+import CheckmarkIcon from "../assets/svg/checkmark.svg";
+import CollapseIcon from "../assets/svg/collapse.svg";
+import ExpandIcon from "../assets/svg/expand.svg";
+import SearchIcon from "../assets/svg/search.svg";
+import FavoriteIcon from "../assets/svg/favorite.svg";
+import UnfavoriteIcon from "../assets/svg/unfavorite.svg";
+import StarIcon from "../assets/svg/star.svg";
+
 
 // Headings
 const headings = storiesOf("Styleguide/Headings", module).addDecorator(sectionStates)
@@ -171,7 +179,7 @@ inlineCode.add("Default", () => `
 const icons = storiesOf("Styleguide/Icons", module)
 
 icons.add("All Icon", () => ({
-  components: { CloseIcon, MenuIcon },
+  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -183,6 +191,8 @@ icons.add("All Icon", () => ({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+      minWidth: '5rem',
+      minHeight: '5rem',
 
     },
     light: {
@@ -206,17 +216,21 @@ icons.add("All Icon", () => ({
     set: {
       display: 'flex',
       flexDirection: 'row',
-      flexFlow: 'flex-wrap',
+      flexWrap: 'wrap',
       marginBottom: '2rem',
     },
     label: {
       fontSize: '12px',
       textTransform: 'uppercase',
       fontWeight: '300',
-      paddingTop: '0.5rem',
+      paddingTop: '1rem',
     },
     wrapper: {
       padding: '2rem',
+    },
+    icon: {
+      width: '2rem',
+      height: '2rem',
     }
   }),
   template: `
@@ -224,28 +238,85 @@ icons.add("All Icon", () => ({
       <div :style="heading">On Light Background</div>
       <div :style="set">
         <div :style="[item, light]" class="__bg-light">
-          <menu-icon />
+          <menu-icon :style="icon"/>
           <div :style="label">Menu</div>
         </div>
         <div :style="[item, light]" class="__bg-light">
-          <close-icon />
+          <close-icon :style="icon" />
           <div :style="label">Close</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <checkmark-icon :style="icon" />
+          <div :style="label">Checkmark</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <expand-icon :style="icon" />
+          <div :style="label">Expand</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <collapse-icon :style="icon" />
+          <div :style="label">Collapse</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <search-icon :style="icon" />
+          <div :style="label">Search</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <favorite-icon :style="icon" />
+          <div :style="label">Favorite</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <Unfavorite-icon :style="icon" />
+          <div :style="label">Unfavorite</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <star-icon :style="icon" />
+          <div :style="label">Star</div>
         </div>
       </div>
       <div :style="heading">On Dark Background</div>
       <div :style="set">
         <div :style="[item, dark]" class="__bg-dark">
-          <menu-icon />
+          <menu-icon :style="icon" />
           <div :style="label">Menu</div>
         </div>
         <div :style="[item, dark]" class="__bg-dark">
-          <close-icon />
+          <close-icon :style="icon" />
           <div :style="label">Close</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <checkmark-icon :style="icon" />
+          <div :style="label">Checkmark</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <expand-icon :style="icon" />
+          <div :style="label">Expand</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <collapse-icon :style="icon" />
+          <div :style="label">Collapse</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <search-icon :style="icon" />
+          <div :style="label">Search</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <favorite-icon :style="icon" />
+          <div :style="label">Favorite</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <Unfavorite-icon :style="icon" />
+          <div :style="label">Unfavorite</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <star-icon :style="icon" />
+          <div :style="label">Star</div>
         </div>
       </div>
     </div>
   `
 }));
+
 
 // Colors
 const colors = storiesOf("Styleguide/Colors", module)
