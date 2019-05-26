@@ -145,6 +145,12 @@ header {
 }
 
 .menu-icon,
+.close-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.menu-icon,
 .container.closed .close-icon {
   display: none;
 }
