@@ -28,7 +28,7 @@ export default class BaseBadge extends Vue {
   padding: 4px 6px;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: 0.025rem;
   text-transform: uppercase;
@@ -71,7 +71,6 @@ export default class BaseBadge extends Vue {
   padding: 4px 8px;
   border-radius: 16px;
   line-height: 1;
-  font-weight: 300;
   letter-spacing: 1.25;
 }
 
