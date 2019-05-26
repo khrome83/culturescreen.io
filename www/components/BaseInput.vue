@@ -172,6 +172,7 @@ export default class BaseInput extends Vue {
   box-shadow: inset 0 0 0 0 #ffffff, inset 0 0 0 0 #010b19;
   transition: all 200ms ease-in-out;
   width: auto;
+  min-width: 17.5rem;
   margin-top: 0.5rem;
   color: #5c6169;
   line-height: 1;
@@ -266,9 +267,5 @@ export default class BaseInput extends Vue {
 
 .disabled:focus {
   box-shadow: inset 0 0 0 0.0625rem #fafafa, inset 0 0 0 0.125rem #eaeaea;
-}
-
-.disabled + .label {
-  color: #f00;
 }
 </style>

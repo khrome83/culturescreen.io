@@ -107,21 +107,22 @@ stories.add(
         }
       },
       template: `
-  <base-button v-bind="{
-    secondary: theme === 'secondary',
-    tertiary: theme === 'tertiary',
-    danger: theme === 'danger',
-    small: size === 'small',
-    large: size === 'large',
-    disabled,
-    title,
-    to
-  }">
-    <template v-slot:pre-icon>
-      <heart-icon aria-hidden="true" />
-    </template>
-    <template v-slot:default>{{text}}</template>
-  </base-button>`
+        <base-button v-bind="{
+          secondary: theme === 'secondary',
+          tertiary: theme === 'tertiary',
+          danger: theme === 'danger',
+          small: size === 'small',
+          large: size === 'large',
+          disabled,
+          title,
+          to
+        }">
+          <template v-slot:pre-icon>
+            <heart-icon aria-hidden="true" />
+          </template>
+          <template v-slot:default>{{text}}</template>
+        </base-button>
+      `
     } as object)
 );
 
@@ -168,20 +169,21 @@ stories.add(
         }
       },
       template: `
-  <base-button v-bind="{
-    secondary: theme === 'secondary',
-    tertiary: theme === 'tertiary',
-    danger: theme === 'danger',
-    small: size === 'small',
-    large: size === 'large',
-    disabled,
-    title,
-    to
-  }">
-    <template v-slot:post-icon>
-      <heart-icon aria-hidden="true" />
-    </template>
-    <template v-slot:default>{{text}}</template>
-  </base-button>`
+        <base-button v-bind="{
+          secondary: theme === 'secondary',
+          tertiary: theme === 'tertiary',
+          danger: theme === 'danger',
+          small: size === 'small',
+          large: size === 'large',
+          disabled,
+          title,
+          to
+        }">
+          <template v-slot:post-icon>
+            <heart-icon aria-hidden="true" />
+          </template>
+          <template v-slot:default>{{text}}</template>
+        </base-button>
+      `
     } as object)
 );
