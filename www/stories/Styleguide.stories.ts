@@ -12,6 +12,7 @@ import SearchIcon from "../assets/svg/search.svg";
 import FavoriteIcon from "../assets/svg/favorite.svg";
 import UnfavoriteIcon from "../assets/svg/unfavorite.svg";
 import StarIcon from "../assets/svg/star.svg";
+import UpdownIcon from "../assets/svg/updown.svg";
 
 
 // Headings
@@ -179,7 +180,7 @@ inlineCode.add("Default", () => `
 const icons = storiesOf("Styleguide/Icons", module)
 
 icons.add("All Icon", () => ({
-  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon },
+  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -273,6 +274,10 @@ icons.add("All Icon", () => ({
           <star-icon :style="icon" />
           <div :style="label">Star</div>
         </div>
+        <div :style="[item, light]" class="__bg-light">
+          <updown-icon :style="icon" />
+          <div :style="label">Up / Down</div>
+        </div>
       </div>
       <div :style="heading">On Dark Background</div>
       <div :style="set">
@@ -312,6 +317,10 @@ icons.add("All Icon", () => ({
           <star-icon :style="icon" />
           <div :style="label">Star</div>
         </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <updown-icon :style="icon" />
+          <div :style="label">Up / Down</div>
+        </div>
       </div>
     </div>
   `
@@ -322,7 +331,6 @@ icons.add("All Icon", () => ({
 const colors = storiesOf("Styleguide/Colors", module)
 
 colors.add("Color Pallet", () => ({
-  components: { CloseIcon, MenuIcon },
   data: () => ({
     item: {
       margin: '1rem',

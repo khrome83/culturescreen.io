@@ -358,6 +358,18 @@ template {
 
 a,
 button,
-input {
+input,
+select {
   outline: 0;
+}
+
+select,
+option {
+  -webkit-appearance: none; /* WebKit/Chromium */
+  -moz-appearance: none; /* Gecko */
+}
+
+/* Internet Explorer 10–11 and Edge */
+select::-ms-expand {
+  display: none;
 }
