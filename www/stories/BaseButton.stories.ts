@@ -46,6 +46,9 @@ stories.add(
         },
         disabled: {
           default: boolean("Disabled", false)
+        },
+        isLoading: {
+          default: boolean("Loading", false)
         }
       },
       template: `
@@ -57,6 +60,7 @@ stories.add(
       large: size === 'large',
       disabled,
       title,
+      isLoading,
       to
     }">
     {{text}}
@@ -104,6 +108,9 @@ stories.add(
         },
         disabled: {
           default: boolean("Disabled", false)
+        },
+        isLoading: {
+          default: boolean("Loading", false)
         }
       },
       template: `
@@ -115,6 +122,7 @@ stories.add(
           large: size === 'large',
           disabled,
           title,
+          isLoading,
           to
         }">
           <template v-slot:pre-icon>
@@ -166,6 +174,9 @@ stories.add(
         },
         disabled: {
           default: boolean("Disabled", false)
+        },
+        isLoading: {
+          default: boolean("Loading", false)
         }
       },
       template: `
@@ -177,6 +188,7 @@ stories.add(
           large: size === 'large',
           disabled,
           title,
+          isLoading,
           to
         }">
           <template v-slot:post-icon>

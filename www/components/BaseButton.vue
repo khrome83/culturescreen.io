@@ -4,20 +4,28 @@
     v-bind="linkProps.bindProps"
     v-on="linkProps.onEvents"
     class="button"
-    :class="{ secondary, tertiary, danger, disabled, small, large }"
+    :class="{ secondary, tertiary, danger, disabled, small, large, isLoading }"
   >
-    <slot name="pre-icon"></slot>
-    <slot></slot>
-    <slot name="post-icon"></slot>
+    <span class="text" :aria-hidden="isLoading">
+      <slot name="pre-icon"></slot>
+      <slot></slot>
+      <slot name="post-icon"></slot>
+    </span>
+    <span class="loading" draggable="false" role="progressbar" aria-valuetext="Loading">
+      <loading-icon/>
+    </span>
   </component>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, namespace } from "nuxt-property-decorator";
+import LoadingIcon from "~/assets/svg/loading.svg";
 
 const overpanel = namespace("overpanel");
 
-@Component({})
+@Component({
+  components: { LoadingIcon }
+})
 export default class BaseButton extends Vue {
   @Prop({ default: "#" }) to!: string;
   @Prop() title!: string;
@@ -27,6 +35,7 @@ export default class BaseButton extends Vue {
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private small!: boolean;
   @Prop(Boolean) private large!: boolean;
+  @Prop(Boolean) private isLoading!: boolean;
   @Prop() overpanel!: string;
 
   @overpanel.Mutation("openOverpanel") openOverpanel;
@@ -65,7 +74,7 @@ export default class BaseButton extends Vue {
       bindProps["to"] = this.to;
     }
 
-    if (this.disabled === true) {
+    if (this.disabled === true || this.isLoading) {
       bindProps["aria-disabled"] = true;
       bindProps["disabled"] = true;
       delete onEvents["click"];
@@ -79,9 +88,7 @@ export default class BaseButton extends Vue {
 </script>
 
 <style scoped>
-.button,
-.button:hover,
-.button:active {
+.button {
   display: inline-block;
   text-align: center;
   color: #fff;
@@ -98,11 +105,12 @@ export default class BaseButton extends Vue {
   cursor: pointer;
   border: thin solid #ee0028;
   transition: all 200ms ease-in-out;
+  position: relative;
 }
 
-.button:hover,
-.button:active,
-.button:focus {
+.button:not(.isLoading):hover,
+.button:not(.isLoading):active,
+.button:not(.isLoading):focus {
   background-color: #fff;
   color: #ee0028;
   fill: #ee0028;
@@ -110,7 +118,7 @@ export default class BaseButton extends Vue {
   box-shadow: inset 0 0 0 0 #fff, inset 0 0 0 0 #ee0028;
 }
 
-.button:focus {
+.button:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #ee0028;
 }
 
@@ -122,16 +130,16 @@ export default class BaseButton extends Vue {
   border-color: #da0629;
 }
 
-.__bg-grey .button:hover,
-.__bg-grey .button:active,
-.__bg-grey .button:focus {
+.__bg-grey .button:not(.isLoading):hover,
+.__bg-grey .button:not(.isLoading):active,
+.__bg-grey .button:not(.isLoading):focus {
   background-color: #fdfcfb;
   color: #da0629;
   fill: #da0629;
   box-shadow: inset 0 0 0 0 #fdfcfb, inset 0 0 0 0 #da0629;
 }
 
-.__bg-grey .button:focus {
+.__bg-grey .button:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fdfcfb, inset 0 0 0 0.125rem #da0629;
 }
 
@@ -143,16 +151,16 @@ export default class BaseButton extends Vue {
   border-color: #f32144;
 }
 
-.__bg-dark .button:hover,
-.__bg-dark .button:active,
-.__bg-dark .button:focus {
+.__bg-dark .button:not(.isLoading):hover,
+.__bg-dark .button:not(.isLoading):active,
+.__bg-dark .button:not(.isLoading):focus {
   background-color: #111119;
   color: #f32144;
   fill: #f32144;
   box-shadow: inset 0 0 0 0 #111119, inset 0 0 0 0 #f32144;
 }
 
-.__bg-dark .button:focus {
+.__bg-dark .button:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #111119, inset 0 0 0 0.125rem #f32144;
 }
 
@@ -187,9 +195,9 @@ export default class BaseButton extends Vue {
   fill: #fff;
 }
 
-.secondary:hover,
-.secondary:active,
-.secondary:focus {
+.secondary:not(.isLoading):hover,
+.secondary:not(.isLoading):active,
+.secondary:not(.isLoading):focus {
   background-color: transparent;
   color: #010b19;
   fill: #010b19;
@@ -197,7 +205,7 @@ export default class BaseButton extends Vue {
   box-shadow: inset 0 0 0 0 #fff, inset 0 0 0 0 #010b19;
 }
 
-.secondary:focus {
+.secondary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #010b19;
 }
 
@@ -209,16 +217,16 @@ export default class BaseButton extends Vue {
   border-color: #010b19;
 }
 
-.__bg-grey .secondary:hover,
-.__bg-grey .secondary:active,
-.__bg-grey .secondary:focus {
+.__bg-grey .secondary:not(.isLoading):hover,
+.__bg-grey .secondary:not(.isLoading):active,
+.__bg-grey .secondary:not(.isLoading):focus {
   background-color: #fdfcfb;
   color: #010b19;
   fill: #010b19;
   box-shadow: inset 0 0 0 0 #fdfcfb, inset 0 0 0 0 #010b19;
 }
 
-.__bg-grey .secondary:focus {
+.__bg-grey .secondary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fdfcfb, inset 0 0 0 0.125rem #010b19;
 }
 
@@ -230,16 +238,17 @@ export default class BaseButton extends Vue {
   border-color: #ffffff;
 }
 
-.__bg-dark .secondary:hover,
-.__bg-dark .secondary:active,
-.__bg-dark .secondary:focus {
+.__bg-dark .secondary:not(.isLoading):hover,
+.__bg-dark .secondary:not(.isLoading):active,
+.__bg-dark .secondary:not(.isLoading):focus {
   background-color: #010b19;
   color: #ffffff;
   fill: #ffffff;
+  border-color: #ffffff;
   box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #ffffff;
 }
 
-.__bg-dark .secondary:focus {
+.__bg-dark .secondary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #010b19, inset 0 0 0 0.125rem #ffffff;
 }
 
@@ -250,16 +259,16 @@ export default class BaseButton extends Vue {
   border: thin solid #a0a9ba;
 }
 
-.tertiary:hover,
-.tertiary:active,
-.tertiary:focus {
+.tertiary:not(.isLoading):hover,
+.tertiary:not(.isLoading):active,
+.tertiary:not(.isLoading):focus {
   border-color: #010b19;
   color: #010b19;
   fill: #010b19;
   box-shadow: inset 0 0 0 0 #fff, inset 0 0 0 0 #010b19;
 }
 
-.tertiary:focus {
+.tertiary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fff, inset 0 0 0 0.125rem #010b19;
 }
 
@@ -271,9 +280,9 @@ export default class BaseButton extends Vue {
   border-color: #5c6169;
 }
 
-.__bg-grey .tertiary:hover,
-.__bg-grey .tertiary:active,
-.__bg-grey .tertiary:focus {
+.__bg-grey .tertiary:not(.isLoading):hover,
+.__bg-grey .tertiary:not(.isLoading):active,
+.__bg-grey .tertiary:not(.isLoading):focus {
   background-color: #fdfcfb;
   color: #010b19;
   fill: #010b19;
@@ -281,7 +290,7 @@ export default class BaseButton extends Vue {
   box-shadow: inset 0 0 0 0 #fdfcfb, inset 0 0 0 0 #5c6169;
 }
 
-.__bg-grey .tertiary:focus {
+.__bg-grey .tertiary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #fdfcfb, inset 0 0 0 0.125rem #5c6169;
 }
 
@@ -293,9 +302,9 @@ export default class BaseButton extends Vue {
   border-color: #cccbcb;
 }
 
-.__bg-dark .tertiary:hover,
-.__bg-dark .tertiary:active,
-.__bg-dark .tertiary:focus {
+.__bg-dark .tertiary:not(.isLoading):hover,
+.__bg-dark .tertiary:not(.isLoading):active,
+.__bg-dark .tertiary:not(.isLoading):focus {
   background-color: #010b19;
   color: #ffffff;
   fill: #ffffff;
@@ -303,7 +312,7 @@ export default class BaseButton extends Vue {
   box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #ffffff;
 }
 
-.__bg-dark .tertiary:focus {
+.__bg-dark .tertiary:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #010b19, inset 0 0 0 0.125rem #ffffff;
 }
 
@@ -314,16 +323,16 @@ export default class BaseButton extends Vue {
   fill: #e80067;
 }
 
-.danger:hover,
-.danger:active,
-.danger:focus {
+.danger:not(.isLoading):hover,
+.danger:not(.isLoading):active,
+.danger:not(.isLoading):focus {
   text-decoration: underline;
   color: #e80067;
   fill: #e80067;
   border-color: transparent;
 }
 
-.danger:focus {
+.danger:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #e80067, inset 0 0 0 0.125rem #ffffff;
 }
 
@@ -335,16 +344,16 @@ export default class BaseButton extends Vue {
   border-color: transparent;
 }
 
-.__bg-grey .danger:hover,
-.__bg-grey .danger:active,
-.__bg-grey .danger:focus {
+.__bg-grey .danger:not(.isLoading):hover,
+.__bg-grey .danger:not(.isLoading):active,
+.__bg-grey .danger:not(.isLoading):focus {
   background-color: transparent;
   color: #d30260;
   fill: #d30260;
   box-shadow: inset 0 0 0 0 #d30260, inset 0 0 0 0 #ffffff;
 }
 
-.__bg-grey .danger:focus {
+.__bg-grey .danger:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #d30260, inset 0 0 0 0.125rem #ffffff;
 }
 
@@ -356,16 +365,16 @@ export default class BaseButton extends Vue {
   border-color: transparent;
 }
 
-.__bg-dark .danger:hover,
-.__bg-dark .danger:active,
-.__bg-dark .danger:focus {
+.__bg-dark .danger:not(.isLoading):hover,
+.__bg-dark .danger:not(.isLoading):active,
+.__bg-dark .danger:not(.isLoading):focus {
   background-color: transparent;
   color: #f30b73;
   fill: #f30b73;
   box-shadow: inset 0 0 0 0 #f30b73, inset 0 0 0 0 #010b19;
 }
 
-.__bg-dark .danger:focus {
+.__bg-dark .danger:not(.isLoading):focus {
   box-shadow: inset 0 0 0 0.0625rem #f30b73, inset 0 0 0 0.125rem #010b19;
 }
 
@@ -383,37 +392,81 @@ export default class BaseButton extends Vue {
 .__bg-dark .disabled:hover,
 .__bg-dark .disabled:active,
 .__bg-dark .disabled:focus {
-  background-color: #fafafa;
-  border-color: #eaeaea;
-  color: #737373;
-  fill: #737373;
-  cursor: not-allowed;
-  text-decoration: none;
-  box-shadow: inset 0 0 0 0 #fafafa, inset 0 0 0 0 #eaeaea;
+  background-color: #fafafa !important;
+  border-color: #eaeaea !important;
+  color: #737373 !important;
+  fill: #737373 !important;
+  cursor: not-allowed !important;
+  text-decoration: none !important;
+  box-shadow: inset 0 0 0 0 #fafafa, inset 0 0 0 0 #eaeaea !important;
 }
 
 .disabled:focus,
 .__bg-grey .disabled:focus,
 .__bg-dark .disabled:focus {
-  box-shadow: inset 0 0 0 0.0625rem #fafafa, inset 0 0 0 0.125rem #eaeaea;
+  box-shadow: inset 0 0 0 0.0625rem #fafafa, inset 0 0 0 0.125rem #eaeaea !important;
+}
+
+.button:not(.disabled).isLoading {
+  cursor: progress;
+}
+
+.loading {
+  display: none;
+}
+
+.isLoading .loading {
+  display: inline-block;
+}
+
+.isLoading .text {
+  visibility: hidden;
+}
+
+.text {
+  visibility: initial;
+}
+
+.loading {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+}
+
+@keyframes ckw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+.loading > svg {
+  width: 24px;
+  height: 24px;
+  animation-name: ckw;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
 }
 </style>
 <style>
-.button > svg {
+.button .text > svg {
   height: 1rem;
   width: 1rem;
   transform: scale(1.5);
   margin: 0 0.125rem -0.175rem;
 }
 
-.small > svg {
+.small .text > svg {
   height: 1rem;
   width: 1rem;
   transform: scale(1);
   margin: 0 0 -0.2188rem;
 }
 
-.large > svg {
+.large .text > svg {
   height: 1rem;
   width: 1rem;
   transform: scale(1.75);
