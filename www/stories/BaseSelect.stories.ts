@@ -45,17 +45,15 @@ stories.add(
           v-bind="{
             disabled,
             helpText,
+            label,
             hiddenLabel: labelType === 'hidden'
         }">
-          <template v-slot:label>{{label}}</template>
-          <template v-slot:default>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-          </template>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="hamster">Hamster</option>
+          <option value="parrot">Parrot</option>
+          <option value="spider">Spider</option>
+          <option value="goldfish">Goldfish</option>
         </base-select>
         <span :style="results"><strong>Selected Value:&nbsp;</strong>{{selectValue}}</span>
       </div>

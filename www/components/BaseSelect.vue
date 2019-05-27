@@ -1,8 +1,6 @@
 <template>
   <div class="select-set">
-    <label :for="getId" class="label" :class="{ hide: hiddenLabel, disabled }">
-      <slot name="label"></slot>
-    </label>
+    <label :for="getId" class="label" :class="{ hide: hiddenLabel, disabled }">{{label}}</label>
     <div class="select" :class="{ disabled }">
       <select
         v-bind="[$attrs, linkProps.bindProps]"
@@ -32,6 +30,7 @@ import UpdownIcon from "~/assets/svg/updown.svg";
 export default class BaseSelect extends Vue {
   @Prop() id!: string;
   @Prop() helpText!: string;
+  @Prop() label!: string;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
 
