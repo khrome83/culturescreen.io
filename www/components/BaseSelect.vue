@@ -21,6 +21,7 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from "nuxt-property-decorator";
 import nanoid from "nanoid";
+import { parseLinks } from "~/library";
 import UpdownIcon from "~/assets/svg/updown.svg";
 
 @Component({
@@ -48,34 +49,11 @@ export default class BaseSelect extends Vue {
   }
 
   get parsedHelpText() {
-    const linkedTextRegExp = /\[\[(.*?)\]\]/g;
-    let helpText = this.helpText;
-    let matches = linkedTextRegExp.exec(helpText);
-    const replacements = {};
-
-    while (matches != null) {
-      const [href, label] = matches[1].split("|");
-      replacements[matches[0]] = { href, label };
-      matches = linkedTextRegExp.exec(helpText);
-    }
-
-    Object.keys(replacements).forEach(key => {
-      const { href, label } = replacements[key];
-      const useLabel = label !== undefined ? label : href;
-
-      helpText = helpText.replace(
-        `${key}`,
-        `<a href="${href}" rel="noopener" target="blank">${useLabel}</a>`
-      );
-    });
-
     return {
-      template: `<div id="${
-        this.helpTextId
-      }" class="help-text">${helpText}</div>`
+      template: `<div id="${this.helpTextId}" class="help-text">
+        ${parseLinks(this.helpText)}
+      </div>`
     };
-
-    return "";
   }
 
   get linkProps() {
