@@ -13,6 +13,7 @@ import FavoriteIcon from "../assets/svg/favorite.svg";
 import UnfavoriteIcon from "../assets/svg/unfavorite.svg";
 import StarIcon from "../assets/svg/star.svg";
 import UpdownIcon from "../assets/svg/updown.svg";
+import LoadingIcon from "../assets/svg/loading.svg";
 
 
 // Headings
@@ -180,7 +181,7 @@ inlineCode.add("Default", () => `
 const icons = storiesOf("Styleguide/Icons", module)
 
 icons.add("All Icon", () => ({
-  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon },
+  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -278,6 +279,10 @@ icons.add("All Icon", () => ({
           <updown-icon :style="icon" />
           <div :style="label">Up / Down</div>
         </div>
+        <div :style="[item, light]" class="__bg-light">
+          <loading-icon :style="icon" />
+          <div :style="label">Loading</div>
+        </div>
       </div>
       <div :style="heading">On Dark Background</div>
       <div :style="set">
@@ -320,6 +325,10 @@ icons.add("All Icon", () => ({
         <div :style="[item, dark]" class="__bg-dark">
           <updown-icon :style="icon" />
           <div :style="label">Up / Down</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <loading-icon :style="icon" />
+          <div :style="label">Loading</div>
         </div>
       </div>
     </div>
