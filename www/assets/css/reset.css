@@ -359,12 +359,14 @@ template {
 a,
 button,
 input,
-select {
+select,
+textarea {
   outline: 0;
 }
 
 select,
-option {
+option,
+textarea {
   -webkit-appearance: none; /* WebKit/Chromium */
   -moz-appearance: none; /* Gecko */
 }
