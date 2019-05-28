@@ -60,7 +60,7 @@ export default class FeatureTileVerticle extends Vue {
   fill: #da0629;
 }
 
-/* Dark Modifications - .icon .graphic-priamry  */
+/* Dark Modifications - .icon .graphic-priamry */
 .__bg-dark .icon .graphic-primary {
   fill: #f32144;
 }
@@ -74,7 +74,7 @@ export default class FeatureTileVerticle extends Vue {
   fill: #cccbcb;
 }
 
-/* Dark Modifications - .icon .graphic-secondary  */
+/* Dark Modifications - .icon .graphic-secondary */
 .__bg-dark .icon .graphic-secondary {
   fill: #737373;
 }
