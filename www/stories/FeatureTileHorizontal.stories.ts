@@ -20,7 +20,7 @@ stories.add(
           default: text("Text", "World class video CDN delivers HD quality video. Check out these [[/path/to/benchmarks|benchmarks]] to learn more.")
         },
         level: {
-          default: number("Level (1)", 3, {
+          default: number("Level", 3, {
             range: true,
             min: 1,
             max: 4,
