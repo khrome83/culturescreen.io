@@ -52,12 +52,12 @@ export default class FeatureTileVerticle extends Vue {
 }
 
 .icon .graphic-primary {
-  fill: #f32144;
+  fill: #ee0028;
 }
 
 /* Grey Modifications - .icon .graphic-priamry */
 .__bg-grey .icon .graphic-primary {
-  fill: #f32144;
+  fill: #da0629;
 }
 
 /* Dark Modifications - .icon .graphic-priamry  */
