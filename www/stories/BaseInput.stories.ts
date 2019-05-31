@@ -20,6 +20,9 @@ stories.add(
         helpText: {
           default: text("Help Text", "")
         },
+        inline: {
+          default: boolean("Inline", false)
+        },
         type: {
           default: select(
             "Input Type",
@@ -61,7 +64,8 @@ stories.add(
         hiddenLabel: labelType === 'hidden',
         internalLabel: labelType === 'internal',
         placeholder,
-        helpText
+        helpText,
+        inline
     }">
       {{label}}
     </base-input>

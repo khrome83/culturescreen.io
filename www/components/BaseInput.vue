@@ -7,7 +7,7 @@
       v-bind="[$attrs, linkProps.bindProps]"
       v-on="linkProps.onEvents"
       class="input"
-      :class="{ disabled }"
+      :class="{ disabled, inline }"
     >
     <component v-if="helpText" :is="parsedHelpText"></component>
   </div>
@@ -38,6 +38,7 @@ export default class BaseInput extends Vue {
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
   @Prop(Boolean) private internalLabel!: boolean;
+  @Prop(Boolean) private inline!: boolean;
 
   @Emit("input")
   onInputChange(e) {
@@ -170,6 +171,10 @@ export default class BaseInput extends Vue {
   background-color: #010b19;
   color: #cccbcb;
   box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #ffffff;
+}
+
+.input.inline {
+  margin: 0 2rem 0 0;
 }
 
 .input:focus {
