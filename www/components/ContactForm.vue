@@ -1,8 +1,21 @@
 <template>
   <form class="form" action>
-    <base-input v-model="name" :placeholder="namePlaceholder">{{ nameLabel }}</base-input>
-    <base-textarea v-model="message" :placeholder="messagePlaceholder" :label="messageLabel"/>
-    <base-checkbox class="tos" v-model="tos" value="true">{{ tosLabel }}</base-checkbox>
+    <base-input id="cf-name" v-model="name" :placeholder="namePlaceholder" required>{{ nameLabel }}</base-input>
+    <base-input
+      id="cf-email"
+      v-model="email"
+      type="email"
+      :placeholder="emailPlaceholder"
+      required
+    >{{ emailLabel }}</base-input>
+    <base-textarea
+      id="cf-message"
+      v-model="message"
+      :placeholder="messagePlaceholder"
+      :label="messageLabel"
+      required
+    />
+    <base-checkbox id="cf-checkbox" class="tos" v-model="tos" value="true">{{ tosLabel }}</base-checkbox>
     <base-button to="/action/submit">
       <template v-slot:post-icon>
         <send-icon aria-hidden="true" class="send-icon"/>
@@ -31,14 +44,17 @@ import SendIcon from "~/assets/svg/send.svg";
 })
 export default class ContactForm extends Vue {
   @Prop({ required: true }) nameLabel!: string;
-  @Prop({ required: true }) namePlaceholder!: string;
+  @Prop() namePlaceholder!: string;
+  @Prop({ required: true }) emailLabel!: string;
+  @Prop() emailPlaceholder!: string;
   @Prop({ required: true }) messageLabel!: string;
-  @Prop({ required: true }) messagePlaceholder!: string;
+  @Prop() messagePlaceholder!: string;
   @Prop({ required: true }) tosLabel!: string;
   @Prop({ required: true }) buttonLabel!: string;
 
   name = "";
   message = "";
+  email = "";
   tos = false;
 }
 </script>

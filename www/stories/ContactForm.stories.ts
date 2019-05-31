@@ -17,6 +17,12 @@ stories.add(
         namePlaceholder: {
           default: text("Name Placeholder", "John Doe")
         },
+        emailLabel: {
+          default: text("Email Label", "Email")
+        },
+        emailPlaceholder: {
+          default: text("Email Placeholder", "john.doe@example.com")
+        },
         messageLabel: {
           default: text("Message Label", "Message")
         },
@@ -34,6 +40,8 @@ stories.add(
         <contact-form v-bind="{
           nameLabel,
           namePlaceholder,
+          emailLabel,
+          emailPlaceholder,
           messageLabel,
           messagePlaceholder,
           tosLabel,
