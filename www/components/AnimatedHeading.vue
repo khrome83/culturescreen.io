@@ -227,7 +227,7 @@ export default class AnimatedHeading extends Vue {
 .rotating-word > .word.theme-3 {
   color: #ca5000;
 }
-3
+
 /* Grey Modifications - .rotating-word > .word.theme-3  */
 .__bg-grey .rotating-word > .word.theme-3 {
   color: #b65c00;
