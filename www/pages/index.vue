@@ -6,7 +6,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
+import { Jsonld } from "nuxt-jsonld";
 
+@Jsonld
 @Component({})
 export default class extends Vue {
   jsonld() {
