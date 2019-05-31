@@ -16,6 +16,9 @@ stories.add(
         preText: {
           default: text("Pre Text", "Starting At")
         },
+        currency: {
+          default: text("Currency", "$")
+        },
         price: {
           default: number("Price", 35)
         },
@@ -34,7 +37,7 @@ stories.add(
         },
       },
       template: `
-        <pricing-card :post-text="postText" :pre-text="preText" :frequency="frequency" :price="price" :horizontal="horizontal">
+        <pricing-card  v-bind="{ postText, preText, currency, frequency, price, horizontal}">
           <base-button>{{buttonLabel}}</base-button>
         </pricing-card>
       `

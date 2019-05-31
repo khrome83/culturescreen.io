@@ -3,7 +3,7 @@
     <div class="content">
       <div v-if="preText" class="pre-text">{{preText}}</div>
       <div class="price-set">
-        <span class="currency">$</span>
+        <span class="currency">{{currency}}</span>
         <span class="price">{{price}}</span>
         {{frequency}}
       </div>
@@ -21,6 +21,7 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 @Component({})
 export default class PricingCard extends Vue {
   @Prop() preText!: string;
+  @Prop({ default: "$" }) currency!: string;
   @Prop({ required: true }) postText!: string;
   @Prop({ required: true }) frequency!: string;
   @Prop({ required: true, type: Number }) price!: number;
