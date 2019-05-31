@@ -29,9 +29,8 @@ stories.add(
           default: text("Post Text", "After FREE 30 Day Trial")
         },
         buttonLabel: {
-          default: text("Button Label", "Start Now")
+          pdefault: text("Button Label", "Start Now")
         },
-
         horizontal: {
           default: boolean("Horizontal", false)
         },
