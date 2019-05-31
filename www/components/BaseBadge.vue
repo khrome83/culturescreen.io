@@ -7,9 +7,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
-@Component({
-  inheritAttrs: false
-})
+@Component({})
 export default class BaseBadge extends Vue {
   @Prop(Boolean) private secondary!: boolean;
   @Prop(Boolean) private small!: boolean;

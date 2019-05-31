@@ -2,14 +2,8 @@ import { storiesOf, addDecorator } from "@storybook/vue";
 import { radios, text, boolean } from "@storybook/addon-knobs";
 import sectionStates from "./decorators/sectionStates";
 import BaseBadge from "../components/BaseBadge.vue";
-import addonAPI from "@storybook/addons";
+
 const stories = storiesOf("Components/Base Badge", module).addDecorator(sectionStates);
-
-
-addonAPI.getChannel().on("storybook/background/update", bg => {
-  console.log("Background color", bg.selected);
-  console.log("Background name", bg.name);
-});
 
 stories.add(
   "Default",
