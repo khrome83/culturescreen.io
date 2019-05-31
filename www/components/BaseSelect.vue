@@ -1,7 +1,7 @@
 <template>
   <div class="select-set">
     <label :for="getId" class="label" :class="{ hide: hiddenLabel, disabled }">{{label}}</label>
-    <div class="select" :class="{ disabled }">
+    <div class="select" :class="{ disabled, inline }">
       <select
         v-bind="[$attrs, linkProps.bindProps]"
         v-on="linkProps.onEvents"
@@ -34,6 +34,7 @@ export default class BaseSelect extends Vue {
   @Prop() label!: string;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
+  @Prop(Boolean) private inline!: boolean;
 
   @Emit("input")
   onInputChange(e) {
@@ -131,6 +132,10 @@ export default class BaseSelect extends Vue {
   background-color: #010b19;
   color: #cccbcb;
   box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #ffffff;
+}
+
+.select.inline {
+  margin: 0 2rem 0 0;
 }
 
 .select:focus-within {

@@ -20,6 +20,9 @@ stories.add(
         helpText: {
           default: text("Help Text", "")
         },
+        inline: {
+          default: boolean("Inline", false)
+        },
         labelType: {
           default: radios(
             "Label Type",
@@ -46,6 +49,7 @@ stories.add(
             disabled,
             helpText,
             label,
+            inline,
             hiddenLabel: labelType === 'hidden'
         }">
           <option value="dog">Dog</option>
