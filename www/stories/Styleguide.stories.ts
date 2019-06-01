@@ -398,6 +398,7 @@ colors.add("Color Pallet", () => ({
       width: '6rem',
       height: '6rem',
       borderRadius: '0.3125rem',
+      margin: '0.25rem 0.25rem 0',
       boxShadow: 'inset 0px 0px 0px 1px rgba(0,0,0,0.5)',
     },
     wrapper: {
@@ -425,8 +426,8 @@ colors.add("Color Pallet", () => ({
         const { top, left } = item.getBoundingClientRect();
         copy(text.join(''));
         const toast = document.getElementById('toast');
-        toast.style.top = `${top + 32 + window.scrollY}px`;
-        toast.style.left = `${left + 6}px`;
+        toast.style.top = `${top + 36 + window.scrollY}px`;
+        toast.style.left = `${left + 10}px`;
         toast.style.display = "inline-block";
       }
     }
