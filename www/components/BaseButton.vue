@@ -11,7 +11,13 @@
       <slot></slot>
       <slot name="post-icon"></slot>
     </span>
-    <span class="loading" draggable="false" role="progressbar" aria-valuetext="Loading">
+    <span
+      v-if="isLoading"
+      class="loading"
+      draggable="false"
+      role="progressbar"
+      aria-valuetext="Loading"
+    >
       <loading-icon/>
     </span>
   </component>
