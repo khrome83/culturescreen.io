@@ -15,6 +15,11 @@ import StarIcon from "../assets/svg/star.svg";
 import UpdownIcon from "../assets/svg/updown.svg";
 import LoadingIcon from "../assets/svg/loading.svg";
 import SendIcon from "../assets/svg/send.svg";
+import IronIcon from "../assets/svg/medals/iron.svg";
+import CopperIcon from "../assets/svg/medals/copper.svg";
+import SilverIcon from "../assets/svg/medals/silver.svg";
+import GoldIcon from "../assets/svg/medals/gold.svg";
+import PlatinumIcon from "../assets/svg/medals/platinum.svg";
 
 
 // Headings
@@ -181,7 +186,7 @@ inlineCode.add("Default", () => `
 // Icons
 const icons = storiesOf("Styleguide/Icons", module)
 
-icons.add("All Icon", () => ({
+icons.add("Basic Icons", () => ({
   components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon, SendIcon },
   data: () => ({
     item: {
@@ -338,6 +343,138 @@ icons.add("All Icon", () => ({
         <div :style="[item, dark]" class="__bg-dark">
           <send-icon :style="icon" />
           <div :style="label">Send</div>
+        </div>
+      </div>
+    </div>
+  `
+}));
+
+icons.add("Color Icons", () => ({
+  components: { IronIcon, CopperIcon, SilverIcon, GoldIcon, PlatinumIcon },
+  data: () => ({
+    item: {
+      margin: '1rem',
+      border: 'thin solid transparent',
+      boxShadow: 'rgba(0, 0, 0, 0.15) 0rem 0.125rem 0.3125rem 0rem',
+      borderRadius: '0.3125rem',
+      padding: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minWidth: '5rem',
+      minHeight: '5rem',
+
+    },
+    light: {
+      backgroundColor: '#ffffff',
+    },
+    grey: {
+      backgroundColor: '#fdfcfb',
+      boxShadow: 'rgba(0, 0, 0, 0.2) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    dark: {
+      backgroundColor: '#010b19',
+      boxShadow: 'rgba(0, 0, 0, 0.5) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    heading: {
+      fontSize: '0.75rem',
+      margin: '0',
+      padding: '0.5rem 0 0.5rem 1rem',
+      color: '#737373',
+      textTransform: 'uppercase',
+    },
+    set: {
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginBottom: '2rem',
+    },
+    label: {
+      fontSize: '12px',
+      textTransform: 'uppercase',
+      fontWeight: '300',
+      paddingTop: '1rem',
+    },
+    wrapper: {
+      padding: '2rem',
+    },
+    icon: {
+      width: '6rem',
+      height: '6rem',
+    }
+  }),
+  template: `
+    <div :style="wrapper">
+      <div :style="heading">On Light Background</div>
+      <div :style="set">
+        <div :style="[item, light]" class="__bg-light">
+          <iron-icon :style="icon"/>
+          <div :style="label">Iron</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <copper-icon :style="icon"/>
+          <div :style="label">Copper</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <silver-icon :style="icon"/>
+          <div :style="label">Silver</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <gold-icon :style="icon"/>
+          <div :style="label">Gold</div>
+        </div>
+        <div :style="[item, light]" class="__bg-light">
+          <platinum-icon :style="icon"/>
+          <div :style="label">Platinum</div>
+        </div>
+      </div>
+
+      <div :style="heading">On Grey Background</div>
+      <div :style="set">
+        <div :style="[item, grey]" class="__bg-grey">
+          <iron-icon :style="icon"/>
+          <div :style="label">Iron</div>
+        </div>
+        <div :style="[item, grey]" class="__bg-grey">
+          <copper-icon :style="icon"/>
+          <div :style="label">Copper</div>
+        </div>
+        <div :style="[item, grey]" class="__bg-grey">
+          <silver-icon :style="icon"/>
+          <div :style="label">Silver</div>
+        </div>
+        <div :style="[item, grey]" class="__bg-grey">
+          <gold-icon :style="icon"/>
+          <div :style="label">Gold</div>
+        </div>
+        <div :style="[item, grey]" class="__bg-grey">
+          <platinum-icon :style="icon"/>
+          <div :style="label">Platinum</div>
+        </div>
+      </div>
+
+      <div :style="heading">On Dark Background</div>
+      <div :style="set">
+        <div :style="[item, dark]" class="__bg-dark">
+          <iron-icon :style="icon"/>
+          <div :style="label">Iron</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <copper-icon :style="icon"/>
+          <div :style="label">Copper</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <silver-icon :style="icon"/>
+          <div :style="label">Silver</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <gold-icon :style="icon"/>
+          <div :style="label">Gold</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <platinum-icon :style="icon"/>
+          <div :style="label">Platinum</div>
         </div>
       </div>
     </div>

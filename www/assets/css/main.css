@@ -252,6 +252,53 @@ button:active {
 }
 
 /**
+  * Global Multi-tone Icons (global)
+  * Note - Components should modify themselves
+  */
+
+.graphic-primary {
+  fill: #ee0028;
+}
+
+/* Grey Modifications - .graphic-priamry */
+.__bg-grey .graphic-primary {
+  fill: #da0629;
+}
+
+/* Dark Modifications - .graphic-priamry */
+.__bg-dark .graphic-primary {
+  fill: #f32144;
+}
+
+.graphic-secondary {
+  fill: #cccbcb;
+}
+
+/* Grey Modifications - .graphic-secondary */
+.__bg-grey .graphic-secondary {
+  fill: #bdbbbb;
+}
+
+/* Dark Modifications - .graphic-secondary */
+.__bg-dark .graphic-secondary {
+  fill: #737373;
+}
+
+.graphic-tertiary {
+  fill: #33333c;
+}
+
+/* Grey Modifications - .graphic-tertiary */
+.__bg-grey .graphic-tertiary {
+  fill: #26262c;
+}
+
+/* Dark Modifications - .graphic-tertiary */
+.__bg-dark .graphic-tertiary {
+  fill: #fafafa;
+}
+
+/**
   * Background Modifiers (global)
   * Note - Components should modify themselves
   */
