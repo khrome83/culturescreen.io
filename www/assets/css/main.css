@@ -180,6 +180,8 @@ ol {
 li {
   margin-bottom: 0.875rem;
   position: relative;
+  max-width: 46rem;
+  line-height: 1.4;
 }
 
 ul {
