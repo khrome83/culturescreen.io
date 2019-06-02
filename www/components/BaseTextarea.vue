@@ -41,12 +41,17 @@ export default class BaseTextarea extends Vue {
 
   get parsedHelpText() {
     return {
-      attrs: {
-        id: this.helpTextId,
-        class: "help-text"
-      },
       render: createElement => {
-        return createElement("div", parseLinks(createElement, this.helpText));
+        return createElement(
+          "div",
+          {
+            class: "help-text",
+            attrs: {
+              id: this.helpTextId
+            }
+          },
+          parseLinks(createElement, this.helpText)
+        );
       }
     };
   }
