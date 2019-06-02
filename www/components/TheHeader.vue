@@ -248,6 +248,10 @@ header {
 }
 
 @media (min-width: 48rem) {
+  .container {
+    padding-bottom: 0;
+  }
+
   .logo {
     order: 1;
   }
@@ -281,6 +285,11 @@ header {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
+  }
+
+  .closed .navigation-set {
+    padding: 0.125rem 0;
   }
 
   .demo {
@@ -308,7 +317,7 @@ header {
   }
 
   .primary {
-    margin: 0.5rem 0.5rem 0.25rem;
+    margin: 0.5rem;
   }
 
   .demo {
@@ -325,7 +334,7 @@ header {
 
   .signin {
     order: 3;
-    margin: 0.2rem 0 0;
+    margin: 0 0 0.25rem;
   }
 
   .controls {
