@@ -1,5 +1,5 @@
 <template>
-  <section :class="`__bg-${theme}`">
+  <section class="section" :class="[`__bg-${theme}`, { centered }]">
     <div class="container" :class="layout">
       <slot></slot>
     </div>
@@ -25,12 +25,25 @@ export enum Theme {
 export default class BaseSection extends Vue {
   @Prop({ default: Layout.Normal }) private layout!: Layout;
   @Prop({ default: Theme.Light }) private theme!: Theme;
+  @Prop(Boolean) private centered!: boolean;
 }
 </script>
 
 <style scoped>
-section {
+.section {
   font-family: "Montserrat", sans-serif;
+}
+
+.section.centered .container > h1,
+.section.centered .container > h2,
+.section.centered .container > h3,
+.section.centered .container > h4 {
+  text-align: center;
+}
+
+.section.centered .container > p {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container {
