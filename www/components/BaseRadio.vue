@@ -6,15 +6,14 @@
       class="input"
       :class="{ disabled }"
     >
-    <label :for="getId" class="label">
-      <slot></slot>
-    </label>
+    <component :is="parsedLabel" :for="getId" class="label"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Emit, Prop, Model, Vue } from "nuxt-property-decorator";
 import nanoid from "nanoid";
+import { parseLinks } from "~/library";
 
 @Component({
   inheritAttrs: false
@@ -60,7 +59,16 @@ export default class BaseRadio extends Vue {
     return this.modelValue == this.value;
   }
 
-  mounted() {}
+  get parsedLabel() {
+    return {
+      render: createElement => {
+        return createElement(
+          "label",
+          parseLinks(createElement, this.$slots.default[0].text)
+        );
+      }
+    };
+  }
 }
 </script>
 

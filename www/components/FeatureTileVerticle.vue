@@ -20,9 +20,12 @@ export default class FeatureTileVerticle extends Vue {
 
   get parsedText() {
     return {
-      template: `<p class="feature-text">
-        ${parseLinks(this.text)}
-      </p>`
+      attrs: {
+        class: "feature-text"
+      },
+      render: createElement => {
+        return createElement("p", parseLinks(createElement, this.text));
+      }
     };
   }
 

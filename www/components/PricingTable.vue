@@ -39,9 +39,12 @@ export default class PricingTable extends Vue {
 
   get parsedText() {
     return {
-      template: `<p class="feature-text">
-        ${parseLinks(this.text)}
-      </p>`
+      attrs: {
+        class: "feature-text"
+      },
+      render: createElement => {
+        return createElement("p", parseLinks(createElement, this.text));
+      }
     };
   }
 
@@ -59,9 +62,9 @@ export default class PricingTable extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 30rem;
   border: thin solid #eaeaea;
   border-radius: 0.25rem;
+  flex-grow: 1;
 }
 
 /* Grey Modifications - .pricing-table */
@@ -160,12 +163,12 @@ export default class PricingTable extends Vue {
 .list {
   text-align: left;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 4rem;
   box-sizing: border-box;
 }
 
 .cta {
-  margin-top: 2rem;
+  margin-top: auto;
 }
 
 .cta > .button {

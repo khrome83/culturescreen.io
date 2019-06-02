@@ -28,9 +28,12 @@ export default class FeatureTileHorizontal extends Vue {
 
   get parsedText() {
     return {
-      template: `<p class="feature-text">
-        ${parseLinks(this.text)}
-      </p>`
+      attrs: {
+        class: "feature-text"
+      },
+      render: createElement => {
+        return createElement("p", parseLinks(createElement, this.text));
+      }
     };
   }
 

@@ -80,9 +80,12 @@ export default class BaseCheckbox extends Vue {
 
   get parsedLabel() {
     return {
-      template: `<label>
-        ${parseLinks(this.$slots.default[0].text)}
-      </label>`
+      render: createElement => {
+        return createElement(
+          "label",
+          parseLinks(createElement, this.$slots.default[0].text)
+        );
+      }
     };
   }
 }

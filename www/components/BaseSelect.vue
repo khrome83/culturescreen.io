@@ -51,9 +51,13 @@ export default class BaseSelect extends Vue {
 
   get parsedHelpText() {
     return {
-      template: `<div id="${this.helpTextId}" class="help-text">
-        ${parseLinks(this.helpText)}
-      </div>`
+      attrs: {
+        id: this.helpTextId,
+        class: "help-text"
+      },
+      render: createElement => {
+        return createElement("div", parseLinks(createElement, this.helpText));
+      }
     };
   }
 
