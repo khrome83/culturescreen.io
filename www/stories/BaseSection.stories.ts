@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { radios, text } from "@storybook/addon-knobs";
+import { radios, text, boolean } from "@storybook/addon-knobs";
 import BaseSection from "../components/BaseSection.vue";
 
 const stories = storiesOf("Components/Base Section", module);
@@ -34,10 +34,13 @@ stories.add(
             },
             "normal"
           )
-        }
+        },
+        centered: {
+          default: boolean("Centered", false)
+        },
       },
       template: `
-    <base-section v-bind="{ theme, layout }">
+    <base-section v-bind="{ theme, layout, centered }">
       {{text}}
     </base-section>`
     } as object)
