@@ -22,20 +22,14 @@ export default class AnimatedHeading extends Vue {
     const replacements = {};
 
     while (matches != null) {
-      const openingTag =
-        matches[1] === "[["
-          ? `<span class="rotating-word ${
-              this.headingLevel
-            }" aria-hidden="true">`
-          : `<br><span class="rotating-word ${
-              this.headingLevel
-            }" aria-hidden="true">`;
-      const closingTag = matches[3] === "]]" ? "</span>" : "</span><br>";
+      const preNewLine = matches[1] === "[[" ? false : true;
+      const postNewLine = matches[3] === "]]" ? false : true;
+
       replacements[matches[0]] = {
         index,
         source: matches[2],
-        openingTag,
-        closingTag
+        preNewLine,
+        postNewLine
       };
       index++;
       matches = textRegExp.exec(text);
@@ -44,34 +38,75 @@ export default class AnimatedHeading extends Vue {
     this.replacementsMap = replacements;
   }
 
-  parseText(text: string, delay: number, offset: number) {
-    let output = text;
+  parseText(
+    createElement: Function,
+    text: string,
+    delay: number,
+    offset: number
+  ) {
+    let template = text;
+    const output = [];
     let theme = 0;
 
     Object.keys(this.replacementsMap).forEach(key => {
-      const { index, source, openingTag, closingTag } = this.replacementsMap[
-        key
-      ];
-      const words = this.animatedList[source];
-      let wordSet = "";
-      let longestWord = "";
-      const animation = `animation: rotateWord-${words.length}-${
-        this.headingLevel
-      } ${words.length * delay}s linear infinite 0s;`;
-      words.forEach((word, wordIndex) => {
-        const style = `${animation} animation-delay: ${wordIndex * delay +
-          index * offset}s`;
-        wordSet = `${wordSet}<span class="word theme-${theme %
-          5}" style="${style}">${word}</span>`;
-        if (word.length > longestWord.length) longestWord = word;
-        theme++;
-      });
-      const filler = `<span class="word-filler">${longestWord}</span>`;
-      output = output.replace(
-        `${key}`,
-        `${openingTag}${filler}${wordSet}${closingTag}`
-      );
-      theme++;
+      template = template.replace(`${key}`, `^${key}^`);
+    });
+
+    // Break the template into parts, including some that will become dynamic
+    const parts = template.split("^");
+    parts.forEach(part => {
+      if (this.replacementsMap[part] === undefined) {
+        output.push(part);
+      } else {
+        const { index, source, preNewLine, postNewLine } = this.replacementsMap[
+          part
+        ];
+        const words = this.animatedList[source];
+        let wordSet = [];
+        let longestWord = "";
+        const animation = `
+          animation: rotateWord-${words.length}-${
+          this.headingLevel
+        } ${words.length * delay}s linear infinite 0s;
+        `;
+
+        // Create Elements for Each Word in the Set
+        words.forEach((word, wordIndex) => {
+          const style = `${animation} animation-delay: ${wordIndex * delay +
+            index * offset}s`;
+
+          wordSet.push(
+            createElement("span", {
+              class: `word theme-${theme % 5}`,
+              style,
+              domProps: { innerHTML: word }
+            })
+          );
+          if (word.length > longestWord.length) longestWord = word;
+          theme++; // Increment Theme
+        });
+
+        // Include longest word
+        wordSet.push(
+          createElement("span", { class: "word-filler" }, longestWord)
+        );
+
+        // Add to output (account for new lines)
+        if (preNewLine) output.push(createElement("br"));
+        output.push(
+          createElement(
+            "span",
+            {
+              class: `rotating-word ${this.headingLevel}`,
+              attrs: { "aria-hidden": true }
+            },
+            wordSet
+          )
+        );
+        if (postNewLine) output.push(createElement("br"));
+
+        theme++; // Increment Theme
+      }
     });
 
     return output;
@@ -103,51 +138,26 @@ export default class AnimatedHeading extends Vue {
 
   get processedHeading() {
     return {
-      template: `<${this.headingLevel} class="heading" aria-label="${
-        this.ariaLabel
-      }">
-        ${this.parseText(this.originalText, this.delay, this.offset)}
-      </${this.headingLevel}>`
+      render: createElement => {
+        return createElement(
+          this.headingLevel,
+          {
+            class: "heading",
+            attrs: { "aria-label": this.ariaLabel }
+          },
+          this.parseText(
+            createElement,
+            this.originalText,
+            this.delay,
+            this.offset
+          )
+        );
+      }
     };
   }
 }
 </script>
 
-<style scoped>
-.rotating-word {
-  position: relative;
-}
-
-.heading-x {
-  display: inline-block;
-  text-align: center;
-  color: #fff;
-  fill: #fff;
-  background-color: #ee0028;
-  border-radius: 2px;
-  padding: 4px 6px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
-}
-
-/* Grey Modifications - Badge */
-.__bg-grey .badge {
-  background-color: #da0629;
-  color: #fdfcfb;
-  fill: #fdfcfb;
-}
-
-/* Dark Modifications - Badge */
-.__bg-dark .badge {
-  background-color: #f32144;
-  color: #010b19;
-  fill: #010b19;
-}
-</style>
 <style>
 .rotating-word {
   position: relative;
