@@ -37,7 +37,6 @@ export default class PricingCard extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 20rem;
   border: thin solid #eaeaea;
   border-radius: 0.25rem;
   box-shadow: 0px 0px 0.5rem 0.25rem rgba(0, 0, 0, 0.05);
