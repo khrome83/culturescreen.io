@@ -180,7 +180,6 @@ export default class BaseButton extends Vue {
   line-height: 1.25;
   letter-spacing: 0.0781rem;
   text-transform: uppercase;
-  margin: 0 0.25rem;
 }
 
 .large,
