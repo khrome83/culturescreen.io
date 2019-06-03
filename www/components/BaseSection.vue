@@ -1,6 +1,6 @@
 <template>
   <section class="section" :class="[`__bg-${theme}`, { centered }]">
-    <div class="container" :class="layout">
+    <div class="container" :class="[layout, { skinny }]">
       <slot></slot>
     </div>
   </section>
@@ -10,7 +10,7 @@
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 export enum Layout {
-  Thin = "thin",
+  Short = "short",
   Normal = "normal",
   Tall = "tall"
 }
@@ -26,6 +26,7 @@ export default class BaseSection extends Vue {
   @Prop({ default: Layout.Normal }) private layout!: Layout;
   @Prop({ default: Theme.Light }) private theme!: Theme;
   @Prop(Boolean) private centered!: boolean;
+  @Prop(Boolean) private skinny!: boolean;
 }
 </script>
 
@@ -44,6 +45,7 @@ export default class BaseSection extends Vue {
 .section.centered .container > p {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .container {
@@ -51,7 +53,11 @@ export default class BaseSection extends Vue {
   margin: 0 auto;
 }
 
-.thin {
+.container.skinny {
+  max-width: 56rem;
+}
+
+.short {
   padding: 2rem 2.5vw;
 }
 

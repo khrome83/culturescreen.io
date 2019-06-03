@@ -28,7 +28,7 @@ stories.add(
           default: radios(
             "Layout",
             {
-              Thin: "thin",
+              Short: "short",
               Normal: "normal",
               Tall: "tall"
             },
@@ -38,9 +38,12 @@ stories.add(
         centered: {
           default: boolean("Centered", false)
         },
+        skinny: {
+          default: boolean("Skinny", false)
+        },
       },
       template: `
-    <base-section v-bind="{ theme, layout, centered }">
+    <base-section v-bind="{ theme, layout, centered, skinny }">
       {{text}}
     </base-section>`
     } as object)
