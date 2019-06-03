@@ -20,6 +20,7 @@ import CopperIcon from "../assets/svg/medals/copper.svg";
 import SilverIcon from "../assets/svg/medals/silver.svg";
 import GoldIcon from "../assets/svg/medals/gold.svg";
 import PlatinumIcon from "../assets/svg/medals/platinum.svg";
+import PlaceholderIcon from "../assets/svg/placeholder.svg";
 
 
 // Headings
@@ -350,7 +351,7 @@ icons.add("Basic Icons", () => ({
 }));
 
 icons.add("Color Icons", () => ({
-  components: { IronIcon, CopperIcon, SilverIcon, GoldIcon, PlatinumIcon },
+  components: { IronIcon, CopperIcon, SilverIcon, GoldIcon, PlatinumIcon, PlaceholderIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -428,6 +429,10 @@ icons.add("Color Icons", () => ({
           <platinum-icon :style="icon"/>
           <div :style="label">Platinum</div>
         </div>
+        <div :style="[item, light]" class="__bg-light">
+          <placeholder-icon :style="icon"/>
+          <div :style="label">Placeholder</div>
+        </div>
       </div>
 
       <div :style="heading">On Grey Background</div>
@@ -452,6 +457,10 @@ icons.add("Color Icons", () => ({
           <platinum-icon :style="icon"/>
           <div :style="label">Platinum</div>
         </div>
+        <div :style="[item, grey]" class="__bg-grey">
+          <placeholder-icon :style="icon"/>
+          <div :style="label">Placeholder</div>
+        </div>
       </div>
 
       <div :style="heading">On Dark Background</div>
@@ -475,6 +484,10 @@ icons.add("Color Icons", () => ({
         <div :style="[item, dark]" class="__bg-dark">
           <platinum-icon :style="icon"/>
           <div :style="label">Platinum</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <placeholder-icon :style="icon"/>
+          <div :style="label">Placeholder</div>
         </div>
       </div>
     </div>
