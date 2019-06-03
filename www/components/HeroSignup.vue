@@ -39,8 +39,13 @@ export default class HeroSignup extends Vue {
 .hero-signup {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   max-width: 30rem;
+  margin: 4rem auto 2rem;
+}
+
+.hero-signup .button {
+  flex-grow: 1;
 }
 </style>
