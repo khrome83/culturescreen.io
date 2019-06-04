@@ -132,7 +132,7 @@ export default class BaseSwitch extends Vue {
 
 .label:before {
   content: "";
-  background-color: #737373;
+  background-color: #cccbcb;
   border: thin solid #a0a9ba;
   display: block;
   position: absolute;
@@ -149,14 +149,14 @@ export default class BaseSwitch extends Vue {
 
 /* Grey Modifications - .label:before */
 .__bg-grey .label:before {
-  background-color: #737373;
+  background-color: #cccbcb;
   border: thin solid #a0a9ba;
   box-shadow: inset 0 0 0 0.125rem #fdfcfb;
 }
 
 /* Dark Modifications - .label:before */
 .__bg-dark .label:before {
-  background-color: #737373;
+  background-color: #cccbcb;
   border: thin solid #a0a9ba;
   box-shadow: inset 0 0 0 0.125rem #010b19;
 }
@@ -287,8 +287,20 @@ export default class BaseSwitch extends Vue {
   box-shadow: inset 0 0 0 0 #010b19, inset 0 0 0 0 #33333c;
 }
 
-.disabled + .label::after {
-  content: " (disabled)";
+.disabled + .label:after {
+  border-color: #eaeaea;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Grey Modifications - .disabled + .label:after */
+.__bg-grey .disabled + .label:after {
+  border-color: #cccbcb;
+}
+
+/* Dark Modifications - .disabled + .label:after */
+.__bg-dark .disabled + .label:after {
+  border-color: #33333c;
 }
 
 .disabled:checked + .label:before {
