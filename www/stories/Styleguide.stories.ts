@@ -7,6 +7,7 @@ import CloseIcon from "../assets/svg/close.svg";
 import MenuIcon from "../assets/svg/menu.svg";
 import CheckmarkIcon from "../assets/svg/checkmark.svg";
 import CollapseIcon from "../assets/svg/collapse.svg";
+import DashIcon from "../assets/svg/dash.svg";
 import ExpandIcon from "../assets/svg/expand.svg";
 import SearchIcon from "../assets/svg/search.svg";
 import FavoriteIcon from "../assets/svg/favorite.svg";
@@ -188,7 +189,7 @@ inlineCode.add("Default", () => `
 const icons = storiesOf("Styleguide/Icons", module)
 
 icons.add("Basic Icons", () => ({
-  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon, SendIcon },
+  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon, SendIcon, DashIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -294,6 +295,10 @@ icons.add("Basic Icons", () => ({
           <send-icon :style="icon" />
           <div :style="label">Send</div>
         </div>
+        <div :style="[item, light]" class="__bg-light">
+          <dash-icon :style="icon" />
+          <div :style="label">Dash</div>
+        </div>
       </div>
       <div :style="heading">On Dark Background</div>
       <div :style="set">
@@ -344,6 +349,10 @@ icons.add("Basic Icons", () => ({
         <div :style="[item, dark]" class="__bg-dark">
           <send-icon :style="icon" />
           <div :style="label">Send</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <dash-icon :style="icon" />
+          <div :style="label">Dash</div>
         </div>
       </div>
     </div>
