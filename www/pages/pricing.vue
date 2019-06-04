@@ -57,7 +57,7 @@
             <template v-slot:list>
               <ul>
                 <li>5 Jobs</li>
-                <li>Unlimtied One-Way Interviews</li>
+                <li>Unlimited One-Way Interviews</li>
                 <li>25 User Seats</li>
                 <li>Rating System</li>
                 <li>Interview Tagging</li>
@@ -85,8 +85,8 @@
             </template>
             <template v-slot:list>
               <ul>
-                <li>Unlimted Jobs</li>
-                <li>Unlimtied One-Way Interviews</li>
+                <li>Unlimited Jobs</li>
+                <li>Unlimited One-Way Interviews</li>
                 <li>50 User Seats</li>
                 <li>Branding</li>
                 <li>Rating System</li>
@@ -119,52 +119,22 @@
         </thead>
         <tbody>
           <tr>
-            <td>Unlimited Jobs</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
+            <td>Concurrent Jobs</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Unlimited</td>
           </tr>
           <tr>
-            <td>Unlimited One-Way Interviews</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
+            <td>Monthly One-Way Interviews</td>
+            <td>50</td>
+            <td>250</td>
+            <td>Unlimited</td>
           </tr>
           <tr>
-            <td>50 User Seats</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
-            <td>Branding</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
+            <td>User Seats</td>
+            <td>10</td>
+            <td>25</td>
+            <td>50</td>
           </tr>
           <tr>
             <td>Rating System</td>
@@ -191,66 +161,6 @@
             </td>
           </tr>
           <tr>
-            <td>Company Profile</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
-            <td>Rejection Management</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
-            <td>Grandular User Permissions</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
-            <td>Company Intro Video</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
-            <td>Company Outro Video</td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-            <td>
-              <checkmark-icon/>
-            </td>
-          </tr>
-          <tr>
             <td>Question Bank</td>
             <td>
               <checkmark-icon/>
@@ -263,9 +173,69 @@
             </td>
           </tr>
           <tr>
-            <td>Custom Questions</td>
+            <td>Company Profile</td>
+            <td>
+              <dash-icon/>
+            </td>
             <td>
               <checkmark-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Rejection Management</td>
+            <td>
+              <dash-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Grandular User Permissions</td>
+            <td>
+              <dash-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Company Intro Video</td>
+            <td>
+              <dash-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Company Outro Video</td>
+            <td>
+              <dash-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+            <td>
+              <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Custom Questions</td>
+            <td>
+              <dash-icon/>
             </td>
             <td>
               <checkmark-icon/>
@@ -277,10 +247,22 @@
           <tr>
             <td>Think Time</td>
             <td>
+              <dash-icon/>
+            </td>
+            <td>
               <checkmark-icon/>
             </td>
             <td>
               <checkmark-icon/>
+            </td>
+          </tr>
+          <tr>
+            <td>Custom Branding</td>
+            <td>
+              <dash-icon/>
+            </td>
+            <td>
+              <dash-icon/>
             </td>
             <td>
               <checkmark-icon/>
@@ -354,6 +336,7 @@ import PricingCard from "~/components/PricingCard.vue";
 import PricingTable from "~/components/PricingTable.vue";
 import CheckmarkIcon from "~/assets/svg/checkmark.svg";
 import CopperIcon from "~/assets/svg/medals/copper.svg";
+import DashIcon from "~/assets/svg/dash.svg";
 import SilverIcon from "~/assets/svg/medals/silver.svg";
 import GoldIcon from "~/assets/svg/medals/gold.svg";
 import PlaceholderGraphic from "~/assets/svg/placeholder.svg";
@@ -374,6 +357,7 @@ import PlaceholderGraphic from "~/assets/svg/placeholder.svg";
     PricingTable,
     CheckmarkIcon,
     CopperIcon,
+    DashIcon,
     SilverIcon,
     GoldIcon,
     PlaceholderGraphic
