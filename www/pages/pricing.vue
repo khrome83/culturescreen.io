@@ -11,7 +11,7 @@
       </layout-row>
     </base-section>
 
-    <base-section theme="grey" centered>
+    <base-section theme="grey" layout="short" centered>
       <h2>Pricing</h2>
       <p>Nostrud ad reprehenderit veniam minim non laboris sit culpa tempor aliqua ipsum veniam Lorem.</p>
       <layout-row>
@@ -109,7 +109,7 @@
       </layout-row>
     </base-section>
 
-    <base-section theme="grey" centered skinny>
+    <base-section theme="grey" layout="short" centered skinny>
       <h3>All Features</h3>
       <table>
         <thead>
@@ -293,8 +293,8 @@
       </table>
     </base-section>
 
-    <base-section theme="grey" centered skinny>
-      <h2>Add Ons</h2>
+    <base-section theme="grey" layout="short" centered skinny>
+      <h3>Add Ons</h3>
       <pricing-card v-bind="{ ...addons.support }" horizontal>
         <base-button large tertiary>{{addons.support.buttonLabel}}</base-button>
       </pricing-card>
