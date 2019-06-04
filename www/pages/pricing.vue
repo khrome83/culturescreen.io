@@ -20,9 +20,8 @@
             identifier="copper_01"
             heading="Copper"
             text="The ideal plan for a small businesses that are just [[/getting_started|getting started]]."
-            :price="35"
-            frequency=" / month"
             button-label="Try Now"
+            v-bind="{ ...pricingTableData('copper'), cycle }"
           >
             <template v-slot:graphic>
               <copper-icon/>
@@ -48,10 +47,9 @@
             identifier="silver_01"
             heading="Silver"
             text="The ideal plan for a small businesses that are just getting started."
-            :price="199"
-            frequency=" / month"
             button-label="Try Now"
             promoted
+            v-bind="{ ...pricingTableData('silver'), cycle }"
           >
             <template v-slot:graphic>
               <silver-icon/>
@@ -79,9 +77,8 @@
             identifier="gold_01"
             heading="Gold"
             text="The ideal plan for a small businesses that are just getting started."
-            :price="485"
-            frequency=" / month"
             button-label="Try Now"
+            v-bind="{ ...pricingTableData('gold'), cycle }"
           >
             <template v-slot:graphic>
               <gold-icon/>
@@ -460,6 +457,49 @@ export default class extends Vue {
       level: 3
     }
   };
+
+  // Yearly / Monthly Pricing
+
+  cycle = "yearly";
+
+  frequency = {
+    monthly: " / monthly",
+    yearly: " / yearly"
+  };
+
+  price = {
+    monthly: {
+      copper: 35,
+      silver: 199,
+      gold: 485
+    },
+    yearly: {
+      copper: 420,
+      silver: 2388,
+      gold: 5820
+    }
+  };
+
+  savings = {
+    monthly: {
+      copper: 0,
+      silver: 0,
+      gold: 0
+    },
+    yearly: {
+      copper: 0,
+      silver: 0,
+      gold: 0
+    }
+  };
+
+  pricingTableData(plan) {
+    return {
+      frequency: this.frequency[this.cycle],
+      price: this.price[this.cycle][plan],
+      savings: this.savings[this.cycle][plan]
+    };
+  }
 
   jsonld() {
     return {
