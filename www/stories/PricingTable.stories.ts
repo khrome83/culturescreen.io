@@ -16,6 +16,9 @@ stories.add(
         identifier: {
           default: text("Identifier", "bronze_01")
         },
+        cycle: {
+          default: text("Cycle", "monthly")
+        },
         heading: {
           default: text("Heading", "Bronze")
         },
@@ -39,7 +42,7 @@ stories.add(
         },
       },
       template: `
-        <pricing-table v-bind="{ identifier, heading, promoted, text, currency, price, frequency, buttonLabel }">
+        <pricing-table v-bind="{ identifier, cycle, heading, promoted, text, currency, price, frequency, buttonLabel }">
           <template v-slot:graphic>
             <graphic />
           </template>

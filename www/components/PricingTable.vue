@@ -6,7 +6,7 @@
     <h3 class="heading">{{heading}}</h3>
     <div class="price-set">
       <span class="currency">{{currency}}</span>
-      <span class="price">{{price}}</span>
+      <span class="price">{{formattedPrice}}</span>
       {{frequency}}
     </div>
     <component :is="parsedText"></component>
@@ -30,12 +30,15 @@ import { parseLinks } from "~/library";
 export default class PricingTable extends Vue {
   @Prop({ required: true }) heading!: string;
   @Prop({ required: true }) identifier!: string;
+  @Prop({ required: true }) cycle!: string;
   @Prop({ required: true }) text!: string;
   @Prop({ required: true }) buttonLabel!: string;
   @Prop({ default: "$" }) currency!: string;
   @Prop({ required: true }) frequency!: string;
   @Prop({ required: true, type: Number }) price!: number;
   @Prop(Boolean) private promoted!: boolean;
+
+  formatter = new Intl.NumberFormat("en-US");
 
   get parsedText() {
     return {
@@ -49,8 +52,12 @@ export default class PricingTable extends Vue {
     };
   }
 
+  get formattedPrice() {
+    return this.formatter.format(this.price);
+  }
+
   get route() {
-    return `/signup?plan=${this.identifier}`;
+    return `/signup?plan=${this.identifier}&cycle=${this.cycle}`;
   }
 }
 </script>
