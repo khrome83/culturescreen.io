@@ -41,9 +41,12 @@ stories.add(
         skinny: {
           default: boolean("Skinny", false)
         },
+        extend: {
+          default: boolean("Extend", false)
+        },
       },
       template: `
-    <base-section v-bind="{ theme, layout, centered, skinny }">
+    <base-section v-bind="{ theme, layout, centered, skinny, extend }">
       {{text}}
     </base-section>`
     } as object)

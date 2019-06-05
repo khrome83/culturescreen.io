@@ -1,6 +1,6 @@
 <template>
   <section class="section" :class="[`__bg-${theme}`, { centered }]">
-    <div class="container" :class="[layout, { skinny }]">
+    <div class="container" :class="[layout, { skinny, extend }]">
       <slot></slot>
     </div>
   </section>
@@ -27,6 +27,7 @@ export default class BaseSection extends Vue {
   @Prop({ default: Theme.Light }) private theme!: Theme;
   @Prop(Boolean) private centered!: boolean;
   @Prop(Boolean) private skinny!: boolean;
+  @Prop(Boolean) private extend!: boolean;
 }
 </script>
 
@@ -53,7 +54,7 @@ export default class BaseSection extends Vue {
   margin: 0 auto;
 }
 
-.container.skinny {
+.skinny {
   max-width: 56rem;
 }
 
@@ -61,12 +62,24 @@ export default class BaseSection extends Vue {
   padding: 2rem 2.5vw;
 }
 
+.short.extend {
+  padding-bottom: 4rem;
+}
+
 .normal {
   padding: 4rem 2.5vw;
 }
 
+.normal.extend {
+  padding-bottom: 6rem;
+}
+
 .tall {
   padding: 6rem 2.5vw;
+}
+
+.tall.extend {
+  padding-bottom: 8rem;
 }
 
 .__bg-light {
