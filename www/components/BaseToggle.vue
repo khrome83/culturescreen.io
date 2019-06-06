@@ -1,5 +1,5 @@
 <template>
-  <div class="toggle-set">
+  <div class="toggle">
     <input v-bind="[$attrs, linkProps.bindProps]" v-on="linkProps.onEvents" class="input">
     <component :is="parsedLabel" :for="getId" class="label"/>
   </div>
@@ -61,7 +61,7 @@ export default class BaseToggle extends Vue {
 </script>
 
 <style scoped>
-.toggle-set {
+.toggle {
   position: relative;
 }
 
@@ -82,6 +82,8 @@ export default class BaseToggle extends Vue {
   fill: #5c6169;
   background-color: transparent;
   border: thin solid #a0a9ba;
+  border-left-width: 0;
+  border-right-width: 0;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
   font-weight: 300;
@@ -89,7 +91,7 @@ export default class BaseToggle extends Vue {
   cursor: pointer;
   transition: all 200ms ease-in-out;
   position: relative;
-  padding: 0.4rem 0.75rem 0.25rem;
+  padding: 0.4rem 1.25rem 0.25rem;
   line-height: 1.25;
   letter-spacing: 0.0781rem;
   text-transform: uppercase;
@@ -159,6 +161,9 @@ export default class BaseToggle extends Vue {
   color: #ffffff;
   fill: #ffffff;
   border-color: #010b19;
+  transform: scale(1.2);
+  z-index: 2;
+  border-radius: 0.25rem;
 }
 
 /* Grey Modifications - .input:checked + .label */
