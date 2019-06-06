@@ -130,6 +130,7 @@ export default class BaseInput extends Vue {
 
 .internal {
   position: absolute;
+  width: 100%;
   display: block;
   padding: 0.5rem;
   font-size: 1rem;
@@ -184,6 +185,8 @@ export default class BaseInput extends Vue {
 
 .input.inline {
   margin: 0 2rem 0 0;
+  min-width: initial;
+  width: 100%;
 }
 
 .input:focus {
