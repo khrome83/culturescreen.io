@@ -213,7 +213,7 @@ thead th {
   text-align: left;
   font-weight: 300;
   font-family: "Raleway", sans-serif;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   border: 0 solid #eaeaea;
   border-bottom-width: 0.0625rem;
   border-top-width: 0.0625rem;
@@ -233,13 +233,20 @@ thead th:last-child {
 }
 
 tbody td {
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   border-bottom: 0.0625rem solid #eaeaea;
 }
 
 tbody td svg {
   width: 1rem;
   height: 1rem;
+}
+
+@media (min-width: 48rem) {
+  thead th,
+  tbody td {
+    padding: 1rem;
+  }
 }
 
 code {
