@@ -8,16 +8,7 @@
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
-export default class BaseToggleSet extends Vue {
-  @Prop({ required: true }) group!: string;
-
-  created() {
-    const results = this.$slots.default.filter(item => item.tag);
-    results.forEach(toggle => {
-      toggle.componentOptions.propsData["group"] = this.group;
-    });
-  }
-}
+export default class BaseToggleSet extends Vue {}
 </script>
 
 <style>

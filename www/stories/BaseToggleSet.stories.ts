@@ -30,7 +30,7 @@ stories.add(
       }),
       template: `
       <div>
-        <base-toggle-set v-bind="{ group }">
+        <base-toggle-set>
           <base-toggle v-model="toggleValue" v-bind="{ group }" value="daily">Daily</base-toggle>
           <base-toggle v-model="toggleValue" v-bind="{ group }" value="monthly">Monthly</base-toggle>
           <base-toggle v-model="toggleValue" v-bind="{ group }" value="yearly">Yearly</base-toggle>

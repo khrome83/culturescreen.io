@@ -272,7 +272,7 @@
       </table>
     </base-section>
 
-    <base-section theme="grey" layout="short" centered skinny>
+    <base-section theme="grey" layout="short" centered skinny extend>
       <h3>Add Ons</h3>
       <pricing-card v-bind="{ ...addons.support }" horizontal>
         <base-button large tertiary>{{addons.support.buttonLabel}}</base-button>
@@ -447,8 +447,8 @@ export default class extends Vue {
   cycle = "yearly";
 
   frequency = {
-    monthly: " / monthly",
-    yearly: " / yearly"
+    monthly: " / month",
+    yearly: " / year"
   };
 
   price = {
