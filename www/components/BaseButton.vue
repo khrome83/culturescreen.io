@@ -112,6 +112,7 @@ export default class BaseButton extends Vue {
   border: thin solid #ee0028;
   transition: all 200ms ease-in-out;
   position: relative;
+  white-space: nowrap;
 }
 
 .button:not(.isLoading):hover,
