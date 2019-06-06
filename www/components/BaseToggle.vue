@@ -95,6 +95,7 @@ export default class BaseToggle extends Vue {
   line-height: 1.25;
   letter-spacing: 0.0781rem;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Grey Modifications - .label */
@@ -161,6 +162,7 @@ export default class BaseToggle extends Vue {
   color: #ffffff;
   fill: #ffffff;
   border-color: #010b19;
+  border-width: thin;
   transform: scale(1.2);
   z-index: 2;
   border-radius: 0.25rem;

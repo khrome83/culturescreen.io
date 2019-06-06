@@ -1,7 +1,7 @@
 <template>
-  <span class="toggle-set">
+  <div class="toggle-set">
     <slot></slot>
-  </span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -17,13 +17,13 @@ export default class BaseToggleSet extends Vue {}
   flex-direction: row;
 }
 
-.toggle-set > .toggle:first-child > .label {
+.toggle-set > .toggle:first-of-type > .label {
   border-left-width: thin;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 
-.toggle-set > .toggle:last-child > .label {
+.toggle-set > .toggle:last-of-type > .label {
   border-right-width: thin;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
