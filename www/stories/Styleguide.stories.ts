@@ -16,6 +16,7 @@ import StarIcon from "../assets/svg/star.svg";
 import UpdownIcon from "../assets/svg/updown.svg";
 import LoadingIcon from "../assets/svg/loading.svg";
 import SendIcon from "../assets/svg/send.svg";
+import UnlimitedIcon from "../assets/svg/unlimited.svg";
 import IronIcon from "../assets/svg/medals/iron.svg";
 import CopperIcon from "../assets/svg/medals/copper.svg";
 import SilverIcon from "../assets/svg/medals/silver.svg";
@@ -189,7 +190,7 @@ inlineCode.add("Default", () => `
 const icons = storiesOf("Styleguide/Icons", module)
 
 icons.add("Basic Icons", () => ({
-  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon, SendIcon, DashIcon },
+  components: { CloseIcon, MenuIcon, CheckmarkIcon, CollapseIcon, ExpandIcon, SearchIcon, FavoriteIcon, UnfavoriteIcon, StarIcon, UpdownIcon, LoadingIcon, SendIcon, DashIcon, UnlimitedIcon },
   data: () => ({
     item: {
       margin: '1rem',
@@ -299,6 +300,10 @@ icons.add("Basic Icons", () => ({
           <dash-icon :style="icon" />
           <div :style="label">Dash</div>
         </div>
+        <div :style="[item, light]" class="__bg-light">
+          <unlimited-icon :style="icon" />
+          <div :style="label">Unlimited</div>
+        </div>
       </div>
       <div :style="heading">On Dark Background</div>
       <div :style="set">
@@ -353,6 +358,10 @@ icons.add("Basic Icons", () => ({
         <div :style="[item, dark]" class="__bg-dark">
           <dash-icon :style="icon" />
           <div :style="label">Dash</div>
+        </div>
+        <div :style="[item, dark]" class="__bg-dark">
+          <unlimited-icon :style="icon" />
+          <div :style="label">Unlimited</div>
         </div>
       </div>
     </div>
