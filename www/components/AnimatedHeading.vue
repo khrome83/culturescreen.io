@@ -63,7 +63,7 @@ export default class AnimatedHeading extends Vue {
         ];
         const words = this.animatedList[source];
         let wordSet = [];
-        let longestWord = "";
+        let longestWord = words[0];
         const animation = `
           animation: rotateWord-${words.length}-${
           this.headingLevel
@@ -82,7 +82,7 @@ export default class AnimatedHeading extends Vue {
               domProps: { innerHTML: word }
             })
           );
-          if (word.length > longestWord.length) longestWord = word;
+
           theme++; // Increment Theme
         });
 
