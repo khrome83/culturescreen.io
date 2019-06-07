@@ -22,6 +22,9 @@ stories.add(
         heading: {
           default: text("Heading", "Bronze")
         },
+        postPrice: {
+          default: text("Post Price", "(billed anually)")
+        },
         promoted: {
           default: boolean("Promoted", false)
         },
@@ -42,7 +45,7 @@ stories.add(
         },
       },
       template: `
-        <pricing-table v-bind="{ identifier, cycle, heading, promoted, text, currency, price, frequency, buttonLabel }">
+        <pricing-table v-bind="{ identifier, cycle, heading, promoted, text, currency, price, frequency, buttonLabel, postPrice }">
           <template v-slot:graphic>
             <graphic />
           </template>

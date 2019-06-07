@@ -1,13 +1,16 @@
 <template>
   <div class="pricing-table" :class="{ promoted }">
-    <div class="icon">
-      <slot name="graphic"></slot>
-    </div>
-    <h3 class="heading">{{heading}}</h3>
-    <div class="price-set">
-      <span class="currency">{{currency}}</span>
-      <span class="price">{{formattedPrice}}</span>
-      {{frequency}}
+    <div class="banner">
+      <div class="icon">
+        <slot name="graphic"></slot>
+      </div>
+      <h3 class="heading">{{heading}}</h3>
+      <div class="price-set">
+        <span class="currency">{{currency}}</span>
+        <span class="price">{{formattedPrice}}</span>
+        {{frequency}}
+      </div>
+      <p v-if="postPrice" class="post-price">{{ postPrice }}</p>
     </div>
     <component :is="parsedText"></component>
     <div class="list">
@@ -32,6 +35,7 @@ export default class PricingTable extends Vue {
   @Prop({ required: true }) identifier!: string;
   @Prop({ required: true }) cycle!: string;
   @Prop({ required: true }) text!: string;
+  @Prop() postPrice!: string;
   @Prop({ required: true }) buttonLabel!: string;
   @Prop({ default: "$" }) currency!: string;
   @Prop({ required: true }) frequency!: string;
@@ -138,17 +142,32 @@ export default class PricingTable extends Vue {
   text-align: center;
 }
 
+.banner {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
 .feature-text {
   margin-bottom: 0;
+  padding-top: 2rem;
+  border-top: thin solid #eaeaea;
 }
 
 .price-set {
   font-size: 2.25rem;
   line-height: 1.15;
-  margin: 0 0 2rem;
-  padding: 0 0 2rem;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  border-bottom: thin solid #eaeaea;
+}
+
+.post-price {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0;
 }
 
 /* Grey Modifications - .price-set */
@@ -171,7 +190,7 @@ export default class PricingTable extends Vue {
 .list {
   text-align: left;
   width: 100%;
-  padding: 1rem 2rem 4rem;
+  padding: 1rem 2rem 2rem;
   box-sizing: border-box;
 }
 
