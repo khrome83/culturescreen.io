@@ -426,7 +426,7 @@ export default class extends Vue {
       preText: "Priorty Support",
       postText: "Email, Slack, and Live Chat",
       curreny: "$",
-      frequency: " / monthly",
+      frequency: " / mo",
       price: 199,
       buttonLabel: "Add Support"
     }
@@ -455,8 +455,8 @@ export default class extends Vue {
   cycle = "monthly";
 
   frequency = {
-    monthly: " / month",
-    yearly: " / month"
+    monthly: " / mo",
+    yearly: " / mo"
   };
 
   postPrice = {
