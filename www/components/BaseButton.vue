@@ -156,6 +156,7 @@ export default class BaseButton extends Vue {
   color: #111119;
   fill: #111119;
   border-color: #f32144;
+  font-weight: 400;
 }
 
 .__bg-dark .button:not(.isLoading):hover,
@@ -242,6 +243,7 @@ export default class BaseButton extends Vue {
   color: #010b19;
   fill: #010b19;
   border-color: #ffffff;
+  font-weight: 400;
 }
 
 .__bg-dark .secondary:not(.isLoading):hover,
@@ -306,6 +308,7 @@ export default class BaseButton extends Vue {
   color: #cccbcb;
   fill: #cccbcb;
   border-color: #cccbcb;
+  font-weight: 300;
 }
 
 .__bg-dark .tertiary:not(.isLoading):hover,
@@ -369,6 +372,7 @@ export default class BaseButton extends Vue {
   color: #f30b73;
   fill: #f30b73;
   border-color: transparent;
+  font-weight: 300;
 }
 
 .__bg-dark .danger:not(.isLoading):hover,
