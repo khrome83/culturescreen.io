@@ -16,7 +16,7 @@ export default class LayoutRow extends Vue {
 
 <style scoped>
 .col {
-  display: flex;
+  display: block;
   margin: 0 0 1rem;
   padding: 0;
   flex-basis: 0;
@@ -42,6 +42,11 @@ export default class LayoutRow extends Vue {
 
 @media (min-width: 71.25rem) {
   .col {
+    display: flex;
+    padding: 0;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-direction: column;
     margin: 0.5rem;
   }
 
