@@ -71,4 +71,18 @@ export default class ContactForm extends Vue {
 .button .send-icon {
   margin-left: 1rem;
 }
+
+.form .button {
+  display: block;
+  margin: 0 auto;
+  max-width: 6rem;
+}
+
+@media (min-width: 48rem) {
+  .form .button {
+    display: inline;
+    margin: 0;
+    max-width: initial;
+  }
+}
 </style>
