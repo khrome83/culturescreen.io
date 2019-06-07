@@ -130,7 +130,6 @@ export default class BaseInput extends Vue {
 
 .internal {
   position: absolute;
-  width: 100%;
   display: block;
   padding: 0.5rem;
   font-size: 1rem;
