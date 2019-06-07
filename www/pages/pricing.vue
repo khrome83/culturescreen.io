@@ -6,14 +6,23 @@
           <placeholder-graphic/>
         </layout-column>
         <layout-column centered>
-          <animated-heading :level="1" v-bind="{ animatedList }">Build [[one%] Teams That [%two]]</animated-heading>
+          <animated-heading :level="1" v-bind="{ animatedList }">Build [%one%] Teams That [%two]]</animated-heading>
         </layout-column>
       </layout-row>
     </base-section>
 
     <base-section theme="grey" layout="short" centered>
       <h2>Pricing</h2>
-      <p>Nostrud ad reprehenderit veniam minim non laboris sit culpa tempor aliqua ipsum veniam Lorem.</p>
+      <base-toggle-set class="cycle-toggle">
+        <base-toggle id="cycle-monthly" v-model="cycle" group="cycle-set" value="monthly">Monthly</base-toggle>
+        <base-toggle id="cycle-yearly" v-model="cycle" group="cycle-set" value="yearly">Yearly</base-toggle>
+      </base-toggle-set>
+      <div class="year-offer" aria-label="Get 2 months free with yearly pricing">
+        Get 2 months free!
+        <span class="year-offer-arrow">
+          <top-left-arrow class="arrow" aria-hidden="true"/>
+        </span>
+      </div>
       <layout-row>
         <layout-column>
           <pricing-table
@@ -28,16 +37,13 @@
             </template>
             <template v-slot:list>
               <ul>
-                <li>1 Job</li>
+                <li>1 Concurrent Job Posts</li>
                 <li>50 One-Way Interviews</li>
                 <li>10 User Seats</li>
-                <li>Rating System</li>
-                <li>Interview Tagging</li>
-                <li>Company Profile</li>
-                <li>Rejection Management</li>
-                <li>Grandular User Permissions</li>
-                <li>Question Bank</li>
-                <li>Think Time</li>
+                <li>
+                  See
+                  <a href="#all-features">full feature</a> list
+                </li>
               </ul>
             </template>
           </pricing-table>
@@ -56,18 +62,13 @@
             </template>
             <template v-slot:list>
               <ul>
-                <li>5 Jobs</li>
+                <li>5 Concurrent Job Posts</li>
                 <li>Unlimited One-Way Interviews</li>
                 <li>25 User Seats</li>
-                <li>Rating System</li>
-                <li>Interview Tagging</li>
-                <li>Rejection Management</li>
-                <li>Grandular User Permissions</li>
-                <li>Company Intro Video</li>
-                <li>Company Outro Video</li>
-                <li>Question Bank</li>
-                <li>Custom Questions</li>
-                <li>Think Time</li>
+                <li>
+                  See
+                  <a href="#all-features">full feature</a> list
+                </li>
               </ul>
             </template>
           </pricing-table>
@@ -85,20 +86,13 @@
             </template>
             <template v-slot:list>
               <ul>
-                <li>Unlimited Jobs</li>
+                <li>Unlimited Concurrent Job Posts</li>
                 <li>Unlimited One-Way Interviews</li>
                 <li>50 User Seats</li>
-                <li>Branding</li>
-                <li>Rating System</li>
-                <li>Interview Tagging</li>
-                <li>Company Profile</li>
-                <li>Rejection Management</li>
-                <li>Grandular User Permissions</li>
-                <li>Company Intro Video</li>
-                <li>Company Outro Video</li>
-                <li>Question Bank</li>
-                <li>Custom Questions</li>
-                <li>Think Time</li>
+                <li>
+                  See
+                  <a href="#all-features">full feature</a> list
+                </li>
               </ul>
             </template>
           </pricing-table>
@@ -107,6 +101,7 @@
     </base-section>
 
     <base-section theme="grey" layout="short" centered skinny>
+      <a id="all-features"></a>
       <h3>All Features</h3>
       <table>
         <thead>
@@ -119,16 +114,20 @@
         </thead>
         <tbody>
           <tr>
-            <td>Concurrent Jobs</td>
+            <td>Concurrent Job Posts</td>
             <td>1</td>
             <td>5</td>
-            <td>Unlimited</td>
+            <td>
+              <unlimited-icon aria-label="unlimited"/>
+            </td>
           </tr>
           <tr>
             <td>Monthly One-Way Interviews</td>
             <td>50</td>
             <td>250</td>
-            <td>Unlimited</td>
+            <td>
+              <unlimited-icon aria-label="unlimited"/>
+            </td>
           </tr>
           <tr>
             <td>User Seats</td>
@@ -139,133 +138,133 @@
           <tr>
             <td>Rating System</td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Interview Tagging</td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Question Bank</td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Company Profile</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Rejection Management</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Grandular User Permissions</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Company Intro Video</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Company Outro Video</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Custom Questions</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Think Time</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
           <tr>
             <td>Custom Branding</td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <dash-icon/>
+              <dash-icon aria-label="no"/>
             </td>
             <td>
-              <checkmark-icon/>
+              <checkmark-icon aria-label="yes"/>
             </td>
           </tr>
         </tbody>
@@ -280,7 +279,7 @@
     </base-section>
 
     <base-section theme="dark" layout="short" centered skinny>
-      <h2>14 Day Free Trial</h2>
+      <h2>14 Day Trial</h2>
       <p>No Credit Card Required</p>
       <layout-row>
         <layout-column>
@@ -327,6 +326,8 @@ import AnimatedHeading from "~/components/AnimatedHeading.vue";
 import BaseButton from "~/components/BaseButton.vue";
 import BaseExpander from "~/components/BaseExpander.vue";
 import BaseSection from "~/components/BaseSection.vue";
+import BaseToggle from "~/components/BaseToggle.vue";
+import BaseToggleSet from "~/components/BaseToggleSet.vue";
 import ContactForm from "~/components/ContactForm.vue";
 import FeatureTileHorizontal from "~/components/FeatureTileHorizontal.vue";
 import HeroSignup from "~/components/HeroSignup.vue";
@@ -340,6 +341,8 @@ import DashIcon from "~/assets/svg/dash.svg";
 import SilverIcon from "~/assets/svg/medals/silver.svg";
 import GoldIcon from "~/assets/svg/medals/gold.svg";
 import PlaceholderGraphic from "~/assets/svg/placeholder.svg";
+import UnlimitedIcon from "~/assets/svg/unlimited.svg";
+import TopLeftArrow from "~/assets/svg/arrows/topleft.svg";
 
 @Jsonld
 @Component({
@@ -348,6 +351,8 @@ import PlaceholderGraphic from "~/assets/svg/placeholder.svg";
     BaseButton,
     BaseExpander,
     BaseSection,
+    BaseToggle,
+    BaseToggleSet,
     ContactForm,
     FeatureTileHorizontal,
     HeroSignup,
@@ -360,13 +365,15 @@ import PlaceholderGraphic from "~/assets/svg/placeholder.svg";
     DashIcon,
     SilverIcon,
     GoldIcon,
-    PlaceholderGraphic
+    UnlimitedIcon,
+    PlaceholderGraphic,
+    TopLeftArrow
   }
 })
 export default class extends Vue {
   animatedList = {
-    one: ["Collaborative", "Insightful", "Quality", "Thoughtful", "Innovative"],
-    two: ["Deliver&nbsp;Quickly", "Solve&nbsp;Problems", "Take&nbsp;Ownership"]
+    one: ["Unified", "Insightful", "Quality", "Thoughtful", "Innovative"],
+    two: ["Deliver Quickly", "Solve Problems", "Take Ownership"]
   };
 
   contactForm = {
@@ -444,23 +451,28 @@ export default class extends Vue {
 
   // Yearly / Monthly Pricing
 
-  cycle = "yearly";
+  cycle = "monthly";
 
   frequency = {
     monthly: " / month",
-    yearly: " / year"
+    yearly: " / month"
+  };
+
+  postPrice = {
+    monthly: "",
+    yearly: "(billed annually)"
   };
 
   price = {
     monthly: {
       copper: 35,
-      silver: 199,
-      gold: 485
+      silver: 160,
+      gold: 345
     },
     yearly: {
-      copper: 420,
-      silver: 2388,
-      gold: 5820
+      copper: 29,
+      silver: 133,
+      gold: 288
     }
   };
 
@@ -479,6 +491,7 @@ export default class extends Vue {
 
   pricingTableData(plan) {
     return {
+      postPrice: this.postPrice[this.cycle],
       frequency: this.frequency[this.cycle],
       price: this.price[this.cycle][plan],
       savings: this.savings[this.cycle][plan]
@@ -510,6 +523,41 @@ export default class extends Vue {
   width: 12rem;
 }
 
-.hero-signup {
+.cycle-toggle {
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.year-offer {
+  position: relative;
+  text-align: right;
+  font-size: 0.875rem;
+  padding: 0 0 2rem;
+  margin: 0 auto;
+  color: #da0629;
+  font-family: "Raleway", sans-serif;
+  max-width: 25rem;
+}
+
+.year-offer-arrow {
+  position: absolute;
+  left: calc(50% + 4.5rem);
+  top: -4.5rem;
+  z-index: 3;
+}
+
+.year-offer-arrow .arrow {
+  width: 5rem;
+  height: 5rem;
+}
+
+.year-offer-arrow .arrow g {
+  stroke: #da0629;
+}
+
+@media (min-width: 48rem) {
+  .year-offer-arrow {
+    left: calc(50% + 5.5rem);
+  }
 }
 </style>
