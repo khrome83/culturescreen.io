@@ -6,7 +6,7 @@
           <placeholder-graphic/>
         </layout-column>
         <layout-column centered>
-          <animated-heading :level="1" v-bind="{ animatedList }">Build [%one%] Teams That [%two]]</animated-heading>
+          <animated-heading :level="1" v-bind="{ animatedList }">{{ animatedListHeading }}</animated-heading>
         </layout-column>
       </layout-row>
     </base-section>
@@ -371,9 +371,10 @@ import TopLeftArrow from "~/assets/svg/arrows/topleft.svg";
   }
 })
 export default class extends Vue {
+  animatedListHeading = "Build [[one%] Teams That [%two]]";
   animatedList = {
-    one: ["Unified", "Insightful", "Quality", "Thoughtful", "Innovative"],
-    two: ["Deliver Quickly", "Solve Problems", "Take Ownership"]
+    one: ["Collaborative", "Insightful", "Quality", "Thoughtful", "Innovative"],
+    two: ["Take Ownership", "Solve Problems", "Deliver Quickly"]
   };
 
   contactForm = {
