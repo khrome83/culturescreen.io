@@ -184,7 +184,7 @@ export default class BaseInput extends Vue {
 }
 
 .input.inline {
-  margin: 0 2rem 0 0;
+  margin: 0;
   min-width: initial;
   width: 100%;
 }
