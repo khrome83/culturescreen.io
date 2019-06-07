@@ -23,6 +23,7 @@ import SilverIcon from "../assets/svg/medals/silver.svg";
 import GoldIcon from "../assets/svg/medals/gold.svg";
 import PlatinumIcon from "../assets/svg/medals/platinum.svg";
 import PlaceholderIcon from "../assets/svg/placeholder.svg";
+import TopLeftArrow from "../assets/svg/arrows/topleft.svg";
 
 
 // Headings
@@ -512,6 +513,81 @@ icons.add("Color Icons", () => ({
   `
 }));
 
+icons.add("Arrows", () => ({
+  components: { TopLeftArrow },
+  data: () => ({
+    item: {
+      margin: '1rem',
+      border: 'thin solid transparent',
+      boxShadow: 'rgba(0, 0, 0, 0.15) 0rem 0.125rem 0.3125rem 0rem',
+      borderRadius: '0.3125rem',
+      padding: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minWidth: '5rem',
+      minHeight: '5rem',
+
+    },
+    light: {
+      backgroundColor: '#ffffff',
+    },
+    grey: {
+      backgroundColor: '#fdfcfb',
+      boxShadow: 'rgba(0, 0, 0, 0.2) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    dark: {
+      backgroundColor: '#010b19',
+      boxShadow: 'rgba(0, 0, 0, 0.5) 0rem 0.125rem 0.3125rem 0rem',
+    },
+    heading: {
+      fontSize: '0.75rem',
+      margin: '0',
+      padding: '0.5rem 0 0.5rem 1rem',
+      color: '#737373',
+      textTransform: 'uppercase',
+    },
+    set: {
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginBottom: '2rem',
+    },
+    label: {
+      fontSize: '12px',
+      textTransform: 'uppercase',
+      fontWeight: '300',
+      paddingTop: '1rem',
+    },
+    wrapper: {
+      padding: '2rem',
+    },
+    icon: {
+      width: '6rem',
+      height: '6rem',
+      stroke: '#EE0028',
+    }
+  }),
+  template: `
+    <div :style="wrapper">
+      <div :style="heading">On Light Background</div>
+      <div :style="set">
+        <div :style="[item, light]" class="__bg-light">
+          <top-left-arrow :style="icon"/>
+          <div :style="label">Top Left</div>
+        </div>
+      </div>
+      <div :style="heading">On Dark Background</div>
+      <div :style="set">
+        <div :style="[item, dark]" class="__bg-dark">
+          <top-left-arrow :style="icon" />
+          <div :style="label">Top Left</div>
+        </div>
+      </div>
+    </div>
+  `
+}));
 
 // Colors
 const colors = storiesOf("Styleguide/Colors", module)
