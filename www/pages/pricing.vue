@@ -312,7 +312,7 @@
       <base-button class="more-questions" to="/faqs" tertiary small>More Questions</base-button>
     </base-section>
 
-    <base-section theme="light" centered skinny>
+    <base-section theme="dark" centered skinny>
       <h2>Here to Help</h2>
       <contact-form v-bind="contactForm"/>
     </base-section>
