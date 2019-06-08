@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <base-section theme="dark">
+    <base-section dark>
       <layout-row reversed>
         <layout-column centered>
           <placeholder-graphic/>
@@ -11,7 +11,7 @@
       </layout-row>
     </base-section>
 
-    <base-section theme="grey" layout="short" centered>
+    <base-section grey short centered>
       <h2>Pricing</h2>
       <base-toggle-set class="cycle-toggle">
         <base-toggle id="cycle-monthly" v-model="cycle" group="cycle-set" value="monthly">Monthly</base-toggle>
@@ -100,7 +100,7 @@
       </layout-row>
     </base-section>
 
-    <base-section theme="grey" layout="short" centered skinny>
+    <base-section grey short centered skinny>
       <a id="all-features"></a>
       <h3>All Features</h3>
       <table>
@@ -271,14 +271,14 @@
       </table>
     </base-section>
 
-    <base-section theme="grey" layout="short" centered skinny extend>
+    <base-section grey short centered skinny extend>
       <h3>Add Ons</h3>
       <pricing-card v-bind="{ ...addons.support }" horizontal>
         <base-button large tertiary>{{addons.support.buttonLabel}}</base-button>
       </pricing-card>
     </base-section>
 
-    <base-section theme="dark" layout="short" centered skinny>
+    <base-section dark short centered skinny>
       <h2>14 Day Trial</h2>
       <p>No Credit Card Required</p>
       <layout-row>
@@ -292,7 +292,7 @@
       <hero-signup v-bind="{ ...trialSignup }"/>
     </base-section>
 
-    <base-section theme="light" centered skinny>
+    <base-section light centered skinny>
       <h2>Common Questions</h2>
       <base-expander :heading="faq.one.question" expanded>
         <p>{{faq.one.answer}}</p>
@@ -312,7 +312,7 @@
       <base-button class="more-questions" to="/faqs" tertiary small>More Questions</base-button>
     </base-section>
 
-    <base-section theme="dark" centered skinny>
+    <base-section dark centered skinny>
       <h2>Here to Help</h2>
       <contact-form v-bind="contactForm"/>
     </base-section>

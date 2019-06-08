@@ -1,6 +1,6 @@
 <template>
   <section class="section" :class="[`__bg-${theme}`, { centered }]">
-    <div class="container" :class="[layout, { skinny, extend }]">
+    <div class="container" :class="[layouts, { skinny, extend }]">
       <slot></slot>
     </div>
   </section>
@@ -9,25 +9,27 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
-export enum Layout {
-  Short = "short",
-  Normal = "normal",
-  Tall = "tall"
-}
-
-export enum Theme {
-  Light = "light",
-  Grey = "grey",
-  Dark = "dark"
-}
-
 @Component({})
 export default class BaseSection extends Vue {
-  @Prop({ default: Layout.Normal }) private layout!: Layout;
-  @Prop({ default: Theme.Light }) private theme!: Theme;
+  @Prop(Boolean) private light!: boolean;
+  @Prop(Boolean) private grey!: boolean;
+  @Prop(Boolean) private dark!: boolean;
+  @Prop(Boolean) private short!: boolean;
+  @Prop(Boolean) private normal!: boolean;
+  @Prop(Boolean) private tall!: boolean;
   @Prop(Boolean) private centered!: boolean;
   @Prop(Boolean) private skinny!: boolean;
   @Prop(Boolean) private extend!: boolean;
+
+  get theme() {
+    // Defaults to Light
+    return this.dark ? "dark" : this.grey ? "grey" : "light";
+  }
+
+  get layouts() {
+    // Defaults to Normal
+    return this.tall ? "tall" : this.short ? "short" : "normal";
+  }
 }
 </script>
 
@@ -58,20 +60,19 @@ export default class BaseSection extends Vue {
   max-width: 56rem;
 }
 
-.short {
-  padding: 2rem 2.5vw;
-}
-
-.short.extend {
-  padding-bottom: 4rem;
-}
-
 .normal {
   padding: 4rem 2.5vw;
 }
 
 .normal.extend {
   padding-bottom: 6rem;
+}
+.short {
+  padding: 2rem 2.5vw;
+}
+
+.short.extend {
+  padding-bottom: 4rem;
 }
 
 .tall {

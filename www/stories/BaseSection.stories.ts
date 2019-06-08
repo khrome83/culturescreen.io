@@ -46,7 +46,17 @@ stories.add(
         },
       },
       template: `
-    <base-section v-bind="{ theme, layout, centered, skinny, extend }">
+    <base-section v-bind="{
+      centered,
+      skinny,
+      extend,
+      light: theme === 'light',
+      grey: theme === 'grey',
+      dark: theme === 'dark',
+      short: layout === 'short',
+      normal: layout === 'normal',
+      tall: layout === 'tall' }"
+    >
       {{text}}
     </base-section>`
     } as object)
