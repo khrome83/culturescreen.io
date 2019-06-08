@@ -21,7 +21,6 @@
       <div class="utility-navigation">
         <div class="copyright">Copyright © 2018 Culture Screen, LLC</div>
         <nav class="utility">
-          <nuxt-link class="utility-nav" to="/styleguide">Styleguide</nuxt-link>
           <nuxt-link class="utility-nav" to="/privacy">Privacy Policy</nuxt-link>
           <nuxt-link class="utility-nav" to="/sitemap">Sitemap</nuxt-link>
         </nav>
