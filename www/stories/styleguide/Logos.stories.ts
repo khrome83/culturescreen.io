@@ -27,7 +27,7 @@ logos.add("Default", () => ({
 
     },
     light: {
-      backgroundColor: '#ffffff',
+      backgroundColor: '#fff',
     },
     dark: {
       backgroundColor: '#010b19',
