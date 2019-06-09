@@ -21,7 +21,8 @@
     {
       "src": "./www/package.json",
       "use": "@now/static-build"
-    }
+    },
+    { "src": "./www/nuxt/icons/*.png", "use": "@now/optipng" }
   ],
   "env": {
     "COSMOS_ENDPOINT": "@cosmos-endpoint",
