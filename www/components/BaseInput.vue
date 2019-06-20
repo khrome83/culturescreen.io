@@ -119,13 +119,14 @@ export default class BaseInput extends Vue {
 <style scoped>
 .fieldset {
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .label {
   display: block;
-  padding-top: 2rem;
   font-weight: 400;
   font-size: 1rem;
+  text-align: left;
 }
 
 .internal {
