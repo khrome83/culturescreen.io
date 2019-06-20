@@ -2,7 +2,9 @@ import NuxtConfiguration from "@nuxt/config";
 
 const config: NuxtConfiguration = {
     // Type or Press `Ctrl + Space` for autocompletion
-    env: {},
+    env: {
+        gCloudCredentials: process.env.GCLOUD_CREDENTIALS || "testing",
+    },
     head: {
         htmlAttrs: {
             lang: "en"
@@ -50,7 +52,7 @@ const config: NuxtConfiguration = {
                 ];
             }
         },
-        extend: config => {
+        extend: (config, ctx) => {
             const svgRule = config.module.rules.find(rule =>
                 (rule.test as RegExp).test(".svg")
             );
@@ -61,11 +63,21 @@ const config: NuxtConfiguration = {
                 test: /\.svg$/,
                 loader: "vue-svg-loader"
             });
+
+            // Source Maps
+            if (ctx.isDev) {
+                config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+            }
+
+            console.log("GCLOUD - ", process.env.GCLOUD_CREDENTIALS)
         }
     },
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
-    plugins: ['~/plugins/jsonld'],
-    axios: {}
+    plugins: ['~/plugins/jsonld', { src: '~/plugins/fireauth', ssr: false }],
+    axios: {},
+    router: {
+        middleware: 'router-auth',
+    }
 };
 
 export default config;
