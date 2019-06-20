@@ -31,3 +31,42 @@ export interface Address {
   state: string;
   street: string;
 }
+
+export interface Profile {
+  bio: string;
+}
+
+export interface TokenManager {
+  apiKey: string;
+  refreshToken: string;
+  accessToken: string;
+  expirationTime: number;
+}
+
+export interface ProviderData {
+  uid: string;
+  displayName: string;
+  providerId: string;
+  email: string | null;
+  phoneNumber: string | null;
+  photoURL: string | null;
+}
+
+export interface UserData {
+  uid: string;
+  apiKey: string;
+  appName: string;
+  authDomain: string;
+  createdAt: string;
+  displayName: string;
+  email: string | null;
+  emailVerified: boolean;
+  isAnonymous: boolean;
+  lastLoginAt: string;
+  phoneNumber: string | null;
+  photoURL: string | null;
+  redirectEventId: string | null;
+  stsTokenManger: TokenManager;
+  providerData: ProviderData[];
+  admin: boolean;
+}
