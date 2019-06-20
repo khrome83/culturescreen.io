@@ -39,7 +39,7 @@
         <nuxt-link class="primary demo" to="/app/demo" role="menuitem" ref="menuItem5">Demo</nuxt-link>
       </nav>
       <hr class="break two">
-      <base-button class="signin" to="/app/login">Sign in</base-button>
+      <base-button class="signin" to="/login">Sign in</base-button>
     </div>
   </header>
 </template>
