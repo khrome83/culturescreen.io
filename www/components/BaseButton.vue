@@ -51,9 +51,10 @@ export default class BaseButton extends Vue {
       return "button";
     }
 
+    // Ensure we only validate before the query params
     if (
       /((https{0,1}|ftp|tel|mail):\/\/)|^www.|.{1}(com|net|org|io)/i.test(
-        this.to
+        this.to.split("?")[0]
       )
     ) {
       return "a";

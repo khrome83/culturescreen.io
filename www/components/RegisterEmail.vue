@@ -53,6 +53,12 @@ export default class RegisterEmail extends Vue {
   formEmail = "";
   formPassword = "";
 
+  mounted() {
+    if (this.$route.query["email"]) {
+      this.formEmail = this.$route.query["email"].toString();
+    }
+  }
+
   get emailError() {
     return getErrorMsgs(this.$v.formEmail, this.authError, "email")[0];
   }
