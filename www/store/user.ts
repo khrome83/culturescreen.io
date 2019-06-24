@@ -24,6 +24,10 @@ export const getters: GetterTree<UserState, RootState> = {
     if (!state.authError) return output;
 
     switch (state.authError.code) {
+      case "auth/email-already-in-use":
+        output.target = "email";
+        output.message = "This email address is already in use. [[/login|Sign in]]?";
+        break;
       case "auth/invalid-email":
         output.target = "email";
         output.message = "Email address is not formatted corrrectly.";
@@ -31,6 +35,10 @@ export const getters: GetterTree<UserState, RootState> = {
       case "auth/user-not-found":
         output.target = "email";
         output.message = "No user with this email address was found.";
+        break;
+      case "auth/weak-password":
+        output.target = "password";
+        output.message = "The password must be 6 characters long or more."
         break;
       case "auth/wrong-password":
         output.target = "password";
@@ -65,9 +73,11 @@ export const actions: ActionTree<UserState, RootState> = {
     const { email, password } = data;
 
     try {
+      commit('resetAuthError');
       await auth.createUserWithEmailAndPassword(email, password);
       dispatch('profile/createProfile', data, { root: true });
     } catch (e) {
+      commit('setAuthError', e);
       console.log(e.code, e.message);
     }
   },
@@ -79,7 +89,7 @@ export const actions: ActionTree<UserState, RootState> = {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
       commit('setAuthError', e);
-      console.log("WE SEE ERRORS", e.code, e.message);
+      console.log(e.code, e.message);
     }
   },
   async signInWithGoogle({ commit, dispatch }): Promise<void> {

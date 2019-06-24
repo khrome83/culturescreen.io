@@ -27,8 +27,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
     if (rootGetters['user/uid']) {
       try {
         await DB.collection("Profiles").doc(rootGetters['user/uid']).set({
-          bio: data.bio,
-          partial: false,
+          partial: true,
           createdAt: Timestamp.fromDate(new Date())
         });
       } catch (e) {
