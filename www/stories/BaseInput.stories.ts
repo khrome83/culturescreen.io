@@ -20,6 +20,9 @@ stories.add(
         helpText: {
           default: text("Help Text", "")
         },
+        errorText: {
+          default: text("Error Text", "")
+        },
         inline: {
           default: boolean("Inline", false)
         },
@@ -65,6 +68,7 @@ stories.add(
         internalLabel: labelType === 'internal',
         placeholder,
         helpText,
+        errorText,
         inline
     }">
       {{label}}

@@ -1,5 +1,5 @@
 <template>
-  <div class="fieldset">
+  <div class="fieldset" :class="{ error }">
     <label :for="getId" class="label" :class="{ hide, internal: internalLabel, disabled }">
       <slot></slot>
     </label>
@@ -9,7 +9,8 @@
       class="input"
       :class="{ disabled, inline }"
     >
-    <component v-if="helpText" :is="parsedHelpText"></component>
+    <component v-if="helpText && !error" :is="parsedHelpText"></component>
+    <component v-if="error" :is="parsedErrorText"></component>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ export default class BaseInput extends Vue {
   @Prop() id!: string;
   @Prop() value!: string;
   @Prop() helpText!: string;
+  @Prop() errorText!: string;
   @Prop({ default: Type.Text }) private type!: Type;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
@@ -45,12 +47,20 @@ export default class BaseInput extends Vue {
     return e.target.value;
   }
 
+  get error() {
+    return !this.disabled && !!this.errorText;
+  }
+
   get getId() {
     return this.id ? this.id : `input-${nanoid()}`;
   }
 
   get helpTextId() {
     return `${this.getId}-help`;
+  }
+
+  get errorTextId() {
+    return `${this.getId}-error`;
   }
 
   get parsedHelpText() {
@@ -65,6 +75,23 @@ export default class BaseInput extends Vue {
             }
           },
           parseLinks(createElement, this.helpText)
+        );
+      }
+    };
+  }
+
+  get parsedErrorText() {
+    return {
+      render: createElement => {
+        return createElement(
+          "div",
+          {
+            class: "error-text",
+            attrs: {
+              id: this.errorTextId
+            }
+          },
+          parseLinks(createElement, this.errorText)
         );
       }
     };
@@ -101,6 +128,10 @@ export default class BaseInput extends Vue {
 
     if (this.helpText) {
       bindProps["aria-describedby"] = this.helpTextId;
+    }
+
+    if (this.error) {
+      bindProps["aria-describedby"] = this.errorTextId;
     }
 
     return { onEvents, bindProps };
@@ -204,7 +235,8 @@ export default class BaseInput extends Vue {
   box-shadow: inset 0 0 0 0.0625rem #010b19, inset 0 0 0 0.125rem #ffffff;
 }
 
-.help-text {
+.help-text,
+.error-text {
   font-family: "Raleway", sans-serif;
   display: block;
   font-weight: 300;
@@ -217,6 +249,44 @@ export default class BaseInput extends Vue {
 /* Dark Modifications - .help-text */
 .__bg-dark .help-text {
   color: #cccbcb;
+}
+
+.error-text,
+.error .label {
+  color: #ff3867;
+}
+
+/* Grey Modifications - .error-text, .error .label */
+.__bg-grey .error-text,
+.__bg-grey .error .label {
+  color: #d30260;
+}
+
+/* Dark Modifications - .error-text, .error .label */
+.__bg-dark .error-text,
+.__bg-dark .error .label {
+  color: #f30b73;
+}
+
+.error {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.error .input {
+  border-color: #ff3867;
+}
+
+/* Grey Modifications - .error .input */
+.__bg-grey .error .input {
+  border-color: #d30260;
+}
+
+/* Dark Modifications - .error .input */
+.__bg-dark .error .input {
+  border-color: #f30b73;
 }
 
 .disabled,
@@ -262,5 +332,28 @@ export default class BaseInput extends Vue {
 
 .disabled:focus {
   box-shadow: inset 0 0 0 0.0625rem #fafafa, inset 0 0 0 0.125rem #eaeaea;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-0.0625rem, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(0.125rem, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-0.25rem, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0.25rem, 0, 0);
+  }
 }
 </style>
