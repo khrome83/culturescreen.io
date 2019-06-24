@@ -53,6 +53,7 @@ export default class HeroSignup extends Vue {
 .hero-signup .fieldset {
   padding-bottom: 1rem;
   display: flex;
+  margin-bottom: 0;
 }
 
 @media (min-width: 48rem) {
