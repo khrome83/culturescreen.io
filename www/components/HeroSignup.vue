@@ -30,7 +30,7 @@ export default class HeroSignup extends Vue {
   email = "";
 
   get submitPath() {
-    return `/action/signup?email=${this.email}`;
+    return `/register?email=${this.email}`;
   }
 }
 </script>

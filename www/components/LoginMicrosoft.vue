@@ -39,12 +39,12 @@ export default class LoginMicrosoft extends Vue {
 
 <style scoped>
 .login-microsoft {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   background-color: #2f2f2f;
   border: thin solid #2f2f2f;
   text-align: left;
   padding: 0.5rem 1rem;
-  max-width: 16rem;
+  width: 16rem;
 }
 
 .login-microsoft:not(.isLoading):hover,

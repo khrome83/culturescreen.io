@@ -1,5 +1,5 @@
 <template>
-  <div class="col" :class="{ centered, stretch }">
+  <div class="col" :class="{ aligned, centered, stretch }">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,7 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
 export default class LayoutRow extends Vue {
+  @Prop(Boolean) private aligned!: boolean;
   @Prop(Boolean) private centered!: boolean;
   @Prop(Boolean) private stretch!: boolean;
 }
@@ -24,7 +25,13 @@ export default class LayoutRow extends Vue {
   flex-direction: column;
 }
 
+.col.aligned {
+  display: flex;
+  align-items: center;
+}
+
 .col.centered {
+  display: flex;
   justify-content: center;
   flex-direction: column;
 }

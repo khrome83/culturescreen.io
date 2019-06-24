@@ -39,13 +39,13 @@ export default class LoginGoogle extends Vue {
 
 <style scoped>
 .login-google {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   background-color: #ffffff;
   border: thin solid #bbbebf;
   color: #757575;
   text-align: left;
   padding: 0.5rem 1rem;
-  max-width: 16rem;
+  width: 16rem;
 }
 
 .login-google:not(.isLoading):hover,

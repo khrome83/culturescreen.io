@@ -39,10 +39,10 @@ export default class LoginGithub extends Vue {
 
 <style scoped>
 .login-github {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: left;
   padding: 0.5rem 1rem;
-  max-width: 16rem;
+  width: 16rem;
 }
 
 .login-github .text > svg {

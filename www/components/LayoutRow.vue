@@ -17,10 +17,7 @@ export default class LayoutRow extends Vue {
 .row {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-flow: column;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
 }
 
 @media (min-width: 48rem) {
@@ -28,7 +25,9 @@ export default class LayoutRow extends Vue {
 
 @media (min-width: 71.25rem) {
   .row {
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .row.reversed {
