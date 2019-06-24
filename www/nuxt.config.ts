@@ -73,7 +73,11 @@ const config: NuxtConfiguration = {
         }
     },
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
-    plugins: ['~/plugins/jsonld', { src: '~/plugins/fireauth', ssr: false }],
+    plugins: [
+        '~/plugins/jsonld',
+        { src: '~/plugins/fireauth', ssr: false },
+        { src: '~/plugins/vuelidate', ssr: false }
+    ],
     axios: {},
     router: {
         middleware: 'router-auth',

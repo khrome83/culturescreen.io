@@ -1,4 +1,4 @@
-import { Person, User, Profile, UserData } from "~/types";
+import { Person, User, Profile, UserData, AuthError } from "~/types";
 
 export interface RootState {
   people: Person[];
@@ -7,6 +7,7 @@ export interface RootState {
 
 export interface UserState {
   user: UserData;
+  authError?: AuthError
 }
 
 export interface ProfileState {

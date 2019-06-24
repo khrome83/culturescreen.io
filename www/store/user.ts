@@ -1,10 +1,11 @@
-import { RootState, UserState, EmailLogin, EmailRegistration } from "~/types";
+import { AuthError, RootState, UserState, EmailLogin, EmailRegistration, ServerErrorMsg } from "~/types";
 import { MutationTree, ActionTree, GetterTree } from "vuex";
 import firebase, { auth, DB, Timestamp, GoogleProvider, GithubProvider, MicrosoftProvider } from "~/services/fireinit";
 import { userInfo } from "os";
 
 export const state = (): UserState => ({
   user: null,
+  authError: undefined,
 });
 
 export const getters: GetterTree<UserState, RootState> = {
@@ -13,7 +14,32 @@ export const getters: GetterTree<UserState, RootState> = {
   },
   uid(state: UserState): string | null {
     return (state.user) ? state.user.uid : null;
-  }
+  },
+  authError(state: UserState): ServerErrorMsg {
+    const output = {
+      target: "",
+      message: "",
+    }
+
+    if (!state.authError) return output;
+
+    switch (state.authError.code) {
+      case "auth/invalid-email":
+        output.target = "email";
+        output.message = "Email address is not formatted corrrectly.";
+        break;
+      case "auth/user-not-found":
+        output.target = "email";
+        output.message = "No user with this email address was found.";
+        break;
+      case "auth/wrong-password":
+        output.target = "password";
+        output.message = "Incorrect password";
+        break;
+    }
+
+    return output;
+  },
 };
 
 export const mutations: MutationTree<UserState> = {
@@ -22,6 +48,12 @@ export const mutations: MutationTree<UserState> = {
   },
   resetUser(state: UserState): void {
     state.user = null;
+  },
+  setAuthError(state: UserState, e: AuthError): void {
+    state.authError = e;
+  },
+  resetAuthError(state: UserState): void {
+    state.authError = undefined;
   }
 };
 
@@ -43,9 +75,11 @@ export const actions: ActionTree<UserState, RootState> = {
     const { email, password } = data;
 
     try {
+      commit('resetAuthError');
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
-      console.log(e.code, e.message);
+      commit('setAuthError', e);
+      console.log("WE SEE ERRORS", e.code, e.message);
     }
   },
   async signInWithGoogle({ commit, dispatch }): Promise<void> {

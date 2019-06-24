@@ -70,3 +70,13 @@ export interface UserData {
   providerData: ProviderData[];
   admin: boolean;
 }
+
+export interface AuthError {
+  code: string;
+  message: string;
+}
+
+export interface ServerErrorMsg {
+  target: string;
+  message: string;
+}
