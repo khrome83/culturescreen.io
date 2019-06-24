@@ -28,14 +28,7 @@
 </template>
 
 <script lang="ts">
-import {
-  Action,
-  Component,
-  Getter,
-  Prop,
-  Vue,
-  Provide
-} from "nuxt-property-decorator";
+import { Action, Component, Getter, Prop, Vue } from "nuxt-property-decorator";
 import { validationMixin } from "vuelidate";
 import { required, email, minLength } from "vuelidate/lib/validators";
 import { getErrorMsgs } from "~/library";
