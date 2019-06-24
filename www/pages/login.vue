@@ -18,7 +18,7 @@
     </base-section>
     <base-section dark centered skinny>
       <h2>Need an Account?</h2>
-      <p>Get started minutes.</p>
+      <p>Get started in minutes.</p>
       <layout-row>
         <layout-column>
           <feature-tile-horizontal v-bind="promo.one"/>
