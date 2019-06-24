@@ -247,6 +247,7 @@ thead th {
   background-color: #fafafa;
   color: #737373;
   fill: #737373;
+  text-align: left;
 }
 
 thead th:first-child {
@@ -262,6 +263,7 @@ thead th:last-child {
 tbody td {
   padding: 1rem 0.5rem;
   border-bottom: 0.0625rem solid #eaeaea;
+  text-align: left;
 }
 
 tbody td svg {
