@@ -62,6 +62,7 @@ export default class ContactForm extends Vue {
 <style scoped>
 .form {
   display: block;
+  text-align: left;
 }
 
 .tos {
