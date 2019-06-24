@@ -178,6 +178,7 @@ export default class BaseExpander extends Vue {
   overflow: hidden;
   border-left: thin solid transparent;
   border-right: thin solid transparent;
+  text-align: left;
 }
 
 .closed .contents {
