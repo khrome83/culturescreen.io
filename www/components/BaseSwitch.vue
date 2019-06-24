@@ -114,6 +114,7 @@ export default class BaseSwitch extends Vue {
   padding: 1rem 1rem 1rem 3.75rem;
   cursor: pointer;
   line-height: 1.4;
+  text-align: left;
 }
 
 .input:focus + .label {

@@ -38,10 +38,7 @@ export default class BaseSection extends Vue {
   font-family: "Montserrat", sans-serif;
 }
 
-.section.centered .container > h1,
-.section.centered .container > h2,
-.section.centered .container > h3,
-.section.centered .container > h4 {
+.section.centered {
   text-align: center;
 }
 

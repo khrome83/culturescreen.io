@@ -244,6 +244,7 @@ export default class BaseInput extends Vue {
   color: #5c6169;
   line-height: 1.4;
   padding: 0.25rem 0 0.5rem;
+  text-align: left;
 }
 
 /* Dark Modifications - .help-text */

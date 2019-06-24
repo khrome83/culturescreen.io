@@ -114,6 +114,7 @@ export default class BaseCheckbox extends Vue {
   padding: 1rem 1rem 1rem 2.75rem;
   cursor: pointer;
   line-height: 1.4;
+  text-align: left;
 }
 
 .input:focus + .label {

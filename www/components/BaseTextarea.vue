@@ -90,6 +90,7 @@ export default class BaseTextarea extends Vue {
   padding-top: 2rem;
   font-weight: 400;
   font-size: 1rem;
+  text-align: left;
 }
 
 .hide {
@@ -159,6 +160,7 @@ export default class BaseTextarea extends Vue {
   color: #5c6169;
   line-height: 1.4;
   padding: 0.25rem 0 0.5rem;
+  text-align: left;
 }
 
 /* Dark Modifications - .help-text */
