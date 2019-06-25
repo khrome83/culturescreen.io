@@ -2,7 +2,9 @@
   <header>
     <div class="container" v-bind:class="{ closed: isClosed }">
       <div class="logo">
-        <horizontal-logo/>
+        <nuxt-link class="logo-link" to="/" aria-label="Main Page">
+          <horizontal-logo/>
+        </nuxt-link>
       </div>
       <div class="controls">
         <button
@@ -129,6 +131,15 @@ export default class TheHeader extends Vue {
 <style scoped>
 header {
   font-family: "Montserrat", sans-serif;
+}
+
+.logo-link {
+  margin: 0;
+  padding: 0;
+}
+
+.logo-link:focus {
+  box-shadow: none;
 }
 
 .container {
