@@ -21,6 +21,12 @@
       required
     >Password</base-input>
     <base-button class="action" @click.native.prevent="create">Register</base-button>
+    <p class="assertation">
+      By signing up, you agree to the
+      <nuxt-link to="/terms">Terms of Service</nuxt-link>&nbsp;and
+      <nuxt-link to="/privacy">Privacy Policy</nuxt-link>, including
+      <nuxt-link to="/cookies">Cookie Use</nuxt-link>.
+    </p>
   </form>
 </template>
 
@@ -90,7 +96,14 @@ export default class RegisterEmail extends Vue {
   flex-direction: column;
 }
 
+.assertation {
+  text-align: left;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+
 .action {
-  max-width: 10rem;
+  max-width: 8rem;
 }
 </style>
