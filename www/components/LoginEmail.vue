@@ -1,6 +1,7 @@
 <template>
   <form class="login-email">
     <base-input
+      :focus="true"
       v-model.trim="$v.formEmail.$model"
       @input="$v.formEmail.$reset"
       @blur="$v.formEmail.$touch"

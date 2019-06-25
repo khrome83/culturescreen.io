@@ -75,8 +75,9 @@ const config: NuxtConfiguration = {
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
     plugins: [
         '~/plugins/jsonld',
+        '~/plugins/directives',
         { src: '~/plugins/fireauth', ssr: false },
-        { src: '~/plugins/vuelidate', ssr: false }
+        { src: '~/plugins/vuelidate', ssr: false },
     ],
     axios: {},
     router: {

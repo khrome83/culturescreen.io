@@ -1,6 +1,7 @@
 <template>
   <form class="register-email">
     <base-input
+      :focus="!setPassword"
       v-model.trim="$v.formEmail.$model"
       @input="$v.formEmail.$reset"
       @blur="$v.formEmail.$touch"
@@ -11,6 +12,7 @@
       required
     >Email</base-input>
     <base-input
+      :focus="setPassword"
       v-model.trim="$v.formPassword.$model"
       @input="$v.formPassword.$reset"
       @blur="$v.formPassword.$touch"
@@ -58,10 +60,12 @@ export default class RegisterEmail extends Vue {
 
   formEmail = "";
   formPassword = "";
+  setPassword = false;
 
-  mounted() {
+  created() {
     if (this.$route.query["email"]) {
       this.formEmail = this.$route.query["email"].toString();
+      this.setPassword = true;
     }
   }
 

@@ -4,6 +4,7 @@
       <slot></slot>
     </label>
     <input
+      v-focus="focus"
       v-bind="[$attrs, linkProps.bindProps]"
       v-on="linkProps.onEvents"
       class="input"
@@ -37,6 +38,7 @@ export default class BaseInput extends Vue {
   @Prop() helpText!: string;
   @Prop() errorText!: string;
   @Prop({ default: Type.Text }) private type!: Type;
+  @Prop(Boolean) private focus!: boolean;
   @Prop(Boolean) private disabled!: boolean;
   @Prop(Boolean) private hiddenLabel!: boolean;
   @Prop(Boolean) private internalLabel!: boolean;
