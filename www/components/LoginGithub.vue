@@ -3,7 +3,7 @@
     <template v-slot:pre-icon>
       <github-logo aria-hidden="true"/>
     </template>
-    <template v-slot:default>Sign in with Github</template>
+    <template v-slot:default>Sign in with GitHub</template>
   </base-button>
 </template>
 
