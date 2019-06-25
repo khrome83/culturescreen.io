@@ -3,7 +3,9 @@
     <div class="container">
       <div class="footer-navigation">
         <div class="logo">
-          <vertical-logo/>
+          <nuxt-link class="logo-link" to="/" aria-label="Main Page">
+            <vertical-logo/>
+          </nuxt-link>
         </div>
         <div class="navigation-set">
           <nav class="footer">
@@ -48,6 +50,15 @@ export default class TheFooter extends Vue {}
 <style scoped>
 footer {
   font-family: "Montserrat", sans-serif;
+}
+
+.logo-link {
+  margin: 0;
+  padding: 0;
+}
+
+.logo-link:focus {
+  box-shadow: none;
 }
 
 .container {
