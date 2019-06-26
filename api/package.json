@@ -2,6 +2,9 @@
   "name": "culturescreen.io.api",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {},
   "dependencies": {
     "@azure/cosmos": "2.1.5",
