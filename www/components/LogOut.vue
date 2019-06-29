@@ -17,6 +17,7 @@ export default class LogOut extends Vue {
     try {
       await this.userSignOut();
       console.log("signed out");
+      this.$router.replace({ path: "/" });
     } catch (e) {
       console.log(e.message);
     }
