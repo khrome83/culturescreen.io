@@ -76,6 +76,7 @@ export const actions: ActionTree<UserState, RootState> = {
       commit('resetAuthError');
       await auth.createUserWithEmailAndPassword(email, password);
       dispatch('profile/createProfile', data, { root: true });
+      dispatch('verifyEmail');
     } catch (e) {
       commit('setAuthError', e);
       console.log(e.code, e.message);
@@ -87,6 +88,15 @@ export const actions: ActionTree<UserState, RootState> = {
     try {
       commit('resetAuthError');
       await auth.signInWithEmailAndPassword(email, password);
+    } catch (e) {
+      commit('setAuthError', e);
+      console.log(e.code, e.message);
+    }
+  },
+  async verifyEmail({ commit }): Promise<void> {
+    try {
+      commit('resetAuthError');
+      await auth.currentUser.sendEmailVerification();
     } catch (e) {
       commit('setAuthError', e);
       console.log(e.code, e.message);
@@ -136,5 +146,5 @@ export const actions: ActionTree<UserState, RootState> = {
     } catch (e) {
       console.log(e.message);
     }
-  }
+  },
 };
