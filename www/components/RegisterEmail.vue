@@ -108,6 +108,7 @@ export default class RegisterEmail extends Vue {
 }
 
 .action {
-  max-width: 8rem;
+  display: inline-block;
+  width: auto;
 }
 </style>

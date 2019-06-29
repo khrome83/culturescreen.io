@@ -1,32 +1,28 @@
 <template>
-  <form class="login-email">
+  <form v-if="showForm" class="reset-email">
     <base-input
-      :focus="!setPassword"
+      :focus="true"
       v-model.trim="$v.formEmail.$model"
       @input="$v.formEmail.$reset"
       @blur="$v.formEmail.$touch"
-      id="loginEmail"
+      id="resetEmail"
       type="email"
       autocomplete="username"
       :error-text="emailError"
       required
-    >Email</base-input>
-    <base-input
-      :focus="setPassword"
-      v-model.trim="$v.formPassword.$model"
-      @input="$v.formPassword.$reset"
-      @blur="$v.formPassword.$touch"
-      id="loginPassword"
-      type="password"
-      autocomplete="current-password"
-      :error-text="passwordError"
-      required
-    >Password</base-input>
+    >Your Email Address</base-input>
     <div class="action-set">
-      <base-button class="action" @click.native.prevent="login">Sign in</base-button>
-      <base-button class="reset" :to="resetEmailLink" danger small>Forgot password?</base-button>
+      <base-button class="action" @click.native.prevent="login">Reset Password</base-button>
+      <base-button class="login" to="/login" danger small>Sign in</base-button>
     </div>
   </form>
+  <div v-else>
+    <p class="confirm">
+      We sent a password reset link to the email address
+      <span class="email-confirm">{{formEmail}}</span>.
+    </p>
+    <base-button :to="signLink" tertiary>Sign in</base-button>
+  </div>
 </template>
 
 <script lang="ts">
@@ -44,25 +40,19 @@ import BaseInput from "~/components/BaseInput.vue";
     formEmail: {
       required,
       email
-    },
-    formPassword: {
-      required,
-      minLength: minLength(6)
     }
   }
 })
-export default class LoginEmail extends Vue {
-  @Action("user/signInWithEmail") userSignInEmail;
+export default class ResetPassword extends Vue {
+  @Action("user/passwordResetEmail") passwordResetEmail;
   @Getter("user/authError") authError;
 
   formEmail = "";
-  formPassword = "";
-  setPassword = false;
+  showForm = true;
 
   created() {
     if (this.$route.query["email"]) {
       this.formEmail = this.$route.query["email"].toString();
-      this.setPassword = true;
     }
   }
 
@@ -70,25 +60,17 @@ export default class LoginEmail extends Vue {
     return getErrorMsgs(this.$v.formEmail, this.authError, "email")[0];
   }
 
-  get passwordError() {
-    return getErrorMsgs(this.$v.formPassword, this.authError, "password")[0];
-  }
-
-  get resetEmailLink() {
-    return this.formEmail
-      ? `/reset-password?email=${this.formEmail}`
-      : "/reset-password";
+  get signLink() {
+    return this.formEmail ? `/login?email=${this.formEmail}` : "/login";
   }
 
   async login() {
     this.$v.$touch();
     if (!this.$v.$invalid) {
       try {
-        await this.userSignInEmail({
-          email: this.formEmail,
-          password: this.formPassword
-        });
-        console.log("email login");
+        await this.passwordResetEmail(this.formEmail);
+        this.showForm = false;
+        console.log("password reset email sent");
       } catch (e) {
         console.log(e.message);
       }
@@ -98,7 +80,7 @@ export default class LoginEmail extends Vue {
 </script>
 
 <style scoped>
-.login-email {
+.reset-email {
   display: flex;
   flex-direction: column;
 }
@@ -114,7 +96,18 @@ export default class LoginEmail extends Vue {
   width: auto;
 }
 
-.reset {
+.login {
   max-width: 10rem;
+}
+
+.confirm {
+  width: 17.5rem;
+  margin: 2rem auto;
+}
+
+.email-confirm {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
 }
 </style>

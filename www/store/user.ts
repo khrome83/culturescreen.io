@@ -92,6 +92,15 @@ export const actions: ActionTree<UserState, RootState> = {
       console.log(e.code, e.message);
     }
   },
+  async passwordResetEmail({ commit }, email: string): Promise<void> {
+    try {
+      commit('resetAuthError');
+      await auth.sendPasswordResetEmail(email);
+    } catch (e) {
+      commit('setAuthError', e);
+      console.log(e.code, e.message);
+    }
+  },
   async signInWithGoogle({ commit, dispatch }): Promise<void> {
     try {
       auth.useDeviceLanguage()
