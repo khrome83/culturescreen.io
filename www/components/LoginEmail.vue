@@ -89,6 +89,7 @@ export default class LoginEmail extends Vue {
           password: this.formPassword
         });
         console.log("email login");
+        this.$router.replace({ path: "/app" });
       } catch (e) {
         console.log(e.message);
       }

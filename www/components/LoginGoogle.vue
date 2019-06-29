@@ -29,6 +29,7 @@ export default class LoginGoogle extends Vue {
       await this.userSignInGoogle();
       this.loading = false;
       console.log("google login");
+      this.$router.replace({ path: "/app" });
     } catch (e) {
       this.loading = false;
       console.log(e.message);

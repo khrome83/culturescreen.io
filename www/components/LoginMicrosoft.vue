@@ -29,6 +29,7 @@ export default class LoginMicrosoft extends Vue {
       await this.userSignInMicrosoft();
       this.loading = false;
       console.log("microsoft login");
+      this.$router.replace({ path: "/app" });
     } catch (e) {
       this.loading = false;
       console.log(e.message);

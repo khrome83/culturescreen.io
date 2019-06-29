@@ -29,6 +29,7 @@ export default class LoginGithub extends Vue {
       await this.userSignInGithub();
       this.loading = false;
       console.log("github login");
+      this.$router.replace({ path: "/app" });
     } catch (e) {
       this.loading = false;
       console.log(e.message);
