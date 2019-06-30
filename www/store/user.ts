@@ -12,6 +12,9 @@ export const getters: GetterTree<UserState, RootState> = {
   isAuthenticated(state: UserState): boolean {
     return !!state.user;
   },
+  isVerified(state: UserState): boolean {
+    return (state.user) ? state.user.emailVerified : false;
+  },
   uid(state: UserState): string | null {
     return (state.user) ? state.user.uid : null;
   },
@@ -44,6 +47,9 @@ export const getters: GetterTree<UserState, RootState> = {
         output.target = "password";
         output.message = "Incorrect password";
         break;
+      case "auth/too-many-requests":
+        // how to handle?
+        break;
     }
 
     return output;
@@ -52,6 +58,7 @@ export const getters: GetterTree<UserState, RootState> = {
 
 export const mutations: MutationTree<UserState> = {
   setUser(state: UserState, user: object | any): void {
+    console.log(user.toJSON());
     state.user = user.toJSON();
   },
   resetUser(state: UserState): void {
@@ -100,6 +107,7 @@ export const actions: ActionTree<UserState, RootState> = {
     } catch (e) {
       commit('setAuthError', e);
       console.log(e.code, e.message);
+      throw true;
     }
   },
   async passwordResetEmail({ commit }, email: string): Promise<void> {
