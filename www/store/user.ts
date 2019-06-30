@@ -148,3 +148,7 @@ export const actions: ActionTree<UserState, RootState> = {
     }
   },
 };
+
+export default {
+  getters, state, mutations, actions
+};

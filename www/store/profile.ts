@@ -51,3 +51,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
     }
   },
 };
+
+export default {
+  state, mutations, actions
+}
