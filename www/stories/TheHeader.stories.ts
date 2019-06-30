@@ -8,6 +8,6 @@ stories.add(
   () =>
     ({
       components: { TheHeader },
-      template: `<the-header />`
+      template: `<the-header :menu-items="5"/>`
     } as object)
 );
