@@ -20,6 +20,7 @@ import LayoutRow from "~/components/LayoutRow.vue";
 
 @Jsonld
 @Component({
+  layout: "authenticated",
   components: {
     BaseSection,
     LayoutColumn,
