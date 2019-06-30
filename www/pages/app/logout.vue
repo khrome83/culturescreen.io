@@ -20,7 +20,6 @@ import LayoutRow from "~/components/LayoutRow.vue";
 
 @Jsonld
 @Component({
-  layout: "authenticated",
   components: {
     BaseSection,
     LayoutColumn,
@@ -29,6 +28,10 @@ import LayoutRow from "~/components/LayoutRow.vue";
 })
 export default class extends Vue {
   @Action("user/signOut") userSignOut;
+
+  layout() {
+    return "authenticated";
+  }
 
   async mounted() {
     try {

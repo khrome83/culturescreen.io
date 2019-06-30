@@ -17,10 +17,13 @@ import LogOut from "~/components/LogOut.vue";
 
 @Jsonld
 @Component({
-  layout: "authenticated",
   components: { BaseSection, LogOut }
 })
 export default class extends Vue {
+  layout() {
+    return "authenticated";
+  }
+
   jsonld() {
     return {
       "@context": "https://schema.org",
