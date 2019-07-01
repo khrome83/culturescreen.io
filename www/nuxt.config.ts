@@ -3,7 +3,7 @@ import NuxtConfiguration from "@nuxt/config";
 const config: NuxtConfiguration = {
     // Type or Press `Ctrl + Space` for autocompletion
     env: {
-        gCloudCredentials: process.env.GCLOUD_CREDENTIALS || "testing",
+        GCLOUD_CREDENTIALS: process.env.GCLOUD_CREDENTIALS,
     },
     head: {
         htmlAttrs: {
@@ -68,8 +68,6 @@ const config: NuxtConfiguration = {
             if (ctx.isDev) {
                 config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
             }
-
-            console.log("GCLOUD - ", process.env.GCLOUD_CREDENTIALS)
         }
     },
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
