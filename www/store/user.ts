@@ -101,13 +101,17 @@ export const actions: ActionTree<UserState, RootState> = {
     }
   },
   async verifyEmail({ commit }): Promise<void> {
-    try {
-      commit('resetAuthError');
-      await auth.currentUser.sendEmailVerification();
-    } catch (e) {
-      commit('setAuthError', e);
-      console.log(e.code, e.message);
-      throw true;
+    // Only send email when user is not verified
+    // Due to multiple providers using the same email account
+    if (auth.currentUser && !auth.currentUser.emailVerified) {
+      try {
+        commit('resetAuthError');
+        await auth.currentUser.sendEmailVerification();
+      } catch (e) {
+        commit('setAuthError', e);
+        console.log(e.code, e.message);
+        throw true;
+      }
     }
   },
   async passwordResetEmail({ commit }, email: string): Promise<void> {
@@ -125,7 +129,7 @@ export const actions: ActionTree<UserState, RootState> = {
       await auth.signInWithPopup(GoogleProvider);
       dispatch('profile/createPartialProfile', null, { root: true });
     } catch (e) {
-      console.log(e.message);
+      console.log(e.code, e.message);
     }
   },
   async signInWithGithub({ commit, dispatch }): Promise<void> {
@@ -135,7 +139,7 @@ export const actions: ActionTree<UserState, RootState> = {
       await auth.signInWithPopup(GithubProvider);
       dispatch('profile/createPartialProfile', null, { root: true });
     } catch (e) {
-      console.log(e.message);
+      console.log(e.code, e.message);
     }
   },
   async signInWithMicrosoft({ commit, dispatch }): Promise<void> {
@@ -144,7 +148,7 @@ export const actions: ActionTree<UserState, RootState> = {
       await auth.signInWithPopup(MicrosoftProvider);
       dispatch('profile/createPartialProfile', null, { root: true });
     } catch (e) {
-      console.log(e.message);
+      console.log(e.code, e.message);
     }
   },
   async signOut({ commit }): Promise<void> {
@@ -152,7 +156,7 @@ export const actions: ActionTree<UserState, RootState> = {
       await auth.signOut();
       commit('resetUser')
     } catch (e) {
-      console.log(e.message);
+      console.log(e.code, e.message);
     }
   },
 };
