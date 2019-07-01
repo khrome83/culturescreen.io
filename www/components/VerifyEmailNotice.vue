@@ -122,6 +122,6 @@ export default class VerifyEmailNotice extends Vue {
 </style>
 <style>
 .notice-section > .container {
-  padding: 0.25rem 2.5vw !important;
+  padding: 0.25rem 2.5vw;
 }
 </style>
