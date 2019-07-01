@@ -1,33 +1,6 @@
 <template>
   <header>
-    <base-section
-      v-if="!userIsVerified"
-      class="notice-section"
-      :class="{ closed: noticeClosed }"
-      dark
-    >
-      <div class="notice">
-        <p v-if="!noticeSent" class="notice-content">
-          <strong class="notice-warning">Hey!</strong>You have not verified your email address. Do you need us to resend a confirmation email?
-        </p>
-        <p v-if="noticeSent && noticeError" class="notice-content">
-          <strong class="notice-warning">Opps...</strong>We had a issue sending the confirmation email. Try again?
-        </p>
-        <p v-if="noticeSent && !noticeError" class="notice-content">
-          <strong class="notice-warning">Sweet!</strong>We sent you another email verification.
-        </p>
-        <div class="verify" v-if="noticeError || !noticeSent">
-          <base-button
-            class="verify"
-            @click.native="sendVerificationEmail"
-            :isLoading="noticeLoading"
-            secondary
-            small
-          >Yes</base-button>
-          <base-button class="verify" @click.native="closeNotice" tertiary small>No</base-button>
-        </div>
-      </div>
-    </base-section>
+    <verify-email-notice/>
     <div class="container" v-bind:class="{ closed: isClosed }">
       <div class="logo">
         <nuxt-link class="logo-link" to="/" aria-label="Main Page">
@@ -76,18 +49,16 @@
 
 <script lang="ts">
 import { Action, Getter, Component, Prop, Vue } from "nuxt-property-decorator";
-import BaseButton from "~/components/BaseButton.vue";
-import BaseSection from "~/components/BaseSection.vue";
 import LogOut from "~/components/LogOut.vue";
+import VerifyEmailNotice from "~/components/VerifyEmailNotice.vue";
 import HorizontalLogo from "~/assets/svg/logo-horizontal-on-light.svg";
 import CloseIcon from "~/assets/svg/close.svg";
 import MenuIcon from "~/assets/svg/menu.svg";
 
 @Component({
   components: {
-    BaseButton,
-    BaseSection,
     LogOut,
+    VerifyEmailNotice,
     HorizontalLogo,
     MenuIcon,
     CloseIcon
@@ -96,19 +67,8 @@ import MenuIcon from "~/assets/svg/menu.svg";
 export default class TheAppHeader extends Vue {
   @Prop({ required: true, type: Number }) readonly menuItems!: number;
 
-  @Getter("user/isVerified") userIsVerified;
-  @Action("user/verifyEmail") userVerifyEmail;
-
   isClosed = true;
   selected: null | number = null;
-  noticeClosed = false;
-  noticeError = false;
-  noticeSent = false;
-  noticeLoading = false;
-
-  // mounted() {
-  //   this.noticeClosed = false;
-  // }
 
   openMenu() {
     this.isClosed = false;
@@ -168,29 +128,6 @@ export default class TheAppHeader extends Vue {
       );
     }
   }
-
-  async sendVerificationEmail() {
-    try {
-      this.noticeLoading = true;
-      await this.userVerifyEmail();
-      console.log("email verification sent");
-      this.noticeError = false;
-      this.noticeSent = true;
-      this.noticeLoading = false;
-      setTimeout(() => {
-        this.noticeClosed = true;
-      }, 3000);
-    } catch (e) {
-      console.log(e.message);
-      this.noticeLoading = false;
-      this.noticeError = true;
-      this.noticeSent = true;
-    }
-  }
-
-  closeNotice() {
-    this.noticeClosed = true;
-  }
 }
 </script>
 
@@ -215,45 +152,6 @@ header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-}
-
-.notice-section {
-  overflow: hidden;
-  max-height: 10rem;
-  transition: all 200ms ease-in-out;
-}
-
-.notice-section.closed {
-  max-height: 0;
-  transition: all 200ms ease-in-out;
-}
-
-.notice {
-  padding: 0.25rem 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-.notice-content {
-  margin: 0;
-  font-size: 0.875rem;
-}
-
-.notice-warning {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  color: #f30b73;
-  font-size: 1rem;
-  display: inline-block;
-  padding-right: 1rem;
-}
-
-.verify {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-bottom: 0.25rem;
-  align-self: center;
 }
 
 .controls {
@@ -364,13 +262,6 @@ header {
 }
 
 @media (min-width: 48rem) {
-  .verify {
-    margin-top: 0;
-    margin-left: none;
-    margin-bottom: 0;
-    justify-self: auto;
-  }
-
   .container {
     padding-bottom: 0;
   }
