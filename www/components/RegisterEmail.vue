@@ -105,6 +105,7 @@ export default class RegisterEmail extends Vue {
   font-size: 0.875rem;
   margin-bottom: 0;
   margin-top: 2rem;
+  max-width: 17.5rem;
 }
 
 .action {
