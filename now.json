@@ -3,7 +3,7 @@
   "name": "culturescreen.io",
   "build": {
     "env": {
-      "GCLOUD_CREDNETIALS": "@google-cloud-key"
+      "GCLOUD_CREDENTIALS": "@google-cloud-key"
     }
   },
   "builds": [
