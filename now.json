@@ -1,6 +1,11 @@
 {
   "version": 2,
   "name": "culturescreen.io",
+  "build": {
+    "env": {
+      "GCLOUD_CREDNETIALS": "@google-cloud-key"
+    }
+  },
   "builds": [
     {
       "src": "./api/comments/*.ts",
