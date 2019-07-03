@@ -38,8 +38,8 @@ export default class ConfirmEmail extends Vue {
       this.continueUrl = this.$route.query["continueUrl"].toString();
     }
 
-    if (this.$route.query["actionCode"]) {
-      this.actionCode = this.$route.query["actionCode"].toString();
+    if (this.$route.query["oobCode"]) {
+      this.actionCode = this.$route.query["oobCode"].toString();
     }
 
     if (this.$route.query["lang"]) {
