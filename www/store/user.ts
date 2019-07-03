@@ -83,7 +83,7 @@ export const actions: ActionTree<UserState, RootState> = {
       commit('resetAuthError');
       await auth.createUserWithEmailAndPassword(email, password);
       dispatch('profile/createProfile', data, { root: true });
-      dispatch('verifyEmail');
+      dispatch('sendVerifyEmail');
     } catch (e) {
       commit('setAuthError', e);
       console.log(e.code, e.message);
@@ -100,7 +100,7 @@ export const actions: ActionTree<UserState, RootState> = {
       console.log(e.code, e.message);
     }
   },
-  async verifyEmail({ commit }): Promise<void> {
+  async sendVerifyEmail({ commit }): Promise<void> {
     // Only send email when user is not verified
     // Due to multiple providers using the same email account
     if (auth.currentUser && !auth.currentUser.emailVerified) {
@@ -112,6 +112,18 @@ export const actions: ActionTree<UserState, RootState> = {
         console.log(e.code, e.message);
         throw true;
       }
+    }
+  },
+  async verifyEmail({ commit }, actionCode: string): Promise<void> {
+    try {
+      commit('resetAuthError');
+      const resp = await auth.applyActionCode(actionCode);
+      throw true;
+      console.log("RESP", resp);
+    } catch (e) {
+      commit('setAuthError', e);
+      console.log(e.code, e.message);
+      throw true;
     }
   },
   async passwordResetEmail({ commit }, email: string): Promise<void> {

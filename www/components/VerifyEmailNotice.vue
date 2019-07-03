@@ -37,7 +37,7 @@ import BaseSection from "~/components/BaseSection.vue";
 })
 export default class VerifyEmailNotice extends Vue {
   @Getter("user/isVerified") userIsVerified;
-  @Action("user/verifyEmail") userVerifyEmail;
+  @Action("user/sendVerifyEmail") userSendVerifyEmail;
 
   isClosed = false;
   showError = false;
@@ -47,7 +47,7 @@ export default class VerifyEmailNotice extends Vue {
   async sendVerificationEmail() {
     try {
       this.isLoading = true;
-      await this.userVerifyEmail();
+      await this.userSendVerifyEmail();
       console.log("email verification sent");
       this.showError = false;
       this.isSent = true;
