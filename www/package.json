@@ -34,7 +34,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "7.5.4",
     "@babel/runtime-corejs3": "7.4.4",
     "@nuxt/typescript": "2.6.3",
     "@storybook/addon-a11y": "5.1.9",
