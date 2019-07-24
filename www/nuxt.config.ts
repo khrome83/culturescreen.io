@@ -4,6 +4,7 @@ const config: NuxtConfiguration = {
     // Type or Press `Ctrl + Space` for autocompletion
     env: {
         GCLOUD_CREDENTIALS: process.env.GCLOUD_CREDENTIALS,
+        NODE_ENV: process.env.NODE_ENV,
     },
     head: {
         htmlAttrs: {
@@ -72,6 +73,7 @@ const config: NuxtConfiguration = {
     },
     modules: ["@nuxtjs/pwa", "@nuxtjs/axios"],
     plugins: [
+        '~/plugins/simpleAnalytics',
         '~/plugins/jsonld',
         '~/plugins/directives',
         { src: '~/plugins/fireauth', ssr: false },
